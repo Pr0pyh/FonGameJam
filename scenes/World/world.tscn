@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d1lpeigll25qp"]
+
+[ext_resource type="Script" uid="uid://dxo5fhqqltiuq" path="res://scenes/World/world.gd" id="1_eyogv"]
+[ext_resource type="Script" uid="uid://c6eju1oespdes" path="res://scenes/MovingWindow/moving_window.gd" id="2_807wd"]
+[ext_resource type="Texture2D" uid="uid://bpnbtc5whbcfw" path="res://icon.svg" id="2_bhb7g"]
+[ext_resource type="PackedScene" uid="uid://2bjpngqo5kkr" path="res://scenes/3DWorld/World3D.tscn" id="4_56o5f"]
+
+[node name="World" type="Node" unique_id=1022742830]
+script = ExtResource("1_eyogv")
+player_size = Vector2i(600, 600)
+
+[node name="Window" type="Window" parent="." unique_id=538663633 node_paths=PackedStringArray("_Camera")]
+oversampling_override = 1.0
+title = "Nokija"
+initial_position = 2
+size = Vector2i(400, 400)
+script = ExtResource("2_807wd")
+_Camera = NodePath("Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="Window" unique_id=1960584221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9547845, 1.2684264, 3.2882)
+top_level = true
+current = true
+fov = 55.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=759920696]
+visible = false
+position = Vector2(377, 289)
+texture = ExtResource("2_bhb7g")
+
+[node name="World3d" parent="." unique_id=417349566 instance=ExtResource("4_56o5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2279096)
