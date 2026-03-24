@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d1amsojsvhuh7" path="res://scenes/main/main.gd" id="1_iuonh"]
 [ext_resource type="Texture2D" uid="uid://bqe113ixhb0gb" path="res://textures/nokia.png" id="2_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://bv5hcuv3nbgdr" path="res://scenes/PhotoCounter/photo_counter.tscn" id="3_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://c1junqd5fosko" path="res://scenes/PhotoScan/photo_scan.tscn" id="4_6q06x"]
+[ext_resource type="PackedScene" uid="uid://dfsdvprt8xkx8" path="res://scenes/Messages/MessageGenerator/MessageGenerator.tscn" id="5_6q06x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iuonh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,6 +18,14 @@ background_mode = 2
 sky = SubResource("Sky_k2fmo")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3cfh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2jn4d"]
+albedo_color = Color(1, 0, 0.5294118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6q06x"]
+material = SubResource("StandardMaterial3D_2jn4d")
 
 [sub_resource type="TextMesh" id="TextMesh_iuonh"]
 text = "najjjjaaaceeeeeeeee"
@@ -121,6 +132,15 @@ render_target_update_mode = 4
 
 [node name="World" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=1577524241]
 
+[node name="StaticBody3D2" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World" unique_id=1427871388 groups=["scanable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64087963, 0.38081872, -1.0181855)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/StaticBody3D2" unique_id=1497300607]
+shape = SubResource("BoxShape3D_l3cfh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World/StaticBody3D2" unique_id=1757960162]
+mesh = SubResource("BoxMesh_6q06x")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World" unique_id=186189565]
 mesh = SubResource("TextMesh_iuonh")
 
@@ -135,6 +155,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/World/Player" unique_id=2115622554]
 fov = 55.0
+
+[node name="PhotoCounter" parent="SubViewportContainer/SubViewport/World/Player/Camera3D" unique_id=1362135284 instance=ExtResource("3_l3cfh")]
+
+[node name="PhotoScan" parent="SubViewportContainer/SubViewport/World/Player/Camera3D" unique_id=2144187334 node_paths=PackedStringArray("photo_counter") instance=ExtResource("4_6q06x")]
+photo_counter = NodePath("../PhotoCounter")
+
+[node name="MessageGenerator" parent="SubViewportContainer/SubViewport/World/Player/Camera3D" unique_id=1368587972 instance=ExtResource("5_6q06x")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Player" unique_id=414738072]
 shape = SubResource("SphereShape3D_iuonh")

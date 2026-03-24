@@ -8,7 +8,5 @@ script = ExtResource("1_m6k24")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=976355534]
 
 [node name="CounterDisplay" type="Label" parent="CanvasLayer" unique_id=1153989496]
-offset_left = 88.0
-offset_top = 67.0
-offset_right = 128.0
-offset_bottom = 90.0
+offset_right = 40.0
+offset_bottom = 23.0

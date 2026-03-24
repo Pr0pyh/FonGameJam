@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b4muwc6i2q026"]
 
 [ext_resource type="Script" uid="uid://1231agxfc65w" path="res://scenes/Messages/PositiveMessage/positive_message.gd" id="1_v0rxc"]
+[ext_resource type="Texture2D" uid="uid://c1aqac12a2nti" path="res://assets/callnotifikacija.png" id="2_qweht"]
 
 [node name="PositiveMessage" type="Control" unique_id=455487660]
 layout_mode = 3
@@ -12,6 +13,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_v0rxc")
+contact_names = Array[String](["Mile Drvar", "Janko Elasticar 3", "Zeljko Struja Tetkin"])
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=438634732]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -34.0
+offset_right = 100.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_qweht")
 
 [node name="Label" type="Label" parent="." unique_id=1155844258]
 layout_mode = 1
@@ -20,10 +37,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -45.0
-offset_top = -60.0
-offset_right = 46.0
-offset_bottom = -37.0
+offset_left = -45.5
+offset_top = -23.0
+offset_right = 45.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "Positive call"
