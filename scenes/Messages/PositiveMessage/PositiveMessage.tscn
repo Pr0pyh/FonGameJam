@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b4muwc6i2q026"]
+
+[ext_resource type="Script" uid="uid://1231agxfc65w" path="res://scenes/Messages/PositiveMessage/positive_message.gd" id="1_v0rxc"]
+
+[node name="PositiveMessage" type="Control" unique_id=455487660]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_v0rxc")
+
+[node name="Label" type="Label" parent="." unique_id=1155844258]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -60.0
+offset_right = 46.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Positive call"
