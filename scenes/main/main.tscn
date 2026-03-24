@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dwe2cicv7twsx" path="res://scenes/HealthComponent/HealthComponent.tscn" id="7_hujxm"]
 [ext_resource type="Shader" uid="uid://cg4i75fsfdvqj" path="res://shaders/screen.gdshader" id="9_a8run"]
 [ext_resource type="PackedScene" uid="uid://d0erpkqmd34rc" path="res://scenes/nokia/nokia.tscn" id="9_b1x3f"]
+[ext_resource type="PackedScene" uid="uid://bcrm3d66h3mc1" path="res://scenes/calls/call_text_popup_container/call_text_popup_container.tscn" id="10_a8run"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_b1x3f"]
 radius = 0.24744691
@@ -47,7 +48,7 @@ shader_parameter/glow_threshold = 0.65
 [sub_resource type="ViewportTexture" id="ViewportTexture_a8run"]
 viewport_path = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport")
 
-[node name="Main" type="Control" unique_id=1904391357 node_paths=PackedStringArray("nokia_camera", "nokia", "player", "player_camera", "left_wall_color_rect", "right_wall_color_rect", "top_wall_color_rect", "bottom_wall_color_rect", "nokia_subviewport")]
+[node name="Main" type="Control" unique_id=1904391357 node_paths=PackedStringArray("nokia_camera", "nokia", "player", "player_camera", "left_wall_color_rect", "right_wall_color_rect", "top_wall_color_rect", "bottom_wall_color_rect", "nokia_subviewport", "nokia_subviewport_container", "call_text_popup_container", "call_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,6 +65,9 @@ right_wall_color_rect = NodePath("CollisionWalls/RightWall")
 top_wall_color_rect = NodePath("CollisionWalls/TopWall")
 bottom_wall_color_rect = NodePath("CollisionWalls/BottomWall")
 nokia_subviewport = NodePath("NokiaSubViewportContainer/SubViewport")
+nokia_subviewport_container = NodePath("NokiaSubViewportContainer")
+call_text_popup_container = NodePath("CallTextPopupContainer")
+call_container = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI/CallContainer")
 
 [node name="NokiaSubViewportContainer" type="SubViewportContainer" parent="." unique_id=1924411316]
 layout_mode = 1
@@ -135,7 +139,7 @@ offset_top = -71.0
 offset_bottom = 0.0
 grow_vertical = 0
 
-[node name="MessageContainer" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI" unique_id=1186548931 instance=ExtResource("6_yyfjg")]
+[node name="CallContainer" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI" unique_id=1186548931 instance=ExtResource("6_yyfjg")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -213,6 +217,9 @@ offset_top = -3.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(1, 1, 1, 0)
+
+[node name="CallTextPopupContainer" parent="." unique_id=9859146 instance=ExtResource("10_a8run")]
+layout_mode = 1
 
 [connection signal="gui_input" from="NokiaSubViewportContainer" to="." method="_on_nokia_sub_viewport_container_gui_input"]
 [connection signal="input" from="NokiaSubViewportContainer/SubViewport/NokiaWorld/Nokia" to="." method="_on_nokia_input"]

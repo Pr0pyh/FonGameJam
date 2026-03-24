@@ -18,6 +18,8 @@ signal call_accepted()
 
 @onready var start_y: float = position.y
 
+@export var call_text_popup_scene: PackedScene
+
 var is_positive_contact = true
 var call_in_progress: bool = false
 
@@ -36,10 +38,20 @@ func spawn():
 	call_in_progress_container.visible = false
 
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("accept_call"):
+		print("AA")
+		accept_call()
+	elif Input.is_action_just_pressed("decline_call"):
+		decline_call()
+
+
 func accept_call():
 	incoming_call_container.visible = false
 	call_in_progress_container.visible = true
 	call_in_progress = true
+	var call_text_popup: CallTextPopup = call_text_popup_scene.instantiate()
+	MainScene.instance.call_text_popup_container.add_popup(call_text_popup)
 
 
 func decline_call():

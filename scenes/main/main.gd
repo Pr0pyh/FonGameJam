@@ -3,6 +3,7 @@ extends Control
 
 
 static var nokia_input_handled: bool = false
+static var instance: MainScene
 
 
 const NOKIA_SIZE: float = 1.0
@@ -21,6 +22,9 @@ const NOKIA_SIZE: float = 1.0
 @export var bottom_wall_color_rect: ColorRect
 
 @export var nokia_subviewport: SubViewport
+@export var nokia_subviewport_container: SubViewportContainer
+@export var call_text_popup_container: CallTextPopupContainer
+@export var call_container: CallContainer
 
 
 var dragging_nokia: bool = false
@@ -28,6 +32,15 @@ var drag_nokia_start_offset: Vector2i
 var camera_top_left: Vector3
 var camera_bottom_right: Vector3
 var current_window_position: Vector2i
+
+
+func _enter_tree():
+	instance = self
+
+
+func _exit_tree():
+	if instance == self:
+		instance = null
 
 
 func _ready():
@@ -46,19 +59,22 @@ func _ready():
 
 
 func _process(delta):
-
 	left_wall_color_rect.color.a = move_toward(left_wall_color_rect.color.a, 0.0, delta)
 	right_wall_color_rect.color.a = move_toward(right_wall_color_rect.color.a, 0.0, delta)
 	top_wall_color_rect.color.a = move_toward(top_wall_color_rect.color.a, 0.0, delta)
 	bottom_wall_color_rect.color.a = move_toward(bottom_wall_color_rect.color.a, 0.0, delta)
+	
 	var rot_axis = Input.get_axis("move_left", "move_right")
 	var move_axis = Input.get_axis("move_forward", "move_back")
+	
 	if abs(rot_axis) > 0.01:
 		player.rotation.y -= rot_axis*delta
 		update_camera_corners()
+	
 	if abs(move_axis) > 0.01:
 		player.move_and_collide(player.global_basis.z * delta * move_axis)
 		update_camera_corners()
+	
 	get_window().position = current_window_position
 
 
@@ -173,4 +189,8 @@ func _on_nokia_sub_viewport_container_gui_input(event: InputEvent) -> void:
 
 
 func _on_nokia_input(event: InputEvent) -> void:
+	if event.is_action_pressed("accept_call"):
+		call_container._on_accept_call_pressed()
+	elif event.is_action_pressed("decline_call"):
+		call_container._on_decline_call_pressed()
 	get_viewport().push_input(event)

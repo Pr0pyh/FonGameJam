@@ -1,4 +1,4 @@
-class_name MessageContainer
+class_name CallContainer
 extends Control
 
 @export var call_panel_scene: PackedScene
@@ -20,6 +20,16 @@ func spawn_call():
 	add_child(call_panel)
 	call_panel.spawn()
 	current_call_panel = call_panel
+
+
+func _on_accept_call_pressed():
+	if current_call_panel:
+		current_call_panel.accept_call()
+
+
+func _on_decline_call_pressed():
+	if current_call_panel:
+		current_call_panel.decline_call()
 
 
 func _on_call_finished():

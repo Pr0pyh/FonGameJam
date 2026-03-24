@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1231agxfc65w" path="res://scenes/calls/call_panel/call_panel.gd" id="1_y2idr"]
 [ext_resource type="Texture2D" uid="uid://c1aqac12a2nti" path="res://assets/callnotifikacija.png" id="2_1hauw"]
+[ext_resource type="PackedScene" uid="uid://bh48vxm0ovkp5" path="res://scenes/calls/call_text_popup/call_text_popup.tscn" id="2_rya85"]
 
 [node name="CallPanel" type="Control" unique_id=455487660 node_paths=PackedStringArray("incoming_caller_name_label", "incoming_caller_number_label", "in_progress_caller_name_label", "in_progress_call_time_label", "incoming_call_container", "call_in_progress_container")]
 layout_mode = 3
@@ -30,6 +31,7 @@ contact_names_positives = Dictionary[String, bool]({
 })
 incoming_call_container = NodePath("IncomingCallContainer")
 call_in_progress_container = NodePath("CallInProgressContainer")
+call_text_popup_scene = ExtResource("2_rya85")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=438634732]
 layout_mode = 1

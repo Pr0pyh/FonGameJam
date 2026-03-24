@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bh48vxm0ovkp5"]
+
+[ext_resource type="Script" uid="uid://dxhdbgeqtig4p" path="res://scenes/calls/call_text_popup/call_text_popup.gd" id="1_htvl0"]
+[ext_resource type="Texture2D" uid="uid://upsgd6420nkk" path="res://assets/textbox.png" id="2_ifiuo"]
+
+[node name="CallTextPopup" type="Window" unique_id=1445396552 node_paths=PackedStringArray("rich_text_label", "nine_patch_rect")]
+transparent_bg = true
+oversampling_override = 1.0
+size = Vector2i(314, 151)
+borderless = true
+transparent = true
+script = ExtResource("1_htvl0")
+rich_text_label = NodePath("RichTextLabel")
+nine_patch_rect = NodePath("RichTextLabel/NinePatchRect")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1508387908]
+clip_contents = false
+offset_left = 25.0
+offset_top = 4.0
+offset_right = 308.0
+offset_bottom = 27.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "asdasasdasdasd"
+fit_content = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="RichTextLabel" unique_id=304343564]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -4.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_ifiuo")
+patch_margin_left = 38
+patch_margin_top = 7
+patch_margin_right = 8
+patch_margin_bottom = 18

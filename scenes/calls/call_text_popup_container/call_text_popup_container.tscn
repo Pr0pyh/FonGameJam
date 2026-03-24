@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bcrm3d66h3mc1"]
+
+[ext_resource type="Script" uid="uid://ccuny2yxwkp6l" path="res://scenes/calls/call_text_popup_container/call_text_popup_container.gd" id="1_ita4y"]
+
+[node name="CallTextPopupContainer" type="Control" unique_id=9859146]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_ita4y")
