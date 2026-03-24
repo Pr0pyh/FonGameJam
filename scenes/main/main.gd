@@ -105,6 +105,8 @@ func update_camera_position():
 		elif collision.get_normal().dot(player.global_basis.x) > 0.0: left_wall_color_rect.color.a = 1.0
 		elif collision.get_normal().dot(player.global_basis.x) < 0.0: right_wall_color_rect.color.a = 1.0
 		player.move_and_collide(collision.get_remainder().slide(collision.get_normal()))
+		update_window_position()
+		DisplayServer.warp_mouse(current_window_position + drag_nokia_start_offset - get_window().position)
 
 
 func update_window_position():
@@ -126,5 +128,4 @@ func _on_nokia_texture_rect_gui_input(event: InputEvent) -> void:
 			current_window_position.x = clamp(current_window_position.x, 0, usable_rect.size.x - get_window().size.x)
 			current_window_position.y = clamp(current_window_position.y, 0, usable_rect.size.y - get_window().size.y)
 			update_camera_position()
-			update_window_position()
-			DisplayServer.warp_mouse(current_window_position + drag_nokia_start_offset - get_window().position)
+			
