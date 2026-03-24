@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bv5hcuv3nbgdr" path="res://scenes/PhotoCounter/photo_counter.tscn" id="3_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://c1junqd5fosko" path="res://scenes/PhotoScan/photo_scan.tscn" id="4_6q06x"]
 [ext_resource type="PackedScene" uid="uid://dfsdvprt8xkx8" path="res://scenes/Messages/MessageGenerator/MessageGenerator.tscn" id="5_6q06x"]
+[ext_resource type="PackedScene" uid="uid://dwe2cicv7twsx" path="res://scenes/HealthComponent/HealthComponent.tscn" id="6_ow5a4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iuonh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -162,6 +163,8 @@ fov = 55.0
 photo_counter = NodePath("../PhotoCounter")
 
 [node name="MessageGenerator" parent="SubViewportContainer/SubViewport/World/Player/Camera3D" unique_id=1368587972 instance=ExtResource("5_6q06x")]
+
+[node name="HealthComponent" parent="SubViewportContainer/SubViewport/World/Player/Camera3D" unique_id=1497718036 instance=ExtResource("6_ow5a4")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Player" unique_id=414738072]
 shape = SubResource("SphereShape3D_iuonh")

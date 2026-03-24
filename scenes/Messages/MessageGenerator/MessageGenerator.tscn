@@ -5,7 +5,7 @@
 
 [node name="MessageGenerator" type="Node" unique_id=1368587972]
 script = ExtResource("1_bu7m5")
-positive_message_scene = ExtResource("2_hrgeq")
+call_message_scene = ExtResource("2_hrgeq")
 
 [node name="MessageTimer" type="Timer" parent="." unique_id=1169594955]
 wait_time = 2.0
