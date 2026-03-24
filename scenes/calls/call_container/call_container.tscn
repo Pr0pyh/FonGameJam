@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dfsdvprt8xkx8"]
+
+[ext_resource type="Script" uid="uid://jpf83m282fqk" path="res://scenes/calls/call_container/call_container.gd" id="1_bu7m5"]
+[ext_resource type="PackedScene" uid="uid://b4muwc6i2q026" path="res://scenes/calls/call_panel/call_panel.tscn" id="2_ho1v6"]
+
+[node name="CallContainer" type="Control" unique_id=1186548931]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_bu7m5")
+call_panel_scene = ExtResource("2_ho1v6")

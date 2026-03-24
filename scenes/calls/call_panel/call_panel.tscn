@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://b4muwc6i2q026"]
+
+[ext_resource type="Script" uid="uid://1231agxfc65w" path="res://scenes/calls/call_panel/call_panel.gd" id="1_y2idr"]
+[ext_resource type="Texture2D" uid="uid://c1aqac12a2nti" path="res://assets/callnotifikacija.png" id="2_1hauw"]
+
+[node name="CallPanel" type="Control" unique_id=455487660 node_paths=PackedStringArray("incoming_caller_name_label", "incoming_caller_number_label", "in_progress_caller_name_label", "in_progress_call_time_label", "incoming_call_container", "call_in_progress_container")]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = 17.5
+offset_right = 100.0
+offset_bottom = 142.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_y2idr")
+incoming_caller_name_label = NodePath("IncomingCallContainer/CallerNameLabel")
+incoming_caller_number_label = NodePath("IncomingCallContainer/CallerNumberLabel")
+in_progress_caller_name_label = NodePath("CallInProgressContainer/CallerNameLabel")
+in_progress_call_time_label = NodePath("CallInProgressContainer/CallTimeLabel")
+contact_names_positives = Dictionary[String, bool]({
+"Mirko Auspuh 2": true,
+"Miso Drvar": true,
+"Pero Strbac Kafana": true,
+"Stole Keramicar": true,
+"Zena(zmija)": false
+})
+incoming_call_container = NodePath("IncomingCallContainer")
+call_in_progress_container = NodePath("CallInProgressContainer")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=438634732]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1hauw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="IncomingCallContainer" type="VBoxContainer" parent="." unique_id=1224464215]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IncomingCallLabel" type="Label" parent="IncomingCallContainer" unique_id=1155844258]
+layout_mode = 2
+text = "Incoming Call"
+
+[node name="CallerNameLabel" type="Label" parent="IncomingCallContainer" unique_id=681949165]
+layout_mode = 2
+text = "Mirko Vodoinstalacija"
+
+[node name="CallerNumberLabel" type="Label" parent="IncomingCallContainer" unique_id=1988254596]
+layout_mode = 2
+text = "Incoming Call"
+
+[node name="CallInProgressContainer" type="VBoxContainer" parent="." unique_id=2087115478]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IncomingCallLabel" type="Label" parent="CallInProgressContainer" unique_id=1595388916]
+layout_mode = 2
+text = "Incoming Call"
+
+[node name="CallerNameLabel" type="Label" parent="CallInProgressContainer" unique_id=534476619]
+layout_mode = 2
+text = "Mirko Vodoinstalacija"
+
+[node name="CallTimeLabel" type="Label" parent="CallInProgressContainer" unique_id=1846252560]
+layout_mode = 2
+text = "Incoming Call"

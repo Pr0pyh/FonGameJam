@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dg6vc4bjw4oat"]
+
+[ext_resource type="Texture2D" uid="uid://b5ro8eyhw8w0h" path="res://assets/image-removebg-preview(11).png" id="1_hth5y"]
+[ext_resource type="PackedScene" uid="uid://dwe2cicv7twsx" path="res://scenes/HealthComponent/HealthComponent.tscn" id="2_lh0iq"]
+[ext_resource type="PackedScene" uid="uid://dfsdvprt8xkx8" path="res://scenes/calls/call_container/call_container.tscn" id="3_kb5tf"]
+
+[node name="ScreenUI" type="Control" unique_id=103278923]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 146.0
+offset_right = -146.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Crosshair" type="TextureRect" parent="." unique_id=656494287]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hth5y")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HealthComponent" parent="." unique_id=314469550 instance=ExtResource("2_lh0iq")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -71.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="MessageContainer" parent="." unique_id=1186548931 instance=ExtResource("3_kb5tf")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

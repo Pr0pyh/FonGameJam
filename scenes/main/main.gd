@@ -2,21 +2,25 @@ class_name MainScene
 extends Control
 
 
-static var nokia_camera: Camera3D
-
-const NOKIA_SIZE: float = 0.6
+static var nokia_input_handled: bool = false
 
 
+const NOKIA_SIZE: float = 1.0
+
+
+@export var nokia_camera: Camera3D
+@export var nokia: Nokia
 @export var player: CharacterBody3D
-@export var nokia_texture_rect: TextureRect
+@export var player_camera: Camera3D
 @export var camera_horizontal_range: float = 10
 @export var camera_vertical_range: float = 6
-@export var screen_subviewport_container: SubViewportContainer
 
 @export var left_wall_color_rect: ColorRect
 @export var right_wall_color_rect: ColorRect
 @export var top_wall_color_rect: ColorRect
 @export var bottom_wall_color_rect: ColorRect
+
+@export var nokia_subviewport: SubViewport
 
 
 var dragging_nokia: bool = false
@@ -28,13 +32,16 @@ var current_window_position: Vector2i
 
 func _ready():
 	var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect(-1)
-	var nokia_aspect_ratio: float = nokia_texture_rect.size.x / nokia_texture_rect.size.y
+	var nokia_aspect_ratio: float = 0.5
 	var screen_size: Vector2 = usable_rect.size
 	var height: float = screen_size.y * NOKIA_SIZE
 	var width: float = height * nokia_aspect_ratio
 	get_window().size = Vector2(width,height)
 	size = get_window().size
 	current_window_position = usable_rect.size/2 - Vector2i(width, height)/2
+	get_window().position = current_window_position
+	await get_tree().process_frame
+	await get_tree().process_frame
 	update_camera_corners()
 
 
@@ -43,8 +50,8 @@ func _process(delta):
 	right_wall_color_rect.color.a = move_toward(right_wall_color_rect.color.a, 0.0, delta)
 	top_wall_color_rect.color.a = move_toward(top_wall_color_rect.color.a, 0.0, delta)
 	bottom_wall_color_rect.color.a = move_toward(bottom_wall_color_rect.color.a, 0.0, delta)
-	var rot_axis = Input.get_axis("ui_left", "ui_right")
-	var move_axis = Input.get_axis("ui_up", "ui_down")
+	var rot_axis = Input.get_axis("move_left", "move_right")
+	var move_axis = Input.get_axis("move_forward", "move_back")
 	if abs(rot_axis) > 0.01:
 		player.rotation.y -= rot_axis*delta
 		update_camera_corners()
@@ -60,22 +67,23 @@ func get_window_pos_part() -> Vector2:
 	var window_pos_part: Vector2
 	window_pos_part.x = (window_pos.x-window_bounds[0].x) / (window_bounds[1].x - window_bounds[0].x)
 	window_pos_part.y = (window_pos.y-window_bounds[0].y) / (window_bounds[1].y - window_bounds[0].y)
-	print(window_pos_part)
 	return window_pos_part
 
 
 func get_camera_pos_part() -> Vector2:
 	var camera_pos_part: Vector2
+	
 	var camera_full_vector: Vector2 = \
 		Vector2(camera_top_left.x, camera_top_left.z) \
 		- Vector2(camera_bottom_right.x, camera_bottom_right.z)
+	
 	var camera_pos_vector: Vector2 = \
 		Vector2(camera_top_left.x, camera_top_left.z) \
 		- Vector2(player.global_position.x, player.global_position.z)
-	if abs(camera_bottom_right.x - camera_top_left.x) < 0.001:
-		camera_pos_part.x = camera_pos_vector.y / camera_full_vector.y
-	else:
-		camera_pos_part.x = camera_pos_vector.x / camera_full_vector.x
+	
+	camera_full_vector = camera_full_vector.rotated(-player.rotation.y)
+	camera_pos_vector = camera_pos_vector.rotated(-player.rotation.y)
+	camera_pos_part.x = camera_pos_vector.x / camera_full_vector.x
 	camera_pos_part.y = (camera_top_left.y - player.global_position.y)/camera_vertical_range
 	return camera_pos_part
 
@@ -110,28 +118,45 @@ func update_camera_position():
 		player.move_and_collide(collision.get_remainder().slide(collision.get_normal()))
 		update_window_position()
 		DisplayServer.warp_mouse(current_window_position + drag_nokia_start_offset - get_window().position)
+		window_pos_part = get_window_pos_part()
+	player_camera.rotation_degrees.x = -(window_pos_part.y-0.5)*20.0
+	player_camera.rotation_degrees.y = -(window_pos_part.x-0.5)*20.0
+		
 
 
 func update_window_position():
 	var camera_pos_part: Vector2 = get_camera_pos_part()
-	var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect()
-	current_window_position = Vector2(usable_rect.size - get_window().size) * camera_pos_part
+	var bounds: Array[Vector2] = get_window_bounds()
+	print(camera_pos_part.x)
+	var x: float = lerp(bounds[0].x, bounds[1].x, camera_pos_part.x)
+	var y: float = lerp(bounds[0].y, bounds[1].y, camera_pos_part.y)
+	current_window_position = Vector2(x,y)
+
+
+func update_nokia_camera_position():
+	var camera_pos_part: Vector2 = get_window_pos_part()
+	nokia.global_position.x = 1.0-camera_pos_part.x-0.5
+	nokia.global_position.y = camera_pos_part.y-0.5
+	
+	nokia_camera.look_at(nokia.global_position)
 
 
 func get_window_bounds() -> Array[Vector2]:
-	var sr: Rect2 = screen_subviewport_container.get_rect()
-	var edges: Vector2 = size - sr.size - sr.position
 	var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect()
-	var right: float = usable_rect.size.x - get_window().size.x + edges.x
-	var left: float = -sr.position.x
-	var bottom: float = usable_rect.size.y - get_window().size.y + edges.y
-	var top: float = -sr.position.y
+	var left: float = -100.0 * NOKIA_SIZE
+	var right: float = usable_rect.size.x - get_window().size.x + 100.0 * NOKIA_SIZE
+	var top: float = -100.0 * NOKIA_SIZE
+	var bottom: float = usable_rect.size.y - get_window().size.y + 500.0 * NOKIA_SIZE
 	var top_left: Vector2 = Vector2(left, top)
 	var bottom_right: Vector2 = Vector2(right, bottom)
 	return [top_left, bottom_right]
 
 
-func _on_nokia_texture_rect_gui_input(event: InputEvent) -> void:
+func _on_nokia_sub_viewport_container_gui_input(event: InputEvent) -> void:
+	nokia_subviewport.push_input(event)
+	if nokia_input_handled: 
+		nokia_input_handled = false
+		return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			drag_nokia_start_offset = DisplayServer.mouse_get_position() - get_window().position
@@ -143,4 +168,4 @@ func _on_nokia_texture_rect_gui_input(event: InputEvent) -> void:
 			current_window_position.x = clamp(current_window_position.x, bounds[0].x, bounds[1].x)
 			current_window_position.y = clamp(current_window_position.y, bounds[0].y, bounds[1].y)
 			update_camera_position()
-			
+			update_nokia_camera_position()

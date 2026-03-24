@@ -1,5 +1,5 @@
-extends Node
 class_name PhotoCounter
+extends Node
 
 @onready var counter_display: Label = $CanvasLayer/CounterDisplay
 

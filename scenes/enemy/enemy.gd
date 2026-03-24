@@ -3,11 +3,23 @@ extends CharacterBody3D
 
 
 
+@export var nav_agent: NavigationAgent3D
 @export var visiblity_notifier: VisibleOnScreenNotifier3D
 
+var movement_speed: float = 10.0
+var gravity: float = 15.0
 
 func _physics_process(delta: float) -> void:
+	velocity.y -= gravity * delta
 	if visiblity_notifier.is_on_screen():
-		var direction_to_player: Vector3 = global_position.direction_to(get_viewport().get_camera_3d().global_position)
-		rotation.y = -Vector2(direction_to_player.x, direction_to_player.z).angle() + PI/2.0
-		move_and_collide(direction_to_player*delta)
+		var camera: Camera3D = get_viewport().get_camera_3d()
+		nav_agent.target_position = camera.global_position
+		var direction_to_target: Vector3 = global_position.direction_to(nav_agent.get_next_path_position())
+		direction_to_target = (direction_to_target * Vector3(1,0,1)).normalized()
+		rotation.y = -Vector2(direction_to_target.x, direction_to_target.z).angle() + PI/2.0
+		velocity.x = direction_to_target.x * movement_speed
+		velocity.z = direction_to_target.z * movement_speed
+	else:
+		velocity.x = 0
+		velocity.z = 0
+	move_and_slide()
