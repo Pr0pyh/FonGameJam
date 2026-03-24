@@ -2,7 +2,7 @@ class_name MainScene
 extends Control
 
 
-const NOKIA_SIZE: float = 0.5
+const NOKIA_SIZE: float = 0.6
 
 
 @export var player: CharacterBody3D
@@ -45,7 +45,7 @@ func _process(delta):
 	if abs(rot_axis) > 0.01:
 		player.rotation.y -= rot_axis*delta
 		update_camera_corners()
-	elif abs(move_axis) > 0.01:
+	if abs(move_axis) > 0.01:
 		player.move_and_collide(player.global_basis.z * delta * move_axis)
 		update_camera_corners()
 	get_window().position = current_window_position
@@ -69,7 +69,7 @@ func get_camera_pos_part() -> Vector2:
 	var camera_pos_vector: Vector2 = \
 		Vector2(camera_top_left.x, camera_top_left.z) \
 		- Vector2(player.global_position.x, player.global_position.z)
-	if camera_bottom_right.x == camera_top_left.x:
+	if abs(camera_bottom_right.x - camera_top_left.x) < 0.001:
 		camera_pos_part.x = camera_pos_vector.y / camera_full_vector.y
 	else:
 		camera_pos_part.x = camera_pos_vector.x / camera_full_vector.x
