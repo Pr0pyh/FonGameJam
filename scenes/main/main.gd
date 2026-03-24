@@ -23,6 +23,7 @@ const NOKIA_SIZE: float = 1.0
 
 @export var nokia_subviewport: SubViewport
 @export var nokia_subviewport_container: SubViewportContainer
+@export var game_subviewport: SubViewport
 @export var call_text_popup_container: CallTextPopupContainer
 @export var call_container: CallContainer
 
@@ -56,6 +57,7 @@ func _ready():
 	await get_tree().process_frame
 	await get_tree().process_frame
 	update_camera_corners()
+	update_nokia_camera_position()
 
 
 func _process(delta):
@@ -132,7 +134,7 @@ func update_camera_position():
 		elif collision.get_normal().y < -0.2: top_wall_color_rect.color.a = 1.0
 		elif collision.get_normal().dot(player.global_basis.x) > 0.0: left_wall_color_rect.color.a = 1.0
 		elif collision.get_normal().dot(player.global_basis.x) < 0.0: right_wall_color_rect.color.a = 1.0
-		player.move_and_collide(collision.get_remainder().slide(collision.get_normal()))
+		#player.move_and_collide(collision.get_remainder().slide(collision.get_normal()))
 		update_window_position()
 		DisplayServer.warp_mouse(current_window_position + drag_nokia_start_offset - get_window().position)
 		window_pos_part = get_window_pos_part()
@@ -152,10 +154,10 @@ func update_window_position():
 
 func update_nokia_camera_position():
 	var camera_pos_part: Vector2 = get_window_pos_part()
-	nokia.global_position.x = 1.0-camera_pos_part.x-0.5
-	nokia.global_position.y = camera_pos_part.y-0.5
+	nokia.scene_offset.x = 1.0-camera_pos_part.x-0.5
+	nokia.scene_offset.y = camera_pos_part.y-0.5
 	
-	nokia_camera.look_at(nokia.global_position)
+	nokia_camera.look_at(nokia.scene_offset)
 
 
 func get_window_bounds() -> Array[Vector2]:
@@ -188,9 +190,18 @@ func _on_nokia_sub_viewport_container_gui_input(event: InputEvent) -> void:
 			update_nokia_camera_position()
 
 
+func start_phone_call_incoming():
+	nokia.start_phone_call_incoming()
+
+
+func stop_phone_call_incoming():
+	nokia.stop_phone_call_incoming()
+
+
 func _on_nokia_input(event: InputEvent) -> void:
 	if event.is_action_pressed("accept_call"):
 		call_container._on_accept_call_pressed()
 	elif event.is_action_pressed("decline_call"):
 		call_container._on_decline_call_pressed()
+	game_subviewport.push_input(event)
 	get_viewport().push_input(event)

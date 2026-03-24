@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://1231agxfc65w" path="res://scenes/calls/call_panel/call_panel.gd" id="1_y2idr"]
 [ext_resource type="Texture2D" uid="uid://c1aqac12a2nti" path="res://assets/callnotifikacija.png" id="2_1hauw"]
+[ext_resource type="Script" uid="uid://dnbx5ecpt5ja0" path="res://resources/contacts/contact.gd" id="2_as4kb"]
 [ext_resource type="PackedScene" uid="uid://bh48vxm0ovkp5" path="res://scenes/calls/call_text_popup/call_text_popup.tscn" id="2_rya85"]
+[ext_resource type="Resource" uid="uid://bhjp6gir25cme" path="res://resources/contacts/mirko.tres" id="3_vsb4a"]
+[ext_resource type="Resource" uid="uid://i2cegbgqla0o" path="res://resources/contacts/zena.tres" id="4_5uwvj"]
 
-[node name="CallPanel" type="Control" unique_id=455487660 node_paths=PackedStringArray("incoming_caller_name_label", "incoming_caller_number_label", "in_progress_caller_name_label", "in_progress_call_time_label", "incoming_call_container", "call_in_progress_container")]
+[node name="CallPanel" type="Control" unique_id=455487660 node_paths=PackedStringArray("incoming_caller_name_label", "in_progress_caller_name_label", "in_progress_call_time_label", "incoming_call_container", "call_in_progress_container")]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -19,16 +22,9 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_y2idr")
 incoming_caller_name_label = NodePath("IncomingCallContainer/CallerNameLabel")
-incoming_caller_number_label = NodePath("IncomingCallContainer/CallerNumberLabel")
 in_progress_caller_name_label = NodePath("CallInProgressContainer/CallerNameLabel")
-in_progress_call_time_label = NodePath("CallInProgressContainer/CallTimeLabel")
-contact_names_positives = Dictionary[String, bool]({
-"Mirko Auspuh 2": true,
-"Miso Drvar": true,
-"Pero Strbac Kafana": true,
-"Stole Keramicar": true,
-"Zena(zmija)": false
-})
+in_progress_call_time_label = NodePath("CallInProgressContainer/CallLabel")
+contacts = Array[ExtResource("2_as4kb")]([ExtResource("3_vsb4a"), ExtResource("4_5uwvj")])
 incoming_call_container = NodePath("IncomingCallContainer")
 call_in_progress_container = NodePath("CallInProgressContainer")
 call_text_popup_scene = ExtResource("2_rya85")
@@ -60,10 +56,6 @@ text = "Incoming Call"
 layout_mode = 2
 text = "Mirko Vodoinstalacija"
 
-[node name="CallerNumberLabel" type="Label" parent="IncomingCallContainer" unique_id=1988254596]
-layout_mode = 2
-text = "Incoming Call"
-
 [node name="CallInProgressContainer" type="VBoxContainer" parent="." unique_id=2087115478]
 layout_mode = 1
 anchors_preset = 15
@@ -72,14 +64,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="IncomingCallLabel" type="Label" parent="CallInProgressContainer" unique_id=1595388916]
+[node name="CallLabel" type="Label" parent="CallInProgressContainer" unique_id=1595388916]
 layout_mode = 2
-text = "Incoming Call"
+text = "Call in Progress - "
 
 [node name="CallerNameLabel" type="Label" parent="CallInProgressContainer" unique_id=534476619]
 layout_mode = 2
 text = "Mirko Vodoinstalacija"
-
-[node name="CallTimeLabel" type="Label" parent="CallInProgressContainer" unique_id=1846252560]
-layout_mode = 2
-text = "Incoming Call"

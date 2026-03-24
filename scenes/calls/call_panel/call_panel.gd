@@ -7,12 +7,11 @@ signal call_accepted()
 
 
 @export var incoming_caller_name_label: Label
-@export var incoming_caller_number_label: Label
 
 @export var in_progress_caller_name_label: Label
 @export var in_progress_call_time_label: Label
 
-@export var contact_names_positives: Dictionary[String, bool]
+@export var contacts: Array[Contact]
 @export var incoming_call_container: VBoxContainer
 @export var call_in_progress_container: VBoxContainer
 
@@ -20,46 +19,80 @@ signal call_accepted()
 
 @export var call_text_popup_scene: PackedScene
 
-var is_positive_contact = true
 var call_in_progress: bool = false
+var call_time: float = 0.0
+var message_timer: float = 0.5
+var message_index: int
+var contact: Contact
 
 func spawn():
 	visible = true
-	var caller_name: String = contact_names_positives.keys().pick_random()
-	incoming_caller_name_label.text = caller_name
-	in_progress_caller_name_label.text = caller_name
-	
-	is_positive_contact = contact_names_positives[caller_name]
+	contact = contacts.pick_random()
+	incoming_caller_name_label.text = contact.name
+	in_progress_caller_name_label.text = contact.name
 	
 	var tween = create_tween()
 	tween.tween_property(self, "position:y", start_y - 80.0, 0.5)
 	
 	incoming_call_container.visible = true
 	call_in_progress_container.visible = false
+	MainScene.instance.start_phone_call_incoming()
 
 
 func _process(delta: float) -> void:
+	if call_in_progress:
+		call_time += delta
+		update_call_time_label()
+		
+		message_timer -= delta
+		if message_timer <= 0.0:
+			message_timer = 3.0
+		
+			var call_text_popup: CallTextPopup = call_text_popup_scene.instantiate()
+			MainScene.instance.call_text_popup_container.add_popup(call_text_popup)
+			call_text_popup.set_text(contact.messages[message_index])
+			message_index = (message_index+1)%contact.messages.size()
+		
 	if Input.is_action_just_pressed("accept_call"):
-		print("AA")
 		accept_call()
 	elif Input.is_action_just_pressed("decline_call"):
 		decline_call()
 
 
+func update_call_time_label():
+	var seconds = int(call_time)%60
+	var minutes = int(call_time)/60%60
+	var time_string: String = str(
+		str(minutes).pad_zeros(2),
+		":",
+		str(seconds).pad_zeros(2)
+	)
+	in_progress_call_time_label.text = "Call in Progress - " + time_string
+
+
 func accept_call():
+	if call_in_progress: return
+	if contact.bad:
+		print("uf nije trebalo da se javis")
+	else:
+		print("super sto si se javio")
 	incoming_call_container.visible = false
 	call_in_progress_container.visible = true
 	call_in_progress = true
-	var call_text_popup: CallTextPopup = call_text_popup_scene.instantiate()
-	MainScene.instance.call_text_popup_container.add_popup(call_text_popup)
+	MainScene.instance.stop_phone_call_incoming()
+	call_accepted.emit()
 
 
 func decline_call():
+	MainScene.instance.stop_phone_call_incoming()
 	go_away()
+	call_declined.emit()
 	
 
 
 func hang_up_call():
+	call_finished.emit()
+	MainScene.instance.stop_phone_call_incoming()
 	go_away()
 
 

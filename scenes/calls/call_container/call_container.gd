@@ -5,7 +5,7 @@ extends Control
 
 var current_call_panel: CallPanel
 
-var call_timer: float = 0.0
+var call_timer: float = 5.0
 
 
 func _process(delta):
@@ -17,21 +17,31 @@ func _process(delta):
 
 func spawn_call():
 	var call_panel: CallPanel = call_panel_scene.instantiate()
+	
 	add_child(call_panel)
+	
+	call_panel.call_accepted.connect(_on_call_accepted)
+	call_panel.call_declined.connect(_on_call_declined)
+	call_panel.call_finished.connect(_on_call_finished)
+	
 	call_panel.spawn()
+	
 	current_call_panel = call_panel
 
 
-func _on_accept_call_pressed():
-	if current_call_panel:
-		current_call_panel.accept_call()
+func _on_call_accepted():
+	pass
 
 
-func _on_decline_call_pressed():
-	if current_call_panel:
-		current_call_panel.decline_call()
+func _on_call_declined():
+	current_call_panel = null
+	call_timer = get_call_timer()
 
 
 func _on_call_finished():
 	current_call_panel = null
-	call_timer = randf_range(3.0, 6.0)
+	call_timer = get_call_timer()
+
+
+func get_call_timer():
+	return randf_range(10.0, 15.0)

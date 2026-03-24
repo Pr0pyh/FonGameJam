@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cw7hptpav86jd" path="res://scenes/nokia/nokia.gd" id="1_6os8k"]
 [ext_resource type="Texture2D" uid="uid://c5levxcvsx57r" path="res://assets/nokia_phone.png" id="1_y7b2s"]
+[ext_resource type="AudioStream" uid="uid://dusgdx1pqu1nu" path="res://assets/ringtone_nokia_arabic_low_quality.ogg" id="3_45amc"]
+[ext_resource type="AudioStream" uid="uid://bhidopw6yb5tr" path="res://assets/phone_vibration.ogg" id="3_jmjjq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ka2h5"]
 resource_name = "Material.001"
@@ -672,9 +674,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_aio1r")
 
-[node name="Nokia" type="Node3D" unique_id=1372871718]
+[node name="Nokia" type="Node3D" unique_id=1372871718 node_paths=PackedStringArray("ringtone_sound_player", "vibration_sound_player")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_6os8k")
+ringtone_sound_player = NodePath("RingtoneSoundPlayer")
+vibration_sound_player = NodePath("VibrationSoundPlayer")
 
 [node name="Base" type="MeshInstance3D" parent="." unique_id=954113898]
 mesh = SubResource("ArrayMesh_qxwca")
@@ -762,3 +766,9 @@ mesh = SubResource("ArrayMesh_8veof")
 
 [node name="ButtonHash" type="MeshInstance3D" parent="." unique_id=2039680268]
 mesh = SubResource("ArrayMesh_q1r3i")
+
+[node name="VibrationSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=246379298]
+stream = ExtResource("3_jmjjq")
+
+[node name="RingtoneSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1964118522]
+stream = ExtResource("3_45amc")

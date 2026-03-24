@@ -11,11 +11,13 @@ var is_on_left: bool = false
 
 func _ready():
 	rich_text_label.visible = false
-	rich_text_label.text = ""
-	for i in 5 + randi()%25:
-		rich_text_label.text += str(randi()%5000, " ")
+
+func set_text(text: String):
+	rich_text_label.text = text
 	await get_tree().process_frame
 	await get_tree().process_frame
+	var tween: Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(rich_text_label, "scale", Vector2.ONE, 0.2).from(Vector2.ONE*0.5)
 	rich_text_label.visible = true
 	size = nine_patch_rect.size
 

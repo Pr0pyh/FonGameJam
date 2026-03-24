@@ -9,6 +9,21 @@ var buttons: Array[Area3D]
 
 var currently_hovered_button: Area3D
 var is_button_pressed: bool = false
+var phone_call_incoming: bool = false
+var scene_offset: Vector3
+var shake_offset: Vector3
+
+var shaking: bool = false
+var shake_strength: float = 0.02
+var shake_frequency: float = 5000.0
+var shake_noise := FastNoiseLite.new()
+
+var shake_t: float
+var vibration_t: float
+
+
+@export var ringtone_sound_player: AudioStreamPlayer
+@export var vibration_sound_player: AudioStreamPlayer
 
 func _ready() -> void:
 	for child in get_children():
@@ -20,13 +35,46 @@ func _ready() -> void:
 
 
 func _process(delta: float):
-	#print(currently_hovered_button)
+	shake_t += delta*shake_frequency
+	
 	for button: Area3D in buttons:
 		var target_button_y: float = \
 			0.025\
 			-float(button == currently_hovered_button)*0.02 \
 			-float(button == currently_hovered_button and is_button_pressed)*0.03
 		button.position.y = lerp(button.position.y, target_button_y, 50.0*delta)
+	
+	
+	if phone_call_incoming:
+		if not vibration_sound_player.is_playing():
+			vibration_t += delta
+			if vibration_t >= 0.5:
+				vibration_sound_player.play()
+				vibration_t = 0.0
+		shaking = vibration_sound_player.is_playing()
+	
+	if shaking:
+		shake_offset.x = shake_noise.get_noise_3d(shake_t, 0, 0)
+		shake_offset.y = shake_noise.get_noise_3d(0, shake_t, 0)
+		shake_offset.z = shake_noise.get_noise_3d(0, 0, shake_t)
+		shake_offset *= shake_strength
+	else:
+		shake_offset = Vector3()
+		
+	global_position = scene_offset + shake_offset
+
+
+func start_phone_call_incoming():
+	vibration_t = 0.3
+	ringtone_sound_player.play()
+	phone_call_incoming = true
+
+
+func stop_phone_call_incoming():
+	shaking = false
+	vibration_sound_player.stop()
+	ringtone_sound_player.stop()
+	phone_call_incoming = false
 
 
 func _on_button_mouse_entered(button: Area3D):
@@ -42,17 +90,18 @@ func _on_button_mouse_exited(button: Area3D):
 
 
 func _on_button_pressed(button_name: String, pressed: bool):
-	var event = InputEventAction.new()
-	event.action = {
+	var action: String = {
 		"ButtonLeft": "move_left",
 		"ButtonRight": "move_right",
 		"ButtonUp": "move_forward",
-		"ButtonDown": "move_down",
+		"ButtonDown": "move_back",
 		"ButtonAccept": "accept_call",
 		"ButtonDecline": "decline_call",
 	}[button_name]
-	event.pressed = pressed
-	input.emit(event)
+	if pressed:
+		Input.action_press(action)
+	else:
+		Input.action_release(action)
 
 
 func _input(event: InputEvent) -> void:
