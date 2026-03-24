@@ -46,7 +46,7 @@ func _process(delta):
 		player.rotation.y -= rot_axis*delta
 		update_camera_corners()
 	elif abs(move_axis) > 0.01:
-		player.global_position += player.global_basis.z * delta * move_axis
+		player.move_and_collide(player.global_basis.z * delta * move_axis)
 		update_camera_corners()
 	get_window().position = current_window_position
 
