@@ -45,12 +45,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iuonh")
-player = NodePath("SubViewportContainer/SubViewport/World/Player")
+player = NodePath("NokiaTextureRect/SubViewportContainer/SubViewport/World/Player")
 nokia_texture_rect = NodePath("NokiaTextureRect")
-left_wall_color_rect = NodePath("NokiaTextureRect/LeftWall")
-right_wall_color_rect = NodePath("NokiaTextureRect/RightWall")
-top_wall_color_rect = NodePath("NokiaTextureRect/TopWall")
-bottom_wall_color_rect = NodePath("NokiaTextureRect/BottomWall")
+left_wall_color_rect = NodePath("NokiaTextureRect/Control/LeftWall")
+right_wall_color_rect = NodePath("NokiaTextureRect/Control/RightWall")
+top_wall_color_rect = NodePath("NokiaTextureRect/Control/TopWall")
+bottom_wall_color_rect = NodePath("NokiaTextureRect/Control/BottomWall")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2137960683]
 environment = SubResource("Environment_l3cfh")
@@ -72,7 +72,16 @@ texture = ExtResource("2_k2fmo")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="LeftWall" type="ColorRect" parent="NokiaTextureRect" unique_id=1341301755]
+[node name="Control" type="Control" parent="NokiaTextureRect" unique_id=2138090053]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LeftWall" type="ColorRect" parent="NokiaTextureRect/Control" unique_id=1341301755]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -80,7 +89,7 @@ offset_right = 2.7107544
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[node name="RightWall" type="ColorRect" parent="NokiaTextureRect" unique_id=1393272384]
+[node name="RightWall" type="ColorRect" parent="NokiaTextureRect/Control" unique_id=1393272384]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -91,7 +100,7 @@ grow_horizontal = 0
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[node name="TopWall" type="ColorRect" parent="NokiaTextureRect" unique_id=451654954]
+[node name="TopWall" type="ColorRect" parent="NokiaTextureRect/Control" unique_id=451654954]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -99,7 +108,7 @@ offset_bottom = 3.0
 grow_horizontal = 2
 color = Color(1, 1, 1, 0)
 
-[node name="BottomWall" type="ColorRect" parent="NokiaTextureRect" unique_id=1997943973]
+[node name="BottomWall" type="ColorRect" parent="NokiaTextureRect/Control" unique_id=1997943973]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -110,63 +119,62 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(1, 1, 1, 0)
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=922998094]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="NokiaTextureRect" unique_id=922998094]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -92.0
-offset_top = -186.0
-offset_right = 93.0
-offset_bottom = -25.0
+anchors_preset = -1
+anchor_left = 0.19900002
+anchor_top = 0.23200001
+anchor_right = 0.80100006
+anchor_bottom = 0.467
+offset_left = 0.13586807
+offset_top = -0.040008545
+offset_right = -0.13589478
+offset_bottom = -0.23999023
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1016976876]
+[node name="SubViewport" type="SubViewport" parent="NokiaTextureRect/SubViewportContainer" unique_id=1016976876]
 handle_input_locally = false
-size = Vector2i(185, 161)
+size = Vector2i(186, 169)
 render_target_update_mode = 4
 
-[node name="World" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=1577524241]
+[node name="World" type="Node3D" parent="NokiaTextureRect/SubViewportContainer/SubViewport" unique_id=1577524241]
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World" unique_id=1427871388 groups=["scanable"]]
+[node name="StaticBody3D2" type="StaticBody3D" parent="NokiaTextureRect/SubViewportContainer/SubViewport/World" unique_id=1427871388 groups=["scanable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64087963, 0.38081872, -1.0181855)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/StaticBody3D2" unique_id=1497300607]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NokiaTextureRect/SubViewportContainer/SubViewport/World/StaticBody3D2" unique_id=1497300607]
 shape = SubResource("BoxShape3D_l3cfh")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World/StaticBody3D2" unique_id=1757960162]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NokiaTextureRect/SubViewportContainer/SubViewport/World/StaticBody3D2" unique_id=1757960162]
 mesh = SubResource("BoxMesh_6q06x")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World" unique_id=186189565]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NokiaTextureRect/SubViewportContainer/SubViewport/World" unique_id=186189565]
 mesh = SubResource("TextMesh_iuonh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World" unique_id=1722475253]
+[node name="StaticBody3D" type="StaticBody3D" parent="NokiaTextureRect/SubViewportContainer/SubViewport/World" unique_id=1722475253]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/StaticBody3D" unique_id=766910186]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NokiaTextureRect/SubViewportContainer/SubViewport/World/StaticBody3D" unique_id=766910186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1272371, -0.21779048, 1.4199219)
 shape = SubResource("BoxShape3D_iuonh")
 
-[node name="Player" type="CharacterBody3D" parent="SubViewportContainer/SubViewport/World" unique_id=1559215450]
+[node name="Player" type="CharacterBody3D" parent="NokiaTextureRect/SubViewportContainer/SubViewport/World" unique_id=1559215450]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/World/Player" unique_id=2115622554]
+[node name="Camera3D" type="Camera3D" parent="NokiaTextureRect/SubViewportContainer/SubViewport/World/Player" unique_id=2115622554]
 fov = 55.0
 
-[node name="PhotoCounter" parent="SubViewportContainer/SubViewport/World/Player/Camera3D" unique_id=1362135284 instance=ExtResource("3_l3cfh")]
+[node name="PhotoCounter" parent="NokiaTextureRect/SubViewportContainer/SubViewport/World/Player/Camera3D" unique_id=1362135284 instance=ExtResource("3_l3cfh")]
 
-[node name="PhotoScan" parent="SubViewportContainer/SubViewport/World/Player/Camera3D" unique_id=2144187334 node_paths=PackedStringArray("photo_counter") instance=ExtResource("4_6q06x")]
+[node name="PhotoScan" parent="NokiaTextureRect/SubViewportContainer/SubViewport/World/Player/Camera3D" unique_id=2144187334 node_paths=PackedStringArray("photo_counter") instance=ExtResource("4_6q06x")]
 photo_counter = NodePath("../PhotoCounter")
 
-[node name="MessageGenerator" parent="SubViewportContainer/SubViewport/World/Player/Camera3D" unique_id=1368587972 instance=ExtResource("5_6q06x")]
+[node name="MessageGenerator" parent="NokiaTextureRect/SubViewportContainer/SubViewport/World/Player/Camera3D" unique_id=1368587972 instance=ExtResource("5_6q06x")]
 
 [node name="HealthComponent" parent="SubViewportContainer/SubViewport/World/Player/Camera3D" unique_id=1497718036 instance=ExtResource("6_ow5a4")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Player" unique_id=414738072]
-shape = SubResource("SphereShape3D_iuonh")
 
 [connection signal="gui_input" from="NokiaTextureRect" to="." method="_on_nokia_texture_rect_gui_input"]
