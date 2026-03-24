@@ -3,7 +3,7 @@ extends Node
 @onready var timer: Timer = $MessageTimer
 @export var positive_message_scene: PackedScene
 
-var messages: Array[PositiveMessage]
+var messages: Array[CallMessage]
 
 func _ready() -> void:
 	timer.timeout.connect(spawn_message)
@@ -16,7 +16,7 @@ func _input(event: InputEvent) -> void:
 
 func spawn_message():
 	if not messages.is_empty():
-		pass
+		return
 	var positive_message = positive_message_scene.instantiate()
 	add_child(positive_message)
 	positive_message.spawn()
