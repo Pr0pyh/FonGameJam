@@ -2,6 +2,8 @@ class_name MainScene
 extends Control
 
 
+static var nokia_camera: Camera3D
+
 const NOKIA_SIZE: float = 0.6
 
 
@@ -9,6 +11,7 @@ const NOKIA_SIZE: float = 0.6
 @export var nokia_texture_rect: TextureRect
 @export var camera_horizontal_range: float = 10
 @export var camera_vertical_range: float = 6
+@export var screen_subviewport_container: SubViewportContainer
 
 @export var left_wall_color_rect: ColorRect
 @export var right_wall_color_rect: ColorRect
@@ -53,11 +56,11 @@ func _process(delta):
 
 func get_window_pos_part() -> Vector2:
 	var window_pos: Vector2 = current_window_position
-	var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect()
-	var screen_size: Vector2 = Vector2(DisplayServer.screen_get_size())
+	var window_bounds: Array[Vector2] = get_window_bounds()
 	var window_pos_part: Vector2
-	window_pos_part.x = window_pos.x / (usable_rect.size.x - get_window().size.x)
-	window_pos_part.y = window_pos.y / (usable_rect.size.y - get_window().size.y)
+	window_pos_part.x = (window_pos.x-window_bounds[0].x) / (window_bounds[1].x - window_bounds[0].x)
+	window_pos_part.y = (window_pos.y-window_bounds[0].y) / (window_bounds[1].y - window_bounds[0].y)
+	print(window_pos_part)
 	return window_pos_part
 
 
@@ -115,6 +118,19 @@ func update_window_position():
 	current_window_position = Vector2(usable_rect.size - get_window().size) * camera_pos_part
 
 
+func get_window_bounds() -> Array[Vector2]:
+	var sr: Rect2 = screen_subviewport_container.get_rect()
+	var edges: Vector2 = size - sr.size - sr.position
+	var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect()
+	var right: float = usable_rect.size.x - get_window().size.x + edges.x
+	var left: float = -sr.position.x
+	var bottom: float = usable_rect.size.y - get_window().size.y + edges.y
+	var top: float = -sr.position.y
+	var top_left: Vector2 = Vector2(left, top)
+	var bottom_right: Vector2 = Vector2(right, bottom)
+	return [top_left, bottom_right]
+
+
 func _on_nokia_texture_rect_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -123,9 +139,8 @@ func _on_nokia_texture_rect_gui_input(event: InputEvent) -> void:
 	elif event is InputEventMouseMotion:
 		if dragging_nokia:
 			current_window_position = (DisplayServer.mouse_get_position() - drag_nokia_start_offset)
-			var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect()
-			
-			current_window_position.x = clamp(current_window_position.x, 0, usable_rect.size.x - get_window().size.x)
-			current_window_position.y = clamp(current_window_position.y, 0, usable_rect.size.y - get_window().size.y)
+			var bounds: Array[Vector2] = get_window_bounds()
+			current_window_position.x = clamp(current_window_position.x, bounds[0].x, bounds[1].x)
+			current_window_position.y = clamp(current_window_position.y, bounds[0].y, bounds[1].y)
 			update_camera_position()
 			

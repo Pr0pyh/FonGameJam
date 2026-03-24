@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="FonGameJam"
-run/main_scene="uid://d1lpeigll25qp"
+run/main_scene="uid://qykj0h7c4coi"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -35,3 +35,4 @@ scanable="Objects that can be scanned"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+occlusion_culling/use_occlusion_culling=true

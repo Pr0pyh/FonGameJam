@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://h4ioky1jclcx"]
+
+[ext_resource type="ArrayOccluder3D" uid="uid://bdr34h1mju5lj" path="res://scenes/main/world.occ" id="2_iubku"]
+[ext_resource type="PackedScene" uid="uid://cfof0lf1y5g7c" path="res://scenes/enemy/enemy.tscn" id="4_1r2wy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3cfh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2jn4d"]
+albedo_color = Color(1, 0, 0.5294118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6q06x"]
+material = SubResource("StandardMaterial3D_2jn4d")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iuonh"]
+size = Vector3(1, 2.7485352, 3.8398438)
+
+[sub_resource type="TextMesh" id="TextMesh_iuonh"]
+text = "najjjjaaaceeeeeeeee"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iuonh"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_k2fmo"]
+sky_material = SubResource("ProceduralSkyMaterial_iuonh")
+
+[sub_resource type="Environment" id="Environment_l3cfh"]
+background_mode = 2
+sky = SubResource("Sky_k2fmo")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_y2s00"]
+size = Vector3(14.327148, 1, 1)
+
+[node name="World" type="Node3D" unique_id=513557864]
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=471695299 groups=["scanable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64087963, 0.38081872, -1.0181855)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=796959948]
+shape = SubResource("BoxShape3D_l3cfh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=273071663]
+mesh = SubResource("BoxMesh_6q06x")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1162242511]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=40432704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1272371, -0.21779048, 1.4199219)
+shape = SubResource("BoxShape3D_iuonh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=822558206]
+visible = false
+mesh = SubResource("TextMesh_iuonh")
+
+[node name="Enemy" parent="." unique_id=725990477 instance=ExtResource("4_1r2wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14272642, -1.1890664)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=896556985]
+environment = SubResource("Environment_l3cfh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=894976839]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1275583118]
+use_collision = true
+flip_faces = true
+size = Vector3(15.682617, 12.958008, 18.519775)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=978715056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.663574, 0, 0)
+operation = 2
+flip_faces = true
+size = Vector3(14.327148, 1, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGBox3D/CSGBox3D" unique_id=1819468914]
+layers = 3
+mesh = SubResource("BoxMesh_y2s00")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1140436053]
+layers = 2
+occluder = ExtResource("2_iubku")
+bake_mask = 4294967294

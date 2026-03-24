@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cfof0lf1y5g7c"]
+
+[ext_resource type="Script" uid="uid://crpi5cuup7ngf" path="res://scenes/enemy/enemy.gd" id="1_4a83h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q06x"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_ow5a4"]
+material = SubResource("StandardMaterial3D_6q06x")
+text = "nem
+ojda
+me
+snimas
+n emo j
+da
+me
+snim
+a     s"
+line_spacing = -10.19
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hujxm"]
+radius = 0.12792969
+height = 1.1328125
+
+[node name="Enemy" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("visiblity_notifier")]
+script = ExtResource("1_4a83h")
+visiblity_notifier = NodePath("VisibleOnScreenNotifier3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1504323410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5834014, 0)
+mesh = SubResource("TextMesh_ow5a4")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1692127481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.889026, 0)
+aabb = AABB(-0.1406903, -0.16421919, -0.03700689, 0.2813806, 0.32843837, 0.07401378)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=162929728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56772774, 0)
+shape = SubResource("CapsuleShape3D_hujxm")
