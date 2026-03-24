@@ -19,8 +19,11 @@ func _ready() -> void:
 func _process(delta: float):
 	#print(currently_hovered_button)
 	for button: Area3D in buttons:
-		var target_button_y: float = - float(button == currently_hovered_button)*0.02 - float(is_button_pressed)*0.005
-		button.position.y = lerp(button.position.y, target_button_y, 10.0*delta)
+		var target_button_y: float = \
+			0.025\
+			-float(button == currently_hovered_button)*0.02 \
+			-float(button == currently_hovered_button and is_button_pressed)*0.03
+		button.position.y = lerp(button.position.y, target_button_y, 50.0*delta)
 
 
 func _on_button_mouse_entered(button: Area3D):

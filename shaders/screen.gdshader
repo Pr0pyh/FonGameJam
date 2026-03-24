@@ -89,7 +89,7 @@ vec3 triad_mask(vec2 frag_xy) {
 }
 
 void fragment() {
-	vec2 px   = vec2(16.0,9.0)/10000.0;
+	vec2 px   = vec2(16.0,9.0)/5000.0;
 	vec2 res  = 1.0 / px;
 	float t   = TIME;
 
