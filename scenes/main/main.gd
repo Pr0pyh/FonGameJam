@@ -13,8 +13,8 @@ const NOKIA_SIZE: float = 1.0
 @export var nokia: Nokia
 @export var player: CharacterBody3D
 @export var player_camera: Camera3D
-@export var camera_horizontal_range: float = 10
-@export var camera_vertical_range: float = 6
+@export var camera_horizontal_range: float = 3
+@export var camera_vertical_range: float = 1
 
 @export var left_wall_color_rect: ColorRect
 @export var right_wall_color_rect: ColorRect

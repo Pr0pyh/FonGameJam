@@ -32,6 +32,7 @@ window/per_pixel_transparency/allowed=true
 [global_group]
 
 scanable="Objects that can be scanned"
+navigation_mesh_source_group=""
 
 [input]
 

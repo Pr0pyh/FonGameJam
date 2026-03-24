@@ -9,6 +9,7 @@ var margin: float = 10.0
 func add_popup(call_text_popup: CallTextPopup):
 	add_child(call_text_popup)
 	popups.append(call_text_popup)
+	call_text_popup.tree_exited.connect(popups.erase.bind(call_text_popup))
 
 
 func _process(delta):
@@ -26,4 +27,8 @@ func _process(delta):
 		popup.position = pos
 		pos.y += popup.size.y + margin
 	
-	
+
+func clear_popups():
+	for popup in popups:
+		popup.queue_free()
+	popups.clear()

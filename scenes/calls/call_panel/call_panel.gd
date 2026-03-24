@@ -56,7 +56,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("accept_call"):
 		accept_call()
 	elif Input.is_action_just_pressed("decline_call"):
-		decline_call()
+		if call_in_progress:
+			hang_up_call()
+		else:
+			decline_call()
 
 
 func update_call_time_label():
@@ -84,15 +87,16 @@ func accept_call():
 
 
 func decline_call():
+	call_declined.emit()
 	MainScene.instance.stop_phone_call_incoming()
 	go_away()
-	call_declined.emit()
 	
 
 
 func hang_up_call():
 	call_finished.emit()
 	MainScene.instance.stop_phone_call_incoming()
+	MainScene.instance.call_text_popup_container.clear_popups()
 	go_away()
 
 
@@ -100,5 +104,4 @@ func go_away():
 	var tween = create_tween()
 	tween.tween_property(self, "position:y", start_y, 0.5)
 	await tween.finished
-	call_finished.emit()
 	queue_free()

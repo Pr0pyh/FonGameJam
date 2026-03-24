@@ -18,6 +18,9 @@ func set_text(text: String):
 	await get_tree().process_frame
 	var tween: Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(rich_text_label, "scale", Vector2.ONE, 0.2).from(Vector2.ONE*0.5)
+	tween.tween_interval(8.0)
+	tween.tween_property(rich_text_label, "scale", Vector2.ONE*0.0, 0.2)
+	tween.tween_callback(queue_free)
 	rich_text_label.visible = true
 	size = nine_patch_rect.size
 

@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://cfof0lf1y5g7c"]
 
 [ext_resource type="Script" uid="uid://crpi5cuup7ngf" path="res://scenes/enemy/enemy.gd" id="1_4a83h"]
+[ext_resource type="PackedScene" uid="uid://bpa0yb55dcw5j" path="res://assets/cikica1.glb" id="2_a3pup"]
+[ext_resource type="AudioStream" uid="uid://kgqmrv6k2hvq" path="res://assets/sounds/cikica/crushed_yelling_1.ogg" id="3_13gj6"]
+[ext_resource type="AudioStream" uid="uid://pi2y840y2q0x" path="res://assets/sounds/cikica/crushed_yelling_2.ogg" id="4_4efjx"]
+[ext_resource type="AudioStream" uid="uid://p72x4wphydfm" path="res://assets/sounds/cikica/crushed_yelling_3.ogg" id="5_hvxgb"]
+[ext_resource type="AudioStream" uid="uid://cpq381aa6eww6" path="res://assets/sounds/cikica/crushed_yelling_4.ogg" id="6_peoo5"]
+[ext_resource type="AudioStream" uid="uid://d1ok81fmneig1" path="res://assets/sounds/cikica/crushed_yelling_5.ogg" id="7_2f3il"]
+[ext_resource type="AudioStream" uid="uid://dh1tkhcx4aocf" path="res://assets/sounds/cikica/crushed_yelling_6.ogg" id="8_dtxhd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q06x"]
 albedo_color = Color(1, 0, 0, 1)
@@ -19,24 +26,45 @@ a     s"
 line_spacing = -10.19
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hujxm"]
-radius = 0.12792969
+radius = 0.15
 height = 1.1328125
 
-[node name="Enemy" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("nav_agent", "visiblity_notifier")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_so3kp"]
+streams_count = 6
+stream_0/stream = ExtResource("3_13gj6")
+stream_1/stream = ExtResource("4_4efjx")
+stream_2/stream = ExtResource("5_hvxgb")
+stream_3/stream = ExtResource("6_peoo5")
+stream_4/stream = ExtResource("7_2f3il")
+stream_5/stream = ExtResource("8_dtxhd")
+
+[node name="Enemy" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("nav_agent", "visiblity_notifier", "sound_player")]
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_4a83h")
 nav_agent = NodePath("NavigationAgent3D")
 visiblity_notifier = NodePath("VisibleOnScreenNotifier3D")
+sound_player = NodePath("AudioStreamPlayer3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1504323410]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5834014, 0)
+visible = false
 mesh = SubResource("TextMesh_ow5a4")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1692127481]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.889026, 0)
-aabb = AABB(-0.1406903, -0.16421919, -0.03700689, 0.2813806, 0.32843837, 0.07401378)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9314069, 0.16218692)
+aabb = AABB(-0.1406903, -0.16421919, -0.12874782, 0.2813806, 0.32843837, 0.25749564)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=162929728]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56772774, 0)
 shape = SubResource("CapsuleShape3D_hujxm")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=386083364]
+
+[node name="cikica1" parent="." unique_id=1857296947 instance=ExtResource("2_a3pup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1650795)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=78383994]
+stream = SubResource("AudioStreamRandomizer_so3kp")
+
+[editable path="cikica1"]
