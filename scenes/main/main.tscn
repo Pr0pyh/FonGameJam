@@ -215,3 +215,4 @@ grow_vertical = 0
 color = Color(1, 1, 1, 0)
 
 [connection signal="gui_input" from="NokiaSubViewportContainer" to="." method="_on_nokia_sub_viewport_container_gui_input"]
+[connection signal="input" from="NokiaSubViewportContainer/SubViewport/NokiaWorld/Nokia" to="." method="_on_nokia_input"]

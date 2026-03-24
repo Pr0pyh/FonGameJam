@@ -2,6 +2,9 @@ class_name Nokia
 extends Node3D
 
 
+signal input(event: InputEvent)
+
+
 var buttons: Array[Area3D]
 
 var currently_hovered_button: Area3D
@@ -27,20 +30,29 @@ func _process(delta: float):
 
 
 func _on_button_mouse_entered(button: Area3D):
-	print("AAAAAAA")
 	currently_hovered_button = button
 
 
 func _on_button_mouse_exited(button: Area3D):
-	print("BBBBB")
 	if currently_hovered_button == button:
+		if is_button_pressed:
+			_on_button_pressed(button.name, false)
 		currently_hovered_button = null
 		is_button_pressed = false
 
 
-func _on_button_pressed(button_name: String):
-	print(button_name)
-	
+func _on_button_pressed(button_name: String, pressed: bool):
+	var event = InputEventAction.new()
+	event.action = {
+		"ButtonLeft": "move_left",
+		"ButtonRight": "move_right",
+		"ButtonUp": "move_forward",
+		"ButtonDown": "move_down",
+		"ButtonAccept": "accept_call",
+		"ButtonDecline": "decline_call",
+	}[button_name]
+	event.pressed = pressed
+	input.emit(event)
 
 
 func _input(event: InputEvent) -> void:
@@ -48,7 +60,7 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if currently_hovered_button:
 				is_button_pressed = event.pressed
+				_on_button_pressed(currently_hovered_button.name, event.pressed)
 				if event.pressed:
-					_on_button_pressed(currently_hovered_button.name)
 					MainScene.nokia_input_handled = true
 			

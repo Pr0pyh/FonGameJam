@@ -46,6 +46,7 @@ func _ready():
 
 
 func _process(delta):
+
 	left_wall_color_rect.color.a = move_toward(left_wall_color_rect.color.a, 0.0, delta)
 	right_wall_color_rect.color.a = move_toward(right_wall_color_rect.color.a, 0.0, delta)
 	top_wall_color_rect.color.a = move_toward(top_wall_color_rect.color.a, 0.0, delta)
@@ -169,3 +170,7 @@ func _on_nokia_sub_viewport_container_gui_input(event: InputEvent) -> void:
 			current_window_position.y = clamp(current_window_position.y, bounds[0].y, bounds[1].y)
 			update_camera_position()
 			update_nokia_camera_position()
+
+
+func _on_nokia_input(event: InputEvent) -> void:
+	get_viewport().push_input(event)
