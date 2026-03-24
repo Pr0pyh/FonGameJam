@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bv5hcuv3nbgdr"]
+
+[ext_resource type="Script" uid="uid://btxgyqlcw2vxf" path="res://scenes/PhotoCounter/photo_counter.gd" id="1_m6k24"]
+
+[node name="PhotoCounter" type="Node" unique_id=1362135284]
+script = ExtResource("1_m6k24")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=976355534]
+
+[node name="CounterDisplay" type="Label" parent="CanvasLayer" unique_id=1153989496]
+offset_left = 88.0
+offset_top = 67.0
+offset_right = 128.0
+offset_bottom = 90.0

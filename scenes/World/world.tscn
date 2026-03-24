@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dxo5fhqqltiuq" path="res://scenes/World/world.gd" id="1_eyogv"]
 [ext_resource type="Script" uid="uid://c6eju1oespdes" path="res://scenes/MovingWindow/moving_window.gd" id="2_807wd"]
-[ext_resource type="Texture2D" uid="uid://bpnbtc5whbcfw" path="res://icon.svg" id="2_bhb7g"]
+[ext_resource type="PackedScene" uid="uid://c1junqd5fosko" path="res://scenes/PhotoScan/photo_scan.tscn" id="3_7602k"]
 [ext_resource type="PackedScene" uid="uid://2bjpngqo5kkr" path="res://scenes/3DWorld/World3D.tscn" id="4_56o5f"]
+[ext_resource type="PackedScene" uid="uid://bv5hcuv3nbgdr" path="res://scenes/PhotoCounter/photo_counter.tscn" id="4_inth5"]
+[ext_resource type="PackedScene" uid="uid://dfsdvprt8xkx8" path="res://scenes/Messages/MessageGenerator/MessageGenerator.tscn" id="5_qficy"]
 
 [node name="World" type="Node" unique_id=1022742830]
 script = ExtResource("1_eyogv")
@@ -12,21 +14,24 @@ player_size = Vector2i(600, 600)
 [node name="Window" type="Window" parent="." unique_id=538663633 node_paths=PackedStringArray("_Camera")]
 oversampling_override = 1.0
 title = "Nokija"
-initial_position = 2
+position = Vector2i(0, 36)
 size = Vector2i(400, 400)
 script = ExtResource("2_807wd")
 _Camera = NodePath("Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="Window" unique_id=1960584221]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9547845, 1.2684264, 3.2882)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5843658)
 top_level = true
 current = true
 fov = 55.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=759920696]
-visible = false
-position = Vector2(377, 289)
-texture = ExtResource("2_bhb7g")
+[node name="PhotoScan" parent="Window/Camera3D" unique_id=2144187334 node_paths=PackedStringArray("photo_counter") instance=ExtResource("3_7602k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0421112)
+photo_counter = NodePath("../PhotoCounter")
+
+[node name="PhotoCounter" parent="Window/Camera3D" unique_id=1362135284 instance=ExtResource("4_inth5")]
+
+[node name="MessageGenerator" parent="Window/Camera3D" unique_id=1368587972 instance=ExtResource("5_qficy")]
 
 [node name="World3d" parent="." unique_id=417349566 instance=ExtResource("4_56o5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2279096)

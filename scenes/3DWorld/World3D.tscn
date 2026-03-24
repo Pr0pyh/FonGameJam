@@ -17,6 +17,14 @@ glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0vy1v"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_x5g6k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2jn4d"]
+albedo_color = Color(1, 0, 0.5294118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0vy1v"]
+material = SubResource("StandardMaterial3D_2jn4d")
+
 [node name="World3d" type="Node3D" unique_id=417349566]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=528205531]
@@ -48,3 +56,12 @@ mesh = SubResource("PlaneMesh_0vy1v")
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=655026029]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5581281, 0)
 texture = ExtResource("1_x5g6k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=571174251 groups=["scanable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38081872, 0.91548467)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=740256664]
+shape = SubResource("BoxShape3D_x5g6k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1496315936]
+mesh = SubResource("BoxMesh_0vy1v")

@@ -22,6 +22,10 @@ window/size/viewport_height=720
 window/size/mode=4
 window/per_pixel_transparency/allowed=true
 
+[global_group]
+
+scanable="Objects that can be scanned"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
