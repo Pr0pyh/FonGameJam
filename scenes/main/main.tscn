@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://qykj0h7c4coi"]
+
+[ext_resource type="Script" uid="uid://d1amsojsvhuh7" path="res://scenes/main/main.gd" id="1_iuonh"]
+[ext_resource type="Texture2D" uid="uid://bqe113ixhb0gb" path="res://textures/nokia.png" id="2_k2fmo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iuonh"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_k2fmo"]
+sky_material = SubResource("ProceduralSkyMaterial_iuonh")
+
+[sub_resource type="Environment" id="Environment_l3cfh"]
+background_mode = 2
+sky = SubResource("Sky_k2fmo")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="TextMesh" id="TextMesh_iuonh"]
+text = "najjjjaaaceeeeeeeee"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iuonh"]
+size = Vector3(1, 2.7485352, 3.8398438)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iuonh"]
+radius = 0.24744691
+
+[node name="Main" type="Control" unique_id=1904391357 node_paths=PackedStringArray("player", "nokia_texture_rect", "left_wall_color_rect", "right_wall_color_rect", "top_wall_color_rect", "bottom_wall_color_rect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iuonh")
+player = NodePath("SubViewportContainer/SubViewport/World/Player")
+nokia_texture_rect = NodePath("NokiaTextureRect")
+left_wall_color_rect = NodePath("NokiaTextureRect/LeftWall")
+right_wall_color_rect = NodePath("NokiaTextureRect/RightWall")
+top_wall_color_rect = NodePath("NokiaTextureRect/TopWall")
+bottom_wall_color_rect = NodePath("NokiaTextureRect/BottomWall")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2137960683]
+environment = SubResource("Environment_l3cfh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=658621345]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="NokiaTextureRect" type="TextureRect" parent="." unique_id=1837230078]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 485.28925
+offset_right = -485.28925
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k2fmo")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="LeftWall" type="ColorRect" parent="NokiaTextureRect" unique_id=1341301755]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 2.7107544
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="RightWall" type="ColorRect" parent="NokiaTextureRect" unique_id=1393272384]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.7107544
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="TopWall" type="ColorRect" parent="NokiaTextureRect" unique_id=451654954]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0)
+
+[node name="BottomWall" type="ColorRect" parent="NokiaTextureRect" unique_id=1997943973]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 1, 1, 0)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=922998094]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -186.0
+offset_right = 93.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1016976876]
+handle_input_locally = false
+size = Vector2i(185, 161)
+
+[node name="World" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=1577524241]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World" unique_id=186189565]
+mesh = SubResource("TextMesh_iuonh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World" unique_id=1722475253]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/StaticBody3D" unique_id=766910186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1272371, -0.21779048, 1.4199219)
+shape = SubResource("BoxShape3D_iuonh")
+
+[node name="Player" type="CharacterBody3D" parent="SubViewportContainer/SubViewport/World" unique_id=1559215450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/World/Player" unique_id=2115622554]
+fov = 55.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World/Player" unique_id=414738072]
+shape = SubResource("SphereShape3D_iuonh")
+
+[connection signal="gui_input" from="NokiaTextureRect" to="." method="_on_nokia_texture_rect_gui_input"]
