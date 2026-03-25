@@ -6,7 +6,7 @@ static var nokia_input_handled: bool = false
 static var instance: MainScene
 
 
-const NOKIA_SIZE: float = 1.0
+const NOKIA_SIZE: float = 0.8
 
 
 @export var nokia_camera: Camera3D
@@ -78,8 +78,7 @@ func _process(delta):
 		player.move_and_collide(player.global_basis.z * delta * move_axis*2.0)
 		update_camera_corners()
 	
-	if get_window().position.distance_to(current_window_position) > 1.0:
-		get_window().position = current_window_position
+	get_window().position = lerp(Vector2(get_window().position), Vector2(current_window_position), 15*delta)
 
 
 func get_window_pos_part() -> Vector2:
