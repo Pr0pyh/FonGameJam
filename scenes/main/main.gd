@@ -6,7 +6,7 @@ static var nokia_input_handled: bool = false
 static var instance: MainScene
 
 
-const NOKIA_SIZE: float = 0.75
+const NOKIA_SIZE: float = 0.65
 
 
 @export var nokia_camera: Camera3D

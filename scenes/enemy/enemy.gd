@@ -7,6 +7,7 @@ static var chasing_player_count: int
 @export var visiblity_notifier: VisibleOnScreenNotifier3D
 @export var sound_player: AudioStreamPlayer3D
 @export var raycast: RayCast3D
+@export var anim_player: AnimationPlayer
 
 var movement_speed: float = 2.0
 var gravity: float = 15.0
@@ -65,6 +66,8 @@ func _process_chasing(delta: float):
 		chasing = true
 		chasing_player_count += 1
 	sound_player.volume_linear = lerp(sound_player.volume_linear, 0.8, delta*4.0)
+	if anim_player != null:
+		anim_player.play("Walk")
 	if not sound_player.is_playing():
 		sound_player.play()
 	_process_movement_towards_player(delta)
@@ -75,6 +78,8 @@ func _process_idle(delta: float):
 		chasing = false
 		chasing_player_count -= 1
 	sound_player.volume_linear = lerp(sound_player.volume_linear, 0.0, delta*4.0)
+	if anim_player != null:
+		anim_player.play("Idle")
 	velocity.x = 0
 	velocity.z = 0
 
