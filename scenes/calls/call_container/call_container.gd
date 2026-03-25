@@ -9,7 +9,7 @@ var call_timer: float = 5.0
 
 
 func _process(delta):
-	if not current_call_panel:
+	if not current_call_panel and not MainScene.instance.dying:
 		call_timer -= delta
 		if call_timer <= 0.0:
 			spawn_call()

@@ -13,5 +13,5 @@ func _process(delta: float):
 		if collider and collider.is_in_group("scanable"):
 			crosshair.modulate = Color(0, 1, 0, 1)
 			if Input.is_action_just_pressed("ui_accept"):
+				collider._on_shot()
 				photo_counter.add_scanned_photo()
-				collider.queue_free()

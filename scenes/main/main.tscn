@@ -5,15 +5,118 @@
 [ext_resource type="Texture2D" uid="uid://b5ro8eyhw8w0h" path="res://assets/image-removebg-preview(11).png" id="3_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://bv5hcuv3nbgdr" path="res://scenes/PhotoCounter/photo_counter.tscn" id="4_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://c1junqd5fosko" path="res://scenes/PhotoScan/photo_scan.tscn" id="5_hujxm"]
+[ext_resource type="Texture2D" uid="uid://u3dr64lxmbnb" path="res://assets/palm.png" id="5_ouso4"]
 [ext_resource type="PackedScene" uid="uid://dfsdvprt8xkx8" path="res://scenes/calls/call_container/call_container.tscn" id="6_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://dwe2cicv7twsx" path="res://scenes/HealthComponent/HealthComponent.tscn" id="7_hujxm"]
 [ext_resource type="Shader" uid="uid://cg4i75fsfdvqj" path="res://shaders/screen.gdshader" id="9_a8run"]
 [ext_resource type="PackedScene" uid="uid://d0erpkqmd34rc" path="res://scenes/nokia/nokia.tscn" id="9_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://bcrm3d66h3mc1" path="res://scenes/calls/call_text_popup_container/call_text_popup_container.tscn" id="10_a8run"]
+[ext_resource type="AudioStream" uid="uid://c0h3frdv5i46t" path="res://assets/sounds/click_distorted.ogg" id="11_blune"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blune"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("5_ouso4")
+
+[sub_resource type="QuadMesh" id="QuadMesh_th5th"]
+material = SubResource("StandardMaterial3D_blune")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ouso4"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_blune"]
+material = SubResource("StandardMaterial3D_ouso4")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a8run"]
-radius = 0.3
+radius = 0.25
 height = 1.2
+
+[sub_resource type="Animation" id="Animation_7smn1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/PalmCovering:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/PalmCovering:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.27932203, -0.46213654)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/PalmCovering:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_raeie"]
+resource_name = "cover_nokia"
+length = 0.88
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/PalmCovering:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/PalmCovering:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.264, -0.462), Vector3(0, 0.0139552355, -0.059963137)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/PalmCovering:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hxu8e"]
+_data = {
+&"RESET": SubResource("Animation_7smn1"),
+&"cover_nokia": SubResource("Animation_raeie")
+}
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_b1x3f"]
 viewport_path = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport")
@@ -49,7 +152,7 @@ shader_parameter/glow_threshold = 0.65
 [sub_resource type="ViewportTexture" id="ViewportTexture_a8run"]
 viewport_path = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport")
 
-[node name="Main" type="Control" unique_id=1904391357 node_paths=PackedStringArray("nokia_camera", "nokia", "player", "player_camera", "left_wall_color_rect", "right_wall_color_rect", "top_wall_color_rect", "bottom_wall_color_rect", "nokia_subviewport", "nokia_subviewport_container", "game_subviewport", "call_text_popup_container", "call_container")]
+[node name="Main" type="Control" unique_id=1904391357 node_paths=PackedStringArray("nokia_camera", "nokia", "player", "player_camera", "left_wall_color_rect", "right_wall_color_rect", "top_wall_color_rect", "bottom_wall_color_rect", "nokia_subviewport", "nokia_subviewport_container", "game_subviewport", "call_text_popup_container", "call_container", "cover_animation_player", "health_component", "black_quad", "screen_ui")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,8 +162,8 @@ grow_vertical = 2
 script = ExtResource("1_iuonh")
 nokia_camera = NodePath("NokiaSubViewportContainer/SubViewport/NokiaWorld/NokiaCamera")
 nokia = NodePath("NokiaSubViewportContainer/SubViewport/NokiaWorld/Nokia")
-player = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport/World/Player")
-player_camera = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport/World/Player/Camera3D")
+player = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport/Player")
+player_camera = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport/Player/Camera3D")
 left_wall_color_rect = NodePath("CollisionWalls/LeftWall")
 right_wall_color_rect = NodePath("CollisionWalls/RightWall")
 top_wall_color_rect = NodePath("CollisionWalls/TopWall")
@@ -70,6 +173,11 @@ nokia_subviewport_container = NodePath("NokiaSubViewportContainer")
 game_subviewport = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport")
 call_text_popup_container = NodePath("CallTextPopupContainer")
 call_container = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI/CallContainer")
+cover_animation_player = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport/Player/AnimationPlayer")
+health_component = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI/HealthComponent")
+world_scene = ExtResource("3_k2fmo")
+black_quad = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport/Player/Camera3D/BlackQuad")
+screen_ui = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI")
 
 [node name="NokiaSubViewportContainer" type="SubViewportContainer" parent="." unique_id=1924411316]
 layout_mode = 1
@@ -94,55 +202,71 @@ audio_listener_enable_3d = true
 size = Vector2i(340, 288)
 render_target_update_mode = 4
 
-[node name="World" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport" unique_id=513557864 instance=ExtResource("3_k2fmo")]
-
-[node name="Player" type="CharacterBody3D" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/World" unique_id=994170952]
+[node name="Player" type="CharacterBody3D" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport" unique_id=994170952]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 3
 
-[node name="Camera3D" type="Camera3D" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/World/Player" unique_id=1375022891]
+[node name="Camera3D" type="Camera3D" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/Player" unique_id=1375022891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 fov = 42.0
 
-[node name="PhotoCounter" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/World/Player/Camera3D" unique_id=1362135284 instance=ExtResource("4_ow5a4")]
+[node name="PhotoScan" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/Player/Camera3D" unique_id=2144187334 node_paths=PackedStringArray("crosshair", "photo_counter") instance=ExtResource("5_hujxm")]
+crosshair = NodePath("../../../ScreenUI/Crosshair")
+photo_counter = NodePath("../../../ScreenUI/PhotoCounter")
 
-[node name="PhotoScan" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/World/Player/Camera3D" unique_id=2144187334 node_paths=PackedStringArray("crosshair", "photo_counter") instance=ExtResource("5_hujxm")]
-crosshair = NodePath("../../../../ScreenUI/Crosshair")
-photo_counter = NodePath("../PhotoCounter")
+[node name="PalmCovering" type="MeshInstance3D" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/Player/Camera3D" unique_id=130036540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27932203, -0.46213654)
+mesh = SubResource("QuadMesh_th5th")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/World/Player" unique_id=1130505259]
+[node name="BlackQuad" type="MeshInstance3D" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/Player/Camera3D" unique_id=1530202436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.264, -0.052992165)
+mesh = SubResource("QuadMesh_blune")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/Player" unique_id=1130505259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 shape = SubResource("CapsuleShape3D_a8run")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/Player" unique_id=2143000764]
+callback_mode_process = 2
+libraries/ = SubResource("AnimationLibrary_hxu8e")
+autoplay = &"cover_nokia"
 
 [node name="ScreenUI" type="Control" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport" unique_id=103278923]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_right = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Crosshair" type="TextureRect" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI" unique_id=656494287]
+[node name="Crosshair" type="TextureRect" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI" unique_id=1922367887]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 45.0
+offset_right = -60.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_yyfjg")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="PhotoCounter" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI" unique_id=1362135284 instance=ExtResource("4_ow5a4")]
+layout_mode = 0
+
 [node name="HealthComponent" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI" unique_id=314469550 instance=ExtResource("7_hujxm")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -71.0
-offset_bottom = 0.0
+offset_left = 14.35
+offset_top = -56.595
+offset_right = 38.350006
+offset_bottom = 14.405273
 grow_vertical = 0
 
 [node name="CallContainer" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI" unique_id=1186548931 instance=ExtResource("6_yyfjg")]
@@ -150,13 +274,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -4.025
+offset_right = -4.024994
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
 [node name="NokiaWorld" type="Node3D" parent="NokiaSubViewportContainer/SubViewport" unique_id=787220113]
 
-[node name="Nokia" parent="NokiaSubViewportContainer/SubViewport/NokiaWorld" unique_id=1372871718 instance=ExtResource("9_b1x3f")]
+[node name="Nokia" parent="NokiaSubViewportContainer/SubViewport/NokiaWorld" unique_id=1372871718 node_paths=PackedStringArray("damage_sound_player") instance=ExtResource("9_b1x3f")]
+damage_sound_player = NodePath("DamagePlayer")
 
 [node name="ScreenSprite" type="Sprite3D" parent="NokiaSubViewportContainer/SubViewport/NokiaWorld/Nokia" unique_id=1591025631]
 transform = Transform3D(0.9999999, -8.881783e-16, -3.8823505e-23, 0, -4.371139e-08, 0.9999999, -8.881782e-16, -1, -4.3711385e-08, 0, 0.3118939, -0.73938745)
@@ -169,6 +296,10 @@ texture = SubResource("ViewportTexture_a8run")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0446453, -1.7679706e-07)
 light_energy = 2.0
 omni_range = 16.770393
+
+[node name="DamagePlayer" type="AudioStreamPlayer" parent="NokiaSubViewportContainer/SubViewport/NokiaWorld/Nokia" unique_id=774217852]
+stream = ExtResource("11_blune")
+volume_db = 9.305
 
 [node name="NokiaCamera" type="Camera3D" parent="NokiaSubViewportContainer/SubViewport/NokiaWorld" unique_id=918793483]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5607097)

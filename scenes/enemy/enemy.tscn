@@ -26,7 +26,7 @@ a     s"
 line_spacing = -10.19
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hujxm"]
-radius = 0.15
+radius = 0.23535156
 height = 1.1328125
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_so3kp"]
@@ -40,7 +40,7 @@ stream_5/stream = ExtResource("8_dtxhd")
 
 [node name="Enemy" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("nav_agent", "visiblity_notifier", "sound_player", "raycast")]
 collision_layer = 4
-collision_mask = 5
+collision_mask = 7
 script = ExtResource("1_4a83h")
 nav_agent = NodePath("NavigationAgent3D")
 visiblity_notifier = NodePath("VisibleOnScreenNotifier3D")
@@ -53,8 +53,8 @@ visible = false
 mesh = SubResource("TextMesh_ow5a4")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1692127481]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9314069, 0.16218692)
-aabb = AABB(-0.1406903, -0.16421919, -0.12874782, 0.2813806, 0.32843837, 0.25749564)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9314069, 0.0183101)
+aabb = AABB(-0.17598051, -0.16421919, -0.22676168, 0.35196102, 0.32843837, 0.45352337)
 
 [node name="RayCast3D" type="RayCast3D" parent="VisibleOnScreenNotifier3D" unique_id=1712650929]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9314069, 0.16218692)

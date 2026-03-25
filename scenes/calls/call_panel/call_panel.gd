@@ -33,7 +33,7 @@ func spawn():
 	in_progress_caller_name_label.text = contact.name
 	
 	var tween = create_tween()
-	tween.tween_property(self, "position:y", start_y - 80.0, 0.5)
+	tween.tween_property(self, "position:y", start_y - 100.0, 0.5)
 	
 	incoming_call_container.visible = true
 	call_in_progress_container.visible = false
@@ -82,6 +82,7 @@ func accept_call():
 	if call_in_progress: return
 	if contact.bad:
 		print("uf nije trebalo da se javis")
+		MainScene.instance.take_damage()
 	else:
 		print("super sto si se javio")
 	incoming_call_container.visible = false

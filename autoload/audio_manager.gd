@@ -29,5 +29,5 @@ var playing_combat_music: bool = false
 	#no_combat_music_player.volume_linear = move_toward(no_combat_music_player.volume_linear, no_combat_volume, 5.0*delta)
 	#
 	#print(combat_music_player.volume_linear, " ",no_combat_music_player.volume_linear)
-		
+
 		

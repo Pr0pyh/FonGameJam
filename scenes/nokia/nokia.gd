@@ -17,11 +17,13 @@ var shaking: bool = false
 var shake_strength: float = 0.02
 var shake_frequency: float = 5000.0
 var shake_noise := FastNoiseLite.new()
+var damage_offset: Vector3
 
 var shake_t: float
 var vibration_t: float
 
 
+@export var damage_sound_player: AudioStreamPlayer
 @export var ringtone_sound_player: AudioStreamPlayer
 @export var vibration_sound_player: AudioStreamPlayer
 
@@ -34,7 +36,14 @@ func _ready() -> void:
 			buttons.append(child)
 
 
+func take_damage():
+	damage_offset = Vector3(0,0,0.2)
+	damage_sound_player.play()
+
+
 func _process(delta: float):
+	damage_offset = lerp(damage_offset, Vector3(), 10.0*delta)
+	
 	shake_t += delta*shake_frequency
 	
 	for button: Area3D in buttons:
@@ -61,7 +70,7 @@ func _process(delta: float):
 	else:
 		shake_offset = Vector3()
 		
-	global_position = scene_offset + shake_offset
+	global_position = scene_offset + shake_offset + damage_offset
 
 
 func start_phone_call_incoming():

@@ -6,7 +6,7 @@ static var nokia_input_handled: bool = false
 static var instance: MainScene
 
 
-const NOKIA_SIZE: float = 0.75
+const NOKIA_SIZE: float = 1.0
 
 
 @export var nokia_camera: Camera3D
@@ -27,6 +27,15 @@ const NOKIA_SIZE: float = 0.75
 @export var game_subviewport: SubViewport
 @export var call_text_popup_container: CallTextPopupContainer
 @export var call_container: CallContainer
+@export var cover_animation_player: AnimationPlayer
+@export var health_component: HealthComponent
+@export var world_scene: PackedScene
+@export var black_quad: MeshInstance3D
+@export var screen_ui: Control
+
+@onready var start_player_transform: Transform3D = player.global_transform
+@onready var start_player_camera_transform: Transform3D = player_camera.global_transform
+
 
 
 var dragging_nokia: bool = false
@@ -34,6 +43,12 @@ var drag_nokia_start_offset: Vector2i
 var camera_top_left: Vector3
 var camera_bottom_right: Vector3
 var current_window_position: Vector2i
+var enemies_covering: int = 0
+var is_camera_covered: bool = false
+var camera_covered_t: float = 0.0
+var health: int = 5
+var world: Node3D
+var dying: bool = false
 
 
 func _enter_tree():
@@ -46,6 +61,8 @@ func _exit_tree():
 
 
 func _ready():
+	load_world()
+	black_quad.visible = false
 	var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect(-1)
 	var nokia_aspect_ratio: float = 0.5
 	var screen_size: Vector2 = usable_rect.size
@@ -59,6 +76,14 @@ func _ready():
 	await get_tree().process_frame
 	update_camera_corners()
 	update_nokia_camera_position()
+
+
+func load_world():
+	if world:
+		world.queue_free()
+	world = world_scene.instantiate()
+	game_subviewport.add_child(world)
+	Enemy.chasing_player_count = 0
 
 
 func _process(delta):
@@ -81,8 +106,28 @@ func _process(delta):
 		player.move_and_collide(dir * delta * move_axis*3.0)
 		update_camera_corners()
 	
-	#get_window().position = lerp(Vector2(get_window().position), Vector2(current_window_position), 15*delta)
-	get_window().position = Vector2(current_window_position)
+	get_window().position = lerp(Vector2(get_window().position), Vector2(current_window_position), 15*delta)
+	update_nokia_camera_position()
+	#get_window().position = Vector2(current_window_position)
+	_process_camera_covering(delta)
+
+
+func _process_camera_covering(delta: float):
+	if enemies_covering > 0:
+		cover_animation_player.advance(2.0*delta)
+	else:
+		cover_animation_player.advance(-2.0*delta)
+	
+	if abs(cover_animation_player.current_animation_position-cover_animation_player.current_animation_length) < 0.02:
+		if not is_camera_covered:
+			camera_covered_t = 0.0
+			is_camera_covered = true
+		camera_covered_t -= delta
+		if camera_covered_t <= 0:
+			take_damage()
+			camera_covered_t = 0.7
+	else:
+		is_camera_covered = false
 
 
 func get_window_pos_part() -> Vector2:
@@ -187,6 +232,7 @@ func get_window_bounds() -> Array[Vector2]:
 
 
 func _on_nokia_sub_viewport_container_gui_input(event: InputEvent) -> void:
+	if dying: return
 	nokia_subviewport.push_input(event)
 	if nokia_input_handled: 
 		nokia_input_handled = false
@@ -202,7 +248,6 @@ func _on_nokia_sub_viewport_container_gui_input(event: InputEvent) -> void:
 			current_window_position.x = clamp(current_window_position.x, bounds[0].x, bounds[1].x)
 			current_window_position.y = clamp(current_window_position.y, bounds[0].y, bounds[1].y)
 			update_camera_position()
-			update_nokia_camera_position()
 
 
 func start_phone_call_incoming():
@@ -211,6 +256,41 @@ func start_phone_call_incoming():
 
 func stop_phone_call_incoming():
 	nokia.stop_phone_call_incoming()
+
+
+func take_damage():
+	nokia.take_damage()
+	health -= 1
+	if health <= 0:
+		death()
+	health_component._on_damage_taken()
+
+
+func death():
+	dying = true
+	dragging_nokia = false
+	load_world()
+	world.process_mode = ProcessMode.PROCESS_MODE_DISABLED
+	health = 5
+	cover_animation_player.advance(-INF)
+	var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect()
+	current_window_position = usable_rect.position + usable_rect.size/2 - get_window().size/2
+	if call_container.current_call_panel:
+		if call_container.current_call_panel.call_in_progress:
+			call_container.current_call_panel.hang_up_call()
+		else:
+			call_container.current_call_panel.decline_call()
+	black_quad.visible = true
+	screen_ui.visible = false
+	await get_tree().create_timer(2.0).timeout
+	player.global_transform = start_player_transform
+	player_camera.global_transform = start_player_camera_transform
+	update_camera_corners()
+	world.process_mode = ProcessMode.PROCESS_MODE_INHERIT
+	screen_ui.visible = true
+	black_quad.visible = false
+	health_component.update_health()
+	dying = false
 
 
 func _on_nokia_input(event: InputEvent) -> void:

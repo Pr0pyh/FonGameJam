@@ -1,11 +1,19 @@
 class_name PhotoCounter
-extends Node
+extends Label
 
-@onready var counter_display: Label = $CanvasLayer/CounterDisplay
 
-var counter = 0
+var counter: int = 0
+
+
+func _ready():
+	reset_counter()
+
 
 func add_scanned_photo():
 	counter += 1
-	counter_display.text = "Photos taken: " + str(counter)
-	print(counter)
+	text = "Photos taken: " + str(counter)
+
+
+func reset_counter():
+	counter = 0
+	text = "Photos taken: " + str(counter)

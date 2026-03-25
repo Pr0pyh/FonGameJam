@@ -1,18 +1,25 @@
 [gd_scene format=3 uid="uid://dwe2cicv7twsx"]
 
-[ext_resource type="Texture2D" uid="uid://bibqqa0crdv20" path="res://assets/baterijapuna.png" id="1_clwg0"]
+[ext_resource type="Script" uid="uid://inxunnmpu5y1" path="res://scenes/HealthComponent/health_component.gd" id="1_0sf06"]
+[ext_resource type="Texture2D" uid="uid://dgstr0fgugppp" path="res://assets/battery_frame.png" id="1_cka1k"]
+[ext_resource type="Texture2D" uid="uid://ka62v82lw8m1" path="res://assets/battery_parts.png" id="2_0sf06"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clwg0"]
 
-[node name="HealthComponent" type="PanelContainer" unique_id=314469550]
-offset_right = 22.0
-offset_bottom = 71.0
+[node name="HealthComponent" type="PanelContainer" unique_id=314469550 node_paths=PackedStringArray("progress_bar")]
+modulate = Color(5.0615087, 0, 0, 1)
+offset_right = 24.0
+offset_bottom = 46.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_clwg0")
+script = ExtResource("1_0sf06")
+progress_bar = NodePath("TextureProgressBar")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1384147077]
 layout_mode = 2
-min_value = -1.0
-max_value = 4.0
-value = 4.0
-fill_mode = 2
-texture_progress = ExtResource("1_clwg0")
+min_value = -0.58
+max_value = 5.955
+step = 0.0
+value = 4.055
+fill_mode = 3
+texture_under = ExtResource("1_cka1k")
+texture_progress = ExtResource("2_0sf06")
