@@ -123,7 +123,7 @@ func _process_camera_covering(delta: float):
 		if not is_camera_covered:
 			camera_covered_t = 0.0
 			is_camera_covered = true
-		camera_covered_t -= delta
+		camera_covered_t -= delta*0.3
 		if camera_covered_t <= 0:
 			take_damage()
 			camera_covered_t = 0.7

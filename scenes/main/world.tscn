@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://p3208ma2c3r2" path="res://assets/level_drvo.png" id="3_1r2wy"]
 [ext_resource type="PackedScene" uid="uid://cfof0lf1y5g7c" path="res://scenes/enemy/enemy.tscn" id="4_1r2wy"]
 [ext_resource type="Texture2D" uid="uid://he1wfdgsecy5" path="res://assets/level_malter.png" id="4_7te0o"]
+[ext_resource type="PackedScene" uid="uid://brfuish6bhe01" path="res://scenes/enemy/drkan.tscn" id="4_xwd6a"]
 [ext_resource type="Texture2D" uid="uid://jy6sv57ww4qo" path="res://assets/level_tepih.png" id="5_smv1n"]
 [ext_resource type="Texture2D" uid="uid://dqiiwhplh078" path="res://assets/level_tepih3.png" id="6_ays12"]
 [ext_resource type="Texture2D" uid="uid://bx4e1wu4thh1a" path="res://assets/level_tepih2.png" id="7_3c7vn"]
@@ -712,6 +713,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.21263, 0.0012598634, -16.0
 
 [node name="Enemy6" parent="." unique_id=1194612460 instance=ExtResource("4_1r2wy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3750098, 0.011395931, -10.606644)
+
+[node name="Enemy7" parent="." unique_id=378429774 instance=ExtResource("4_xwd6a")]
+transform = Transform3D(0.21717222, 0, -0.9761333, 0, 1, 0, 0.9761333, 0, 0.21717222, -0.76600397, 0, -11.963685)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=624820690]
 navigation_mesh = SubResource("NavigationMesh_iubku")
