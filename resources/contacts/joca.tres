@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Contact" format=3 uid="uid://xp65voat3l30"]
+
+[ext_resource type="Script" uid="uid://dnbx5ecpt5ja0" path="res://resources/contacts/contact.gd" id="1_rl8xe"]
+
+[resource]
+script = ExtResource("1_rl8xe")
+name = "Joca Karakondzula"
+messages = Array[String](["juce u kafani dosao neki polupani lik", "rekao e video sam direktora kako skida zene {GACE_ROOM}"])
+metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

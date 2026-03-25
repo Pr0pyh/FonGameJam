@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Contact" format=3 uid="uid://b3qv78j0kj0w"]
+
+[ext_resource type="Script" uid="uid://dnbx5ecpt5ja0" path="res://resources/contacts/contact.gd" id="1_emtfp"]
+
+[resource]
+script = ExtResource("1_emtfp")
+name = "Laki Kavasaki"
+messages = Array[String](["juce sam razlupao motor", "slupao sam se sa zenom koja je isla od direktora", "nesto su radili {GACE_ROOM}"])
+metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

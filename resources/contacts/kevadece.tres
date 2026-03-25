@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Contact" format=3 uid="uid://ghsnoeq5jvlh"]
+
+[ext_resource type="Script" uid="uid://dnbx5ecpt5ja0" path="res://resources/contacts/contact.gd" id="1_6l5ij"]
+
+[resource]
+script = ExtResource("1_6l5ij")
+name = "Necija majka glupava"
+bad = true
+messages = Array[String](["razocarana sam u vas kao novinara", "obecali ste da cete objaviti kako je moje dete osvojilo 78. mesto na matematickoj olimpijadi u Uzbekistanu", "prijavicu vas N1"])
+metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

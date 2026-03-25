@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Contact" format=3 uid="uid://djnnedsukveeu"]
+
+[ext_resource type="Script" uid="uid://dnbx5ecpt5ja0" path="res://resources/contacts/contact.gd" id="1_7kouv"]
+
+[resource]
+script = ExtResource("1_7kouv")
+name = "Sin Debil Beskorisni"
+bad = true
+messages = Array[String](["e cale, trebaju mi pare", "prijavio sam se da idem na fon ekskurziju konferenciju u Donje Brijanje ", "treba mi 200 eura"])
+metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"
