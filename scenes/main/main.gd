@@ -13,7 +13,8 @@ const NOKIA_SIZE: float = 1.0
 @export var nokia: Nokia
 @export var player: CharacterBody3D
 @export var player_camera: Camera3D
-@export var camera_horizontal_range: float = 3
+@onready var start_player_camera_y: float = player_camera.position.y
+@export var camera_horizontal_range: float = 5
 @export var camera_vertical_range: float = 1
 
 @export var left_wall_color_rect: ColorRect
@@ -70,14 +71,14 @@ func _process(delta):
 	var move_axis = Input.get_axis("move_forward", "move_back")
 	
 	if abs(rot_axis) > 0.01:
-		player.rotation.y -= rot_axis*delta
+		player.rotation.y -= rot_axis*delta*1.5
 		update_camera_corners()
 	
 	if abs(move_axis) > 0.01:
-		player.move_and_collide(player.global_basis.z * delta * move_axis)
+		player.move_and_collide(player.global_basis.z * delta * move_axis*2.0)
 		update_camera_corners()
 	
-	get_window().position = current_window_position
+	get_window().position = lerp(Vector2(get_window().position), Vector2(current_window_position), 15*delta)
 
 
 func get_window_pos_part() -> Vector2:
@@ -126,7 +127,8 @@ func update_camera_position():
 		Vector2(camera_bottom_right.x, camera_bottom_right.z), 
 		window_pos_part.x)
 	var y: float = lerp(camera_top_left.y, camera_bottom_right.y, window_pos_part.y)
-	var target_position: Vector3 = Vector3(xz.x, y, xz.y)
+	var target_position: Vector3 = Vector3(xz.x, player.global_position.y, xz.y)
+	player_camera.position.y = y + start_player_camera_y
 	var move_vector: Vector3 = target_position - old_player_position
 	var collision: KinematicCollision3D = player.move_and_collide(move_vector)
 	if collision:
@@ -138,8 +140,8 @@ func update_camera_position():
 		update_window_position()
 		DisplayServer.warp_mouse(current_window_position + drag_nokia_start_offset - get_window().position)
 		window_pos_part = get_window_pos_part()
-	player_camera.rotation_degrees.x = -(window_pos_part.y-0.5)*20.0
-	player_camera.rotation_degrees.y = -(window_pos_part.x-0.5)*20.0
+	player_camera.rotation_degrees.x = -(window_pos_part.y-0.5)*60.0
+	player_camera.rotation_degrees.y = -(window_pos_part.x-0.5)*45.0
 		
 
 

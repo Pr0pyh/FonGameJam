@@ -11,8 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://d0erpkqmd34rc" path="res://scenes/nokia/nokia.tscn" id="9_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://bcrm3d66h3mc1" path="res://scenes/calls/call_text_popup_container/call_text_popup_container.tscn" id="10_a8run"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_b1x3f"]
-radius = 0.24744691
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a8run"]
+radius = 0.3
+height = 1.8
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_b1x3f"]
 viewport_path = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport")
@@ -99,6 +100,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.683194)
 
 [node name="Camera3D" type="Camera3D" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/World/Player" unique_id=1375022891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 fov = 55.0
 
 [node name="PhotoCounter" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/World/Player/Camera3D" unique_id=1362135284 instance=ExtResource("4_ow5a4")]
@@ -108,7 +110,8 @@ crosshair = NodePath("../../../../ScreenUI/Crosshair")
 photo_counter = NodePath("../PhotoCounter")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/World/Player" unique_id=1130505259]
-shape = SubResource("SphereShape3D_b1x3f")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_a8run")
 
 [node name="ScreenUI" type="Control" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport" unique_id=103278923]
 layout_mode = 3

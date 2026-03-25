@@ -11,6 +11,8 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_clwg0")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1384147077]
 layout_mode = 2
-value = 100.0
-fill_mode = 3
+min_value = -1.0
+max_value = 4.0
+value = 4.0
+fill_mode = 2
 texture_progress = ExtResource("1_clwg0")
