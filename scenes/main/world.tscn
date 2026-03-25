@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dqiiwhplh078" path="res://assets/level_tepih3.png" id="6_ays12"]
 [ext_resource type="Texture2D" uid="uid://bx4e1wu4thh1a" path="res://assets/level_tepih2.png" id="7_3c7vn"]
 [ext_resource type="PackedScene" uid="uid://nogkloveg1p8" path="res://scenes/enemy/baba.tscn" id="8_7te0o"]
+[ext_resource type="PackedScene" uid="uid://dd6uf6xrnifc0" path="res://scenes/gacice/gacice_spawner/gacice_spawner.tscn" id="9_smv1n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l3cfh"]
 
@@ -444,3 +445,20 @@ mesh = SubResource("ArrayMesh_0m44b")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="level" unique_id=820358897]
 shape = SubResource("ConcavePolygonShape3D_ailbm")
+
+[node name="GaciceSpawner" parent="." unique_id=1925576496 instance=ExtResource("9_smv1n")]
+
+[node name="Room1" type="Marker3D" parent="GaciceSpawner" unique_id=2009630447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0054249763, -11.433513)
+
+[node name="Room2" type="Marker3D" parent="GaciceSpawner" unique_id=1574017047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.154266, 0.0054249763, -16.16106)
+
+[node name="Room3" type="Marker3D" parent="GaciceSpawner" unique_id=332346578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.94257, 0.0054249763, -16.16106)
+
+[node name="Room4" type="Marker3D" parent="GaciceSpawner" unique_id=1785171616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.003684, 0.0054249763, -6.7328596)
+
+[node name="Room5" type="Marker3D" parent="GaciceSpawner" unique_id=54761429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.076675, 0.0054249763, 0.034481525)

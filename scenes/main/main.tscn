@@ -13,7 +13,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a8run"]
 radius = 0.3
-height = 1.8
+height = 1.2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_b1x3f"]
 viewport_path = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport")
@@ -111,7 +111,7 @@ crosshair = NodePath("../../../../ScreenUI/Crosshair")
 photo_counter = NodePath("../PhotoCounter")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/World/Player" unique_id=1130505259]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 shape = SubResource("CapsuleShape3D_a8run")
 
 [node name="ScreenUI" type="Control" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport" unique_id=103278923]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dd6uf6xrnifc0"]
+
+[ext_resource type="Script" uid="uid://cttlirejun74p" path="res://scenes/gacice/gacice_spawner/gacice_spawner.gd" id="1_5gubx"]
+[ext_resource type="PackedScene" uid="uid://c42p3xinqb1fj" path="res://scenes/gacice/gacice.tscn" id="2_0s3fl"]
+
+[node name="GaciceSpawner" type="Node3D" unique_id=1925576496]
+script = ExtResource("1_5gubx")
+gacice_scene = ExtResource("2_0s3fl")

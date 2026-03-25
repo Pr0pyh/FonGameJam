@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c42p3xinqb1fj"]
+
+[ext_resource type="Script" uid="uid://bn83irsq7b6wm" path="res://scenes/gacice/gacice.gd" id="1_ot2vm"]
+[ext_resource type="PackedScene" uid="uid://bxjo01pue82e" path="res://assets/gace.glb" id="2_2vkph"]
+[ext_resource type="Shader" uid="uid://d2uhhcjc5ygkg" path="res://shaders/highlight.gdshader" id="3_qilv3"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qilv3"]
+frequency = 0.02
+offset = Vector3(159.45, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_arvn7"]
+noise = SubResource("FastNoiseLite_qilv3")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_arvn7"]
+render_priority = 0
+shader = ExtResource("3_qilv3")
+shader_parameter/noise = SubResource("NoiseTexture2D_arvn7")
+shader_parameter/radius = 0.405
+shader_parameter/e = 0.74
+shader_parameter/m = 2.27
+shader_parameter/s = 0.395
+shader_parameter/d = 0.001
+
+[sub_resource type="QuadMesh" id="QuadMesh_haxvl"]
+material = SubResource("ShaderMaterial_arvn7")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qilv3"]
+radius = 0.24215809
+
+[node name="Gacice" type="Area3D" unique_id=2024914948 node_paths=PackedStringArray("gacice") groups=["scanable"]]
+script = ExtResource("1_ot2vm")
+gacice = NodePath("gace")
+
+[node name="gace" parent="." unique_id=1303780982 instance=ExtResource("2_2vkph")]
+transform = Transform3D(-8.081775e-09, 0, 0.18488947, 0, 0.18488948, 0, -0.18488947, 0, -8.081775e-09, 0, 0.37609884, 0)
+
+[node name="HighlightMesh" type="MeshInstance3D" parent="gace" unique_id=76067163]
+transform = Transform3D(1.3998581, 0, -5.2243414, 0, 5.4086356, 0, 5.2243414, 0, 1.3998581, 0, -0.23081052, 0)
+mesh = SubResource("QuadMesh_haxvl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1408355374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31612659, 0)
+shape = SubResource("SphereShape3D_qilv3")
