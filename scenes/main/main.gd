@@ -78,7 +78,8 @@ func _process(delta):
 		player.move_and_collide(player.global_basis.z * delta * move_axis*2.0)
 		update_camera_corners()
 	
-	get_window().position = lerp(Vector2(get_window().position), Vector2(current_window_position), 15*delta)
+	if get_window().position.distance_to(current_window_position) > 1.0:
+		get_window().position = current_window_position
 
 
 func get_window_pos_part() -> Vector2:
