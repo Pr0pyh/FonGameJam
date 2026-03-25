@@ -19,9 +19,10 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	velocity.y -= gravity * delta
+	var camera_position: Vector3 = get_viewport().get_camera_3d().global_position
 	raycast.global_position = visiblity_notifier.global_position
-	raycast.target_position = get_viewport().get_camera_3d().global_position - raycast.global_position
-	if visiblity_notifier.is_on_screen() and not raycast.is_colliding():
+	raycast.target_position = camera_position - raycast.global_position
+	if visiblity_notifier.is_on_screen() and not raycast.is_colliding() and global_position.distance_to(camera_position) < 15:
 		if not chasing:
 			chasing = true
 			chasing_player_count += 1

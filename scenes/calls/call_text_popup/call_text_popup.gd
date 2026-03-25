@@ -28,7 +28,7 @@ func set_text(text: String):
 func _process(delta):
 	if is_on_left:
 		nine_patch_rect.scale.x = -1
-		nine_patch_rect.position.x = start_nine_patch_rect_x-25
+		nine_patch_rect.position.x = start_nine_patch_rect_x+16
 	else:
 		nine_patch_rect.scale.x = 1
 		nine_patch_rect.position.x = start_nine_patch_rect_x

@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://nogkloveg1p8"]
+
+[ext_resource type="Script" uid="uid://crpi5cuup7ngf" path="res://scenes/enemy/enemy.gd" id="1_x7o65"]
+[ext_resource type="AudioStream" uid="uid://csya5gdogxkxy" path="res://assets/sounds/baba/crushed_yelling_lady_1.ogg" id="2_buqdy"]
+[ext_resource type="AudioStream" uid="uid://btytagvxgrn72" path="res://assets/sounds/baba/crushed_yelling_lady_2.ogg" id="3_gbmxh"]
+[ext_resource type="AudioStream" uid="uid://b11v4rf7mxo7c" path="res://assets/sounds/baba/crushed_yelling_lady_3.ogg" id="4_x7o65"]
+[ext_resource type="AudioStream" uid="uid://dkrdvqg5yowil" path="res://assets/sounds/baba/crushed_yelling_lady_4.ogg" id="5_6f217"]
+[ext_resource type="PackedScene" uid="uid://ri8upus02bwq" path="res://assets/baba.glb" id="6_7jgjh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q06x"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_ow5a4"]
+material = SubResource("StandardMaterial3D_6q06x")
+text = "nem
+ojda
+me
+snimas
+n emo j
+da
+me
+snim
+a     s"
+line_spacing = -10.19
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hujxm"]
+radius = 0.16748047
+height = 0.83251953
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_btxi7"]
+streams_count = 4
+stream_0/stream = ExtResource("2_buqdy")
+stream_1/stream = ExtResource("3_gbmxh")
+stream_2/stream = ExtResource("4_x7o65")
+stream_3/stream = ExtResource("5_6f217")
+
+[node name="Enemy" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("nav_agent", "visiblity_notifier", "sound_player", "raycast")]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_x7o65")
+nav_agent = NodePath("NavigationAgent3D")
+visiblity_notifier = NodePath("VisibleOnScreenNotifier3D")
+sound_player = NodePath("AudioStreamPlayer3D")
+raycast = NodePath("VisibleOnScreenNotifier3D/RayCast3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1504323410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5834014, 0)
+visible = false
+mesh = SubResource("TextMesh_ow5a4")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1692127481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65191036, 0.16218692)
+aabb = AABB(-0.1406903, -0.16421919, -0.12874782, 0.2813806, 0.32843837, 0.25749564)
+
+[node name="RayCast3D" type="RayCast3D" parent="VisibleOnScreenNotifier3D" unique_id=1712650929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9314069, 0.16218692)
+top_level = true
+hit_back_faces = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=162929728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41758126, 0)
+shape = SubResource("CapsuleShape3D_hujxm")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=386083364]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=78383994]
+stream = SubResource("AudioStreamRandomizer_btxi7")
+
+[node name="baba" parent="." unique_id=25332858 instance=ExtResource("6_7jgjh")]

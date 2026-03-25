@@ -18,7 +18,7 @@ func _process(delta):
 	var window: Window = MainScene.instance.get_window()
 	var window_x: float = window.position.x - float(window.size.x)/2
 	if window_x > float(DisplayServer.screen_get_usable_rect().size.x)/2:
-		pos = window.position + Vector2i(300, 100)
+		pos = window.position + Vector2i(-300, 100)
 		is_on_left = true
 	else:
 		pos = window.position + window.size.x * Vector2i(1,0) + Vector2i(0, 100)
