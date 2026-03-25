@@ -78,7 +78,7 @@ func _process(delta):
 		var dir = player_camera.global_basis.z
 		dir.y = 0
 		dir = dir.normalized()
-		player.move_and_collide(dir * delta * move_axis*2.0)
+		player.move_and_collide(dir * delta * move_axis*3.0)
 		update_camera_corners()
 	
 	#get_window().position = lerp(Vector2(get_window().position), Vector2(current_window_position), 15*delta)

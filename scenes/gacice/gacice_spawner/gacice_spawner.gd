@@ -6,7 +6,14 @@ extends Node3D
 
 
 var gacice_present: int = 0
-var available_gacice_spawn_points: Array[Marker3D]
+static var available_gacice_spawn_points: Array[Marker3D]
+static var occupied_gacice_spawn_points: Array[Marker3D]
+
+
+
+static func get_random_gace_room_name():
+	return occupied_gacice_spawn_points.pick_random().name
+	
 
 
 func _ready():
@@ -29,8 +36,10 @@ func spawn_gacice():
 	gacice.global_position = spawn_point.global_position
 	gacice.spawn_point = spawn_point
 	gacice_present += 1
+	occupied_gacice_spawn_points.append(spawn_point)
 
 
 func _on_gacice_shot(gacice: Gacice):
+	occupied_gacice_spawn_points.erase(gacice.spawn_point)
 	available_gacice_spawn_points.append(gacice.spawn_point)
 	gacice_present -= 1

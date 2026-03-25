@@ -24,6 +24,7 @@ var call_time: float = 0.0
 var message_timer: float = 0.5
 var message_index: int
 var contact: Contact
+var gace_room_name: String
 
 func spawn():
 	visible = true
@@ -36,6 +37,9 @@ func spawn():
 	
 	incoming_call_container.visible = true
 	call_in_progress_container.visible = false
+	
+	gace_room_name = GaciceSpawner.get_random_gace_room_name().replace("_", ".")
+	
 	MainScene.instance.start_phone_call_incoming()
 
 
@@ -50,7 +54,8 @@ func _process(delta: float) -> void:
 		
 			var call_text_popup: CallTextPopup = call_text_popup_scene.instantiate()
 			MainScene.instance.call_text_popup_container.add_popup(call_text_popup)
-			call_text_popup.set_text(contact.messages[message_index])
+			var message: String = contact.messages[message_index].replace("{GACE_ROOM}", gace_room_name) 
+			call_text_popup.set_text(message)
 			message_index = (message_index+1)%contact.messages.size()
 		
 	if Input.is_action_just_pressed("accept_call"):
