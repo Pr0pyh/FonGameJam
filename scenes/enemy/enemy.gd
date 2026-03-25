@@ -6,13 +6,22 @@ extends CharacterBody3D
 @export var nav_agent: NavigationAgent3D
 @export var visiblity_notifier: VisibleOnScreenNotifier3D
 @export var sound_player: AudioStreamPlayer3D
+@export var raycast: RayCast3D
 
 var movement_speed: float = 2.0
 var gravity: float = 15.0
 
+
+func _ready():
+	raycast.global_position = Vector3()
+	raycast.global_rotation = Vector3()
+
+
 func _physics_process(delta: float) -> void:
 	velocity.y -= gravity * delta
-	if visiblity_notifier.is_on_screen():
+	raycast.global_position = visiblity_notifier.global_position
+	raycast.target_position = get_viewport().get_camera_3d().global_position - raycast.global_position
+	if visiblity_notifier.is_on_screen() and not raycast.is_colliding():
 		sound_player.volume_linear = lerp(sound_player.volume_linear, 0.8, delta*4.0)
 		if not sound_player.is_playing():
 			sound_player.play()

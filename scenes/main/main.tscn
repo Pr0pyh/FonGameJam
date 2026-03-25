@@ -97,11 +97,12 @@ render_target_update_mode = 4
 [node name="World" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport" unique_id=513557864 instance=ExtResource("3_k2fmo")]
 
 [node name="Player" type="CharacterBody3D" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/World" unique_id=994170952]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.683194)
+collision_layer = 2
+collision_mask = 7
 
 [node name="Camera3D" type="Camera3D" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/World/Player" unique_id=1375022891]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-fov = 55.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+fov = 48.0
 
 [node name="PhotoCounter" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/World/Player/Camera3D" unique_id=1362135284 instance=ExtResource("4_ow5a4")]
 

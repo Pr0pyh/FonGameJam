@@ -6,7 +6,7 @@ static var nokia_input_handled: bool = false
 static var instance: MainScene
 
 
-const NOKIA_SIZE: float = 0.8
+const NOKIA_SIZE: float = 0.75
 
 
 @export var nokia_camera: Camera3D
@@ -15,7 +15,7 @@ const NOKIA_SIZE: float = 0.8
 @export var player_camera: Camera3D
 @onready var start_player_camera_y: float = player_camera.position.y
 @export var camera_horizontal_range: float = 5
-@export var camera_vertical_range: float = 1
+@export var camera_vertical_range: float = 0.6
 
 @export var left_wall_color_rect: ColorRect
 @export var right_wall_color_rect: ColorRect
@@ -75,10 +75,14 @@ func _process(delta):
 		update_camera_corners()
 	
 	if abs(move_axis) > 0.01:
-		player.move_and_collide(player.global_basis.z * delta * move_axis*2.0)
+		var dir = player_camera.global_basis.z
+		dir.y = 0
+		dir = dir.normalized()
+		player.move_and_collide(dir * delta * move_axis*2.0)
 		update_camera_corners()
 	
-	get_window().position = lerp(Vector2(get_window().position), Vector2(current_window_position), 15*delta)
+	#get_window().position = lerp(Vector2(get_window().position), Vector2(current_window_position), 15*delta)
+	get_window().position = Vector2(current_window_position)
 
 
 func get_window_pos_part() -> Vector2:
@@ -104,7 +108,7 @@ func get_camera_pos_part() -> Vector2:
 	camera_full_vector = camera_full_vector.rotated(-player.rotation.y)
 	camera_pos_vector = camera_pos_vector.rotated(-player.rotation.y)
 	camera_pos_part.x = camera_pos_vector.x / camera_full_vector.x
-	camera_pos_part.y = (camera_top_left.y - player.global_position.y)/camera_vertical_range
+	camera_pos_part.y = (camera_top_left.y - player_camera.global_position.y) / (camera_top_left.y - camera_bottom_right.y)
 	return camera_pos_part
 
 
@@ -112,11 +116,21 @@ func update_camera_corners():
 	var window_pos_part: Vector2 = get_window_pos_part()
 	var left_range: float = -(window_pos_part.x) * camera_horizontal_range
 	var right_range: float = (1.0-window_pos_part.x) * camera_horizontal_range
-	var up_range: float = (window_pos_part.y) * camera_vertical_range
-	var down_range: float = -(1.0-window_pos_part.y) * camera_vertical_range
+	#var up_range: float = (window_pos_part.y) * camera_vertical_range
+	#var down_range: float = -(1.0-window_pos_part.y) * camera_vertical_range
+	#
+	#
+	#var pc_pos = player.global_position * Vector3(1,0,1) + player_camera.global_position * Vector3(0,1,0)
 	
-	camera_top_left = player.global_basis.x * left_range + player.global_basis.y * up_range + player.global_position
-	camera_bottom_right = player.global_basis.x * right_range + player.global_basis.y * down_range + player.global_position
+	camera_top_left = \
+		player.global_basis.x * left_range + \
+		player.global_position
+	camera_bottom_right = \
+		player.global_basis.x * right_range + \
+		player.global_position
+	
+	camera_top_left.y = player.global_position.y + camera_vertical_range
+	camera_bottom_right.y = player.global_position.y - camera_vertical_range
 
 
 func update_camera_position():
@@ -127,8 +141,8 @@ func update_camera_position():
 		Vector2(camera_bottom_right.x, camera_bottom_right.z), 
 		window_pos_part.x)
 	var y: float = lerp(camera_top_left.y, camera_bottom_right.y, window_pos_part.y)
-	var target_position: Vector3 = Vector3(xz.x, player.global_position.y, xz.y)
-	player_camera.position.y = y + start_player_camera_y
+	var target_position: Vector3 = Vector3(xz.x, 0.0, xz.y)
+	player_camera.global_position.y = y + start_player_camera_y
 	var move_vector: Vector3 = target_position - old_player_position
 	var collision: KinematicCollision3D = player.move_and_collide(move_vector)
 	if collision:
@@ -140,7 +154,7 @@ func update_camera_position():
 		update_window_position()
 		DisplayServer.warp_mouse(current_window_position + drag_nokia_start_offset - get_window().position)
 		window_pos_part = get_window_pos_part()
-	player_camera.rotation_degrees.x = -(window_pos_part.y-0.5)*60.0
+	player_camera.rotation_degrees.x = -(window_pos_part.y-0.5)*45.0
 	player_camera.rotation_degrees.y = -(window_pos_part.x-0.5)*45.0
 		
 
@@ -148,10 +162,9 @@ func update_camera_position():
 func update_window_position():
 	var camera_pos_part: Vector2 = get_camera_pos_part()
 	var bounds: Array[Vector2] = get_window_bounds()
-	print(camera_pos_part.x)
 	var x: float = lerp(bounds[0].x, bounds[1].x, camera_pos_part.x)
-	var y: float = lerp(bounds[0].y, bounds[1].y, camera_pos_part.y)
-	current_window_position = Vector2(x,y)
+	#var y: float = lerp(bounds[0].y, bounds[1].y, camera_pos_part.y)
+	current_window_position = Vector2(x,current_window_position.y)
 
 
 func update_nokia_camera_position():
