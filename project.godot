@@ -15,6 +15,14 @@ run/main_scene="uid://qykj0h7c4coi"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://ckcx6m7o21qmk"
+
+[autoload]
+
+AudioManager="*uid://dmr2haxor523l"
+
 [debug]
 
 gdscript/warnings/integer_division=0
