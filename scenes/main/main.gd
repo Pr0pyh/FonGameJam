@@ -6,7 +6,7 @@ static var nokia_input_handled: bool = false
 static var instance: MainScene
 
 
-const NOKIA_SIZE: float = 1.0
+const NOKIA_SIZE: float = 0.75
 
 
 @export var nokia_camera: Camera3D
@@ -32,6 +32,7 @@ const NOKIA_SIZE: float = 1.0
 @export var world_scene: PackedScene
 @export var black_quad: MeshInstance3D
 @export var screen_ui: Control
+@export var photo_counter: PhotoCounter
 
 @onready var start_player_transform: Transform3D = player.global_transform
 @onready var start_player_camera_transform: Transform3D = player_camera.global_transform
@@ -286,6 +287,7 @@ func death():
 	player.global_transform = start_player_transform
 	player_camera.global_transform = start_player_camera_transform
 	update_camera_corners()
+	photo_counter.reset_counter()
 	world.process_mode = ProcessMode.PROCESS_MODE_INHERIT
 	screen_ui.visible = true
 	black_quad.visible = false
