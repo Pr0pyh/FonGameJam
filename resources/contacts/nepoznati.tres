@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Contact" format=3 uid="uid://c5ypmn0xv6smr"]
+
+[ext_resource type="Script" uid="uid://dnbx5ecpt5ja0" path="res://resources/contacts/contact.gd" id="1_x5bni"]
+
+[resource]
+script = ExtResource("1_x5bni")
+name = "Nepoznati broj"
+bad = true
+messages = Array[String](["stojaneeee....", "majmuneee...."])
+metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

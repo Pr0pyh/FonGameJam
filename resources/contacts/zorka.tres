@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Contact" format=3 uid="uid://dusjn70vye655"]
+
+[ext_resource type="Script" uid="uid://dnbx5ecpt5ja0" path="res://resources/contacts/contact.gd" id="1_t8cfe"]
+
+[resource]
+script = ExtResource("1_t8cfe")
+name = "Zorka Jorgovanka"
+bad = true
+messages = Array[String](["zelim te", "sav si mi moderan", "mrnjau ;)))"])
+metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"
