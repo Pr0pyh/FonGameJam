@@ -258,6 +258,10 @@ stretch_mode = 5
 
 [node name="PhotoCounter" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI" unique_id=1362135284 instance=ExtResource("4_ow5a4")]
 layout_mode = 0
+offset_left = 12.49
+offset_top = 6.115
+offset_right = 158.49
+offset_bottom = 23.115
 
 [node name="HealthComponent" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI" unique_id=314469550 instance=ExtResource("7_hujxm")]
 layout_mode = 1
