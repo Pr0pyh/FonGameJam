@@ -13,7 +13,8 @@ config_version=5
 config/name="Dr. Kan"
 run/main_scene="uid://qykj0h7c4coi"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://bxlqijrlwobbj"
+config/windows_native_icon="res://assets/nokia_icon.ico"
 
 [audio]
 

@@ -1,11 +1,12 @@
 [gd_scene format=4 uid="uid://cfm5obw726t40"]
 
 [ext_resource type="Script" uid="uid://crpi5cuup7ngf" path="res://scenes/enemy/enemy.gd" id="1_6niot"]
-[ext_resource type="AudioStream" uid="uid://csya5gdogxkxy" path="res://assets/sounds/baba/crushed_yelling_lady_1.ogg" id="2_nl86t"]
-[ext_resource type="AudioStream" uid="uid://btytagvxgrn72" path="res://assets/sounds/baba/crushed_yelling_lady_2.ogg" id="3_42nek"]
-[ext_resource type="AudioStream" uid="uid://b11v4rf7mxo7c" path="res://assets/sounds/baba/crushed_yelling_lady_3.ogg" id="4_efq3o"]
-[ext_resource type="AudioStream" uid="uid://dkrdvqg5yowil" path="res://assets/sounds/baba/crushed_yelling_lady_4.ogg" id="5_4poqr"]
+[ext_resource type="AudioStream" uid="uid://pi3h4kcyg0w2" path="res://assets/sounds/troll/troll_yelling-01.ogg" id="2_nl86t"]
+[ext_resource type="AudioStream" uid="uid://bjbvmcat43jy8" path="res://assets/sounds/troll/troll_yelling-02.ogg" id="3_42nek"]
+[ext_resource type="AudioStream" uid="uid://ccoaotbm8ber7" path="res://assets/sounds/troll/troll_yelling-03.ogg" id="4_efq3o"]
+[ext_resource type="AudioStream" uid="uid://bj02cf0pc4rcj" path="res://assets/sounds/troll/troll_yelling-04.ogg" id="5_4poqr"]
 [ext_resource type="Texture2D" uid="uid://de1emolr8h2tc" path="res://assets/muscle_domazet.png" id="6_6niot"]
+[ext_resource type="AudioStream" uid="uid://co2o2qom68i1h" path="res://assets/sounds/troll/troll_yelling-05.ogg" id="6_p0ldx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q06x"]
 albedo_color = Color(1, 0, 0, 1)
@@ -27,12 +28,13 @@ line_spacing = -10.19
 radius = 0.16748047
 height = 0.83251953
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_btxi7"]
-streams_count = 4
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2jfdn"]
+streams_count = 5
 stream_0/stream = ExtResource("2_nl86t")
 stream_1/stream = ExtResource("3_42nek")
 stream_2/stream = ExtResource("4_efq3o")
 stream_3/stream = ExtResource("5_4poqr")
+stream_4/stream = ExtResource("6_p0ldx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n5o7"]
 resource_name = "buff"
@@ -859,7 +861,7 @@ _data = {
 &"Walk": SubResource("Animation_j1w44")
 }
 
-[node name="Enemy" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("nav_agent", "visiblity_notifier", "sound_player", "raycast", "anim_player")]
+[node name="Muscle" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("nav_agent", "visiblity_notifier", "sound_player", "raycast", "anim_player")]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_6niot")
@@ -890,7 +892,7 @@ shape = SubResource("CapsuleShape3D_hujxm")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=386083364]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=78383994]
-stream = SubResource("AudioStreamRandomizer_btxi7")
+stream = SubResource("AudioStreamRandomizer_2jfdn")
 
 [node name="muscle" type="Node3D" parent="." unique_id=1824409176]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

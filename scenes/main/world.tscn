@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dcfyr3tbniyg6" path="res://assets/levelfongameJam_tepih.png" id="15_moqhu"]
 [ext_resource type="Texture2D" uid="uid://cgmes3a27ngr2" path="res://assets/levelfongameJam_tepih3.png" id="16_fvaq5"]
 [ext_resource type="Texture2D" uid="uid://bv4v4s7rwhi0i" path="res://assets/levelfongameJam_direktor.webp" id="17_snr5s"]
+[ext_resource type="PackedScene" uid="uid://cfm5obw726t40" path="res://scenes/enemy/muscle.tscn" id="18_3wopa"]
 
 [sub_resource type="TextMesh" id="TextMesh_iuonh"]
 text = "najjjjaaaceeeeeeeee"
@@ -1377,3 +1378,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.460619, 0.0054249763, -1.7
 
 [node name="u sobi za sastanke" type="Marker3D" parent="GaciceSpawner" unique_id=1340272781]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.095896, 0.6070331, -4.4874496)
+
+[node name="Enemy8" parent="." unique_id=2097076516 instance=ExtResource("18_3wopa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.173784, 0.11501527, -9.632791)
