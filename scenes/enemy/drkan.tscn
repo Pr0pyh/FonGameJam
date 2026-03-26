@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://brfuish6bhe01"]
+[gd_scene format=4 uid="uid://brfuish6bhe01"]
 
 [ext_resource type="Script" uid="uid://crpi5cuup7ngf" path="res://scenes/enemy/enemy.gd" id="1_vsohj"]
 [ext_resource type="AudioStream" uid="uid://c2jemq12vem6f" path="res://assets/sounds/drkan/drkan_yelling-01.ogg" id="2_i4yqv"]
@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://yw8y2ohgtd01" path="res://assets/sounds/drkan/drkan_yelling-03.ogg" id="4_er1o6"]
 [ext_resource type="AudioStream" uid="uid://c4smbiaiam5gr" path="res://assets/sounds/drkan/drkan_yelling-04.ogg" id="5_33eln"]
 [ext_resource type="AudioStream" uid="uid://55kagtj2a57q" path="res://assets/sounds/drkan/drkan_yelling-05.ogg" id="6_mdyj7"]
-[ext_resource type="PackedScene" uid="uid://dm6ijbe5kqyx1" path="res://assets/drkan.glb" id="6_vsohj"]
+[ext_resource type="Texture2D" uid="uid://wl5ok4y75m34" path="res://assets/drkan_gradonacelnik2.png" id="6_vsohj"]
 [ext_resource type="AudioStream" uid="uid://nqoyvji4u8ms" path="res://assets/sounds/drkan/drkan_yelling-06.ogg" id="7_cxvvk"]
 [ext_resource type="AudioStream" uid="uid://dkge66ailnc0o" path="res://assets/sounds/drkan/drkan_yelling-07.ogg" id="8_nv0y1"]
 
@@ -39,6 +39,462 @@ stream_3/stream = ExtResource("5_33eln")
 stream_4/stream = ExtResource("6_mdyj7")
 stream_5/stream = ExtResource("7_cxvvk")
 stream_6/stream = ExtResource("8_nv0y1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3y6f"]
+resource_name = "cicka2"
+cull_mode = 2
+albedo_texture = ExtResource("6_vsohj")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8cxi0"]
+_surfaces = [{
+"aabb": AABB(-0.37317047, -1.180298, -0.22368476, 0.9713198, 1.8283895, 1.594392),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAACAAQAAgADAAQAAAAFAAEAAAAGAAUABQAHAAEABQAGAAcAAwABAAcABwAGAAgABwAIAAMAAAAIAAYACAAJAAMABAADAAkACAAAAAoAAAAEAAoACAAKAAsACAALAAkACwAKAAwADQAEAAkACwANAAkACgAEAA4ADQAOAAQACgAOAAwACwAPAA0ADwAOAA0ACwAMAA8ADwAMAA4A"),
+"name": "cicka2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("Ji5Zd+ZqAADPqjD+2nUAADnGpGiQZwAAysRrMS4hAAC93qBaT8IAAMAB//9HdQAAAADz/kkOAABSqlL9ES8AAFUazTEAAAAAatoLKwKIAADqQ2VfxbkAAK09VTAObgAAhA4JV4L4AAD99gAAguwAAP//KVD//wAA5AZPCarlAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_acdmb"]
+resource_name = "drkan_patofna_002"
+_surfaces = [{
+"aabb": AABB(-0.37317047, -1.180298, -0.22368476, 0.9713198, 1.8283895, 1.594392),
+"attribute_data": PackedByteArray("M6gqvq2uUaoZsFTA5aUNquWl2sGmrte4ra7twc6lorTcpCq+waw0qvqjDar5rWfII56xwZeknsimrnKqLKdnyAawdcjOpTSqaZ1kwiWrdchhomXJJaVUwO2jUar2qXKqLKfMsiWxQcQGsA+3AqnswDOohcBfsb3LVamkyhmwF8BBMhx6XDG+gvEuH3+ML7V0nyxWeoYvYYXqK+iCrDS8ffc0tXRKNuZ62jaHf5Uzl4Q="),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkACwAIAAwACwAMAA0ADgAPABAADgARAA8AEgATABQAFQATABIAEwAVABYAEwAWABcAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIwAgACIAIwAiACQAIgAhACUAIgAlACYAIAAnACEAKAAnACAAKAApACcAKgAhACcAKgArACEA"),
+"material": SubResource("StandardMaterial3D_o3y6f"),
+"name": "cicka2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 44,
+"vertex_data": PackedByteArray("Ji5Zd+ZqV6jPqjD+2nUGqDnGpGiQZwerwAH//0d1H6bAAf//R3X+pVKqUv0RLxndz6ow/tp1NKgAAPP+SQ4Q4yYuWXfmahwFAADz/kkONA3AAf//R3WcGlUazTEAAFYK6kNlX8W5xRitPVUwDm6GEVKqUv0RL9oeVRrNMQAAQx3KxGsxLiFyGwAA8/5JDkIgvd6gWk/C18bKxGsxLiEF2mraCysCiHTPOcakaJBnIbXPqjD+2nVnslKqUv0RL0TYVRrNMQAA2xpq2gsrAoiTKcrEazEuIVofrT1VMA5uxDQmLll35mr/p73eoFpPwl7E6kNlX8W5g8A5xqRokGccreQGTwmq5Szi//8pUP//+uD99gAAguzz6q09VTAObuTRatoLKwKIUPy93qBaT8IC7GraCysCiKrqhA4JV4L4/titPVUwDm6Y+upDZV/Fue3J6kNlX8W5lOq93qBaT8Ig0pmiiumEvsNR6ru7TyTNTMVJzCrFMNQacVq+vVI79jCly/sPKyPiYEFe8Rgl1ECQXSbjMC67S8NlI9kafX4oc5SqAuxYG+mHq9S6xBmvZOEtcmetL2zDOBRPx5kXqrLFHwQj44m7FH1J4w3pUyk32JnwklHtbcbWYjDmfbEnu9hXVdHm7LEg+RQyGSjZkUsl9HCr71ejsbSYQA+pvVf6DS4VVXRcDf7JrwXhqyt5t4kF")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8cxi0")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3kc0y"]
+_surfaces = [{
+"aabb": AABB(-0.6471792, -0.62498194, -0.6713232, 1.2943584, 3.116988, 1.4457004),
+"format": 34359742465,
+"index_count": 390,
+"index_data": PackedByteArray("CAA0ADUANQA0ADYANAAIADcANAA3ADgANgA0ADgACAA5ADcANQA2ADoAOwAIADUAOwA1ADoAOwAKAAgACAAKADkAOwA6ADwAOwA9AAoAPAA9ADsAPgAKAD0APgA5AAoAPAA/AD0APQBAAD4APQA/AEAACQA5AD4AQAAJAD4AOQAEADcAPAAOAD8AOgAOADwAQQBAAD8AQQA/AA4AOgALAA4AOgA2AAsADgBCAEEADgALAEIAQABBABEAQgARAEEAQwALADYAQwBCAAsANgA4AEMAOAA3AAQARABCAEMAOABEAEMAQgASABEARAASAEIAOABFAEQAOAAEAEUAFQASAEQAEQASABMAFQATABIARABFAAAARAAAABUARQAEAAEARQABAAAAEwAVABQAFAAVAAAAAAABAAIAFAAAAAIABAADAAEAAgABAAMABAAGAAMAOQAGAAQACQAGADkABwADAAYABwAGAAkAAgADAAUAAwAHAAUADwAUAAIADwACAAUADwATABQABQAHAAwABQAMAA8ACQAMAAcADwAQABMADAAQAA8AEQATABAACQANAAwAEAAMAA0AEAANABEAQAANAAkAQAARAA0AFgAXABgAGQAWABgAGQAaABYAGAAbABkAGAAXABsAGQAcABoAGQAbABwAGgAdABYAFgAdABcAGgAcAB0AHQAeABcAHAAfAB0AHQAfAB4AGwAgABwAHAAgAB8AFwAhABsAGwAhACAAFwAeACEAIAAiAB8AHgAfACIAIQAjACAAIAAjACIAHgAkACEAIQAkACMAHgAlACQAHgAiACUAJAAmACMAIwAnACIAIwAmACcAIgAoACUAIgAnACgAJQApACQAJQAoACkAJAApACYAJgAqACcAKAArACkAJgApACsAJwAsACgAJwAqACwAKAAsACsAJgAtACoALQAsACoAJgArAC0ALQArACwALgAvADAALgAwADEALgAxAEYARgAxADMALgAyAC8ARgAzAEcALgBGAEcALwBHADMALgBHADIALwAyAEcA"),
+"lods": [1.4958303, PackedByteArray("AAABAAIAAgABAAMAAAAEAAEABAADAAEAAgADAAUABAAGAAMAAwAHAAUABwADAAYACAAGAAQACAAEAAAABwAGAAkACAAKAAYACQAGAAoACwAIAAAACgAIAAsACQAMAAcABQAHAAwACgANAAkACQANAAwACgALAA4ACgAOAA0ABQAMAA8ADwACAAUAEAAMAA0ADAAQAA8AEQANAA4AEAANABEADgALABIADgASABEAEQATABAADwAQABMAEQASABMADwAUAAIADwATABQAFAAAAAIAFQASAAsAFQATABIACwAAABUAEwAVABQAFAAVAAAAFgAXABgAGQAWABgAGQAaABYAGAAbABkAGAAXABsAGQAcABoAGQAbABwAGgAdABYAFgAdABcAGgAcAB0AHQAeABcAHAAfAB0AHQAfAB4AGwAgABwAHAAgAB8AFwAhABsAGwAhACAAFwAeACEAIAAiAB8AHgAfACIAIQAjACAAIAAjACIAHgAkACEAIQAkACMAHgAlACQAHgAiACUAJAAmACMAIwAnACIAIwAmACcAIgAoACUAIgAnACgAJQApACQAJQAoACkAJAApACYAJgAqACcAKAArACkAJgApACsAJwAsACgAJwAqACwAKAAsACsAJgAtACoALQAsACoAJgArAC0ALQArACwALgAvADAALgAwADEALgAyAC8ALgAxADIALwAyADMAMQAzADIA")],
+"name": "cicka2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("+ZpUvvAiUT/drJk+wPPlvvAiUT8K+ZQ+BLplvq4AaT+siJ4+wPPlvvAiUT9GiQe/VwAMvzodpz40QJE+BLplvq4AaT/WaQq/VwAMvzodpz5HFwm/rsFGvvAiUT8YqAm/jpAev0qzGb+QvRA//PdPvjodpz4eQwu/jpAev0qzGb9Xxyq/vYshP0IzHr8SqQ8/wtpaPvAiUT8YqAm//PdPPjodpz4eQwu/vYshP0MzHr/W2yu/BbplPq4AaT/WaQq/SgDwPvAiUT9GiQe/VwAMPzodpz5HFwm/VwAMPzodpz40QJE+SgDwPvAiUT8K+ZQ+BLplPq4AaT+siJ4+DLRoPvAiUT/drJk+Q5okv9bmWD8o/M8+CF4kPyo4dD+W+s0+TnElP2bIUT9wWs8+ia0lP/grVT+yYg6/CF4kv2hKXD/VEQ6/Q5okP7ybdz+fEg+/TnElvyy6fj/CwQ6/ia0lv5pWez9OnM4++g68PimFfz8E3wE+rCKuvvM9hj9g8bw9rp6Yvvnzhz8Es4y+/siKPr3vgj8JXJC+S8B8vsPBsj+0zGi9Pk2BvqrSuz9IucC+8jPZPd8zwz+kerW+XK2zPSbmtD9CN8u9+7ZtPZdE/T98L6a+UnKtPeaPAUBPPAy+kpmPPtYaAUB20cC9WuSYPuKK/z+oT7S+XAgNvgd9H0DQi3s8FBDoPU+LFUBZXWS+VHoKPtbCHUA4qK+8euC0vUzFGkCRs2q+MKOBPTodpz6WPUY/as2BvSzyLD/QdpY+aM2BPSzyLD/QdpY+MKOBPS94Oz5wCaI9MqOBvTodpz6WPUY/MqOBvS94Oz5wCaI9XVfEvp/gx77R/h8/oODHvtH+H7/AByQ/XlfEPqDgx77R/h8/0f4fv9EnSj6EYx0/KDPEvtEnSj7R/h8/0f4fv9EnSj760h2/oODHPtH+H7/AByQ/oODHvtH+H7+JJR+/n+DHPtH+H7+KJR+/uWq9vqDgx77R/h+/nP+8vtEnSj7R/h+/uWq9Pp/gx77R/h+/nP+8PtEnSj7R/h+/0f4fP9EnSj760h2/0f4fP9EnSj6EYx0/KTPEPtEnSj7R/h8/GF9ePjodpz7QdpY+GF9evjodpz7QdpY+MKOBPS94Oz6i8RQ/MqOBvS94Oz6i8RQ/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0wr6e"]
+resource_name = "drkan_patofnanglavu"
+_surfaces = [{
+"aabb": AABB(-0.6471792, -0.62498194, -0.6713232, 1.2943584, 3.116988, 1.4457004),
+"attribute_data": PackedByteArray("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"),
+"format": 34359742487,
+"index_count": 390,
+"index_data": PackedByteArray("HAClAKYApQAcAKcApgClAKgApgCoAKkAqQCoABgApQCnAKoAqAClAKoAqgCnAB0AqwAYAKgAqACqAKsAqwCsABgArQCsAKsAqgCtAKsArQAXAKwAGQAXAK0AGQAaABcArQCuABYArQCvAK4AqgCvAK0AqgAdAK8ArwAdAB4ArwAeABsAsACxABIAsgCxALAAswASALEAswC0ABIAsgC1ALEAsgAUALUAtgC1ABQAsQC1ALcAtgC3ALUAsQC3ALMAtwC2ABUAtwAVABMAtwATABAAtwAQALMAEAC0ALMAEAARALQAAAABAAIAAwAEAAIAAwAFAAQABgAHAAMACAAJAAoACgALAAwACgAMAA0ADgAPAA0AuAA4ALkAuAA1ADgAuAC5ALoAuAC6ALsAugA3ALsAugA2ADcAHwAgACEAHwAiACAAIwAfACEAIwAkAB8AIwAlACQAIwAmACUAJwAoACkAJwAqACgAKQArACwAKQAtACsALgAtAC8ALgAwAC0AMQC8AL0AMQA0ALwAvAAzAL0AvAAyADMAOQC+AL8AOQA8AL4AvgA7AL8AvgA6ADsAPQA+AD8APQBAAD4AQQBCAEMAQQBEAEIARQBGAEcARQBIAEYASQBKAEsASQBMAEoATQBOAE8ATQBQAE4AUQBSAFMAUQBUAFIAVQBWAFcAVQBYAFYAWQBaAFsAWQBcAFoAXQBeAF8AXQBgAF4AYQBiAGMAYQBkAGIAZQBmAGcAZQBoAGYAaQBqAGsAaQBsAGoAbQBuAG8AbQBwAG4AcQByAHMAcQB0AHIAdQB2AHcAdQB4AHYAeQB6AHsAeQB8AHoAfQB+AH8AfQB/AIAAfQCAAMAAfQCBAH4AfgCBAMEAfgDBAIIAfQDCAIEAfQDDAMIAwwCEAMIAwwCDAIQAhQCGAIcAhQCIAIYAiQCKAIsAiQCMAIoAjQCOAI8AjQCQAI4AkQCSAJMAkQCUAJIAlQCWAJcAlQCYAJYAmQCaAJsAmQCcAJoAnQCeAJ8AnQCgAJ4AoQCiAKMAoQCkAKIA"),
+"lods": [1.4958303, PackedByteArray("AAABAAIAAwAEAAIAAwAFAAQABgAHAAMACAAJAAoACgALAAwACgAMAA0ADgAPAA0AEAARABIAEgATABAAEgAUABMAFQATABQAFgAXABgAGQAaABcAGAAbABYAGAAcABsAHAAdABsAGwAdAB4AHwAgACEAHwAiACAAIwAfACEAIwAkAB8AIwAlACQAIwAmACUAJwAoACkAJwAqACgAKQArACwAKQAtACsALgAtAC8ALgAwAC0AMQAyADMAMQA0ADIANQA2ADcANQA4ADYAOQA6ADsAOQA8ADoAPQA+AD8APQBAAD4AQQBCAEMAQQBEAEIARQBGAEcARQBIAEYASQBKAEsASQBMAEoATQBOAE8ATQBQAE4AUQBSAFMAUQBUAFIAVQBWAFcAVQBYAFYAWQBaAFsAWQBcAFoAXQBeAF8AXQBgAF4AYQBiAGMAYQBkAGIAZQBmAGcAZQBoAGYAaQBqAGsAaQBsAGoAbQBuAG8AbQBwAG4AcQByAHMAcQB0AHIAdQB2AHcAdQB4AHYAeQB6AHsAeQB8AHoAfQB+AH8AfQB/AIAAfQCBAH4AfgCBAIIAfQCDAIEAgwCEAIEAhQCGAIcAhQCIAIYAiQCKAIsAiQCMAIoAjQCOAI8AjQCQAI4AkQCSAJMAkQCUAJIAlQCWAJcAlQCYAJYAmQCaAJsAmQCcAJoAnQCeAJ8AnQCgAJ4AoQCiAKMAoQCkAKIA")],
+"material": SubResource("StandardMaterial3D_o3y6f"),
+"name": "cicka2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 196,
+"vertex_data": PackedByteArray("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")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3kc0y")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8xy7o"]
+_surfaces = [{
+"aabb": AABB(-0.9977294, -0.8922962, -0.55254316, 1.7057339, 1.3959297, 2.4457054),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("CgABAAIAAAAKAAIACgAHAAEABwAKAAsACwAKAAAABwALAAgABgAHAAgABgABAAcACQAIAAsABgAIAAkACQALAAwACwAAAAwAAAAJAAwAAAAGAAkAAAACAAUABgAAAAUADQACAAEABQACAA0ABgAEAAEABgAFAAQABAAOAAEADQABAA4ABAAPAA4ABQANAAMABAAFAAMAAwANAA4ABAADAA8AAwAOAA8A"),
+"lods": [1.6698171, PackedByteArray("AAABAAIAAwACAAEAAwABAAQABQACAAMABAAFAAMAAAACAAUABgAFAAQABgAEAAEABgAAAAUAAAAHAAEABgABAAcABwAAAAgABgAHAAgAAAAJAAgABgAIAAkAAAAGAAkA")],
+"name": "cicka2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AABDvcJhAABlqL+Wfb8AAPtlcsC9vgAAXkHlC/TKAAAjgzNKRJwAANg4nX8dlAAAF26ld+NtAAAshbHLt5AAAP//aK5kSQAActiDVPknAAC6N///eY8AAE3f/eEgLgAAz6gAnwAAAACzdleH//8AAJLDo3vn4gAAnosAAIOuAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_u565a"]
+resource_name = "drkan_patofna_003"
+_surfaces = [{
+"aabb": AABB(-0.9977294, -0.8922962, -0.55254316, 1.7057339, 1.3959297, 2.4457054),
+"attribute_data": PackedByteArray("JJZdw4Ctbt9KpDXfnaht0aa5EbwqtA+yaaX/xgeecdJVqOLUaaXtvqa5kbUqtO7EnaiQsI+g7b5VkJy5opmQsFaXssb5ogeze5B8svWYkb1tLn+APjHrhdErtIVyLo6QYyfriu4ndoY1KX+A350N0R2157OPrRemd67uxD2twKxqtjO40aeRteGZn6cBL4eKfSkxia0sBI6KKsyP7DEsjg=="),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("GwABAAIAGwADAAEAAwAbABwAAwAcAAQAHAAbAAAAHAAAAB0AAAAFAB0AAAAGAAUABgAAAAcABgAHAAgAHgAfACAAHgAhAB8ACQAKAAsACQAMAAoADQAOAA8ADQAQAA4AEQASABMAEQAiABIAFAAjABYAFAAVACMAGQAaABYAGQAWACQAFgAlACQAFgAjACUAGAAkACUAGAAlACYAIwAXACUAIwAnABcA"),
+"lods": [1.6698171, PackedByteArray("AAABAAIAAAADAAEAAwAAAAQAAAAFAAQAAAAGAAUABgAAAAcABgAHAAgACQAKAAsACQAMAAoADQAOAA8ADQAQAA4AEQASABMAFAAVABYAFgAVABcAFgAXABgAGQAaABYA")],
+"material": SubResource("StandardMaterial3D_o3y6f"),
+"name": "cicka2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AABDvcJhYRVlqL+Wfb8hz/tlcsC9voinLIWxy7eQaMT//2iuZEk1xnLYg1T5J60vF26ld+NtsDnYOJ1/HZTgNiODM0pEnDERF26ld+Ntu8j//2iuZEkKtnLYg1T5J3bKLIWxy7eQBrYXbqV3420+4mWov5Z9v4nJLIWxy7eQn7YjgzNKRJxy6AAAQ73CYRAA+2VywL2+PRXYOJ1/HZRDBNg4nX8dlP/k+2VywL2+PMFeQeUL9MpxzWWov5Z9v9fXI4MzSkScD/IjgzNKRJxY/dg4nX8dlBK+ujf//3mP5rFN3/3hIC5o1M+oAJ8AAJQCctiDVPknu91N3/3hIC4L38+oAJ8AAFf8//9ormRJLba6N///eY8HErN2V4f//3fPnosAAIOu1OmSw6N75+Jl7WWov5Z9v+Pq+2VywL2+lOSVSLye8b0kX1bLyqNBp/BQYaTeT8UEpFwYA5CIzUcYpLcQWKpaLYlmWIbVBmUvQVIakHAR5l/4S4upAQ0pkggDnGpJKH044oNZ4DwX0E0kaw3UWN8u78AwbUDD+PVCkhH4GdKz9KqWRVpV+tnj4Our0dgicCcfTJsBbzc6iLR0EBCGifzqdzwAyd04Hl748A/fJtLPbxCxKkrBd4gV4jga")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8xy7o")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_80qbl"]
+_surfaces = [{
+"aabb": AABB(-1.6883954, 1.2328957, -1.520443, 3.3767908, 2.9653063, 3.2400246),
+"format": 34896613377,
+"index_count": 114,
+"index_data": PackedByteArray("DAAFAA0ADgANAAUADwAOAAUADAAPAAUAEAAPAAwADwADAA4AEAAAAA8AAAADAA8ABgAQAAwABgAAABAABgAMABEAEQAMAA0ACwAGABEAEQANAAcACQAGAAsAAAAGAAkACwARAAoACgARAAcACQALAAoADQASAAcACgAHABIAEwANAA4ADQATABIAAwATAA4AEgATABQACAAKABIACQAKAAgACAASABQABAAUABMABAAIABQAAwAEABMAAQAJAAgAAQAIAAQAAAAJAAEAAgAEAAMAAAACAAMAAgABAAQAAAABAAIA"),
+"lods": [1.9712654, PackedByteArray("AAABAAIAAAACAAMAAgABAAQAAgAEAAMAAAADAAUAAwAEAAUABgAAAAUABAAHAAUABgAFAAcAAQAIAAQACAAHAAQAAAAJAAEAAQAJAAgAAAAGAAkACAAKAAcACgAGAAcACQAKAAgACwAGAAoACQAGAAsACQALAAoA")],
+"name": "cicka2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 21,
+"vertex_data": PackedByteArray("MNoAAHsAAAC8xsUBp/8AAP//GwL//wAABOM0ZF3SAABquLxlGdIAAFCarPv1WQAAziUAAHsAAACuZaz79VkAAJRHvGUZ0gAAQjnFAaf/AAD6HDRkXdIAAAAAGwL//wAA/3/qgU8lAAD/f///XE0AAM+g9fFGdgAAz8xigK8lAAD/fwAAAAAAAC8zYoCvJQAAL1/18UZ2AACajirq+owAAGRxKur6jAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vu8qc"]
+resource_name = "drkan_telo"
+_surfaces = [{
+"aabb": AABB(-1.6883954, 1.2328957, -1.520443, 3.3767908, 2.9653063, 3.2400246),
+"attribute_data": PackedByteArray("j6UHlSrfZpoB3ySGvt9zzEym2NQO4LXgUKu21JKq5pTpdtysIHd7vwur7+J5qjGM05TM4uZ27qveqtfNwZTL3IeUWskIqxniBUTV2H87BtA/QpfOjTuh2vupiYcRlHKh15MBjkmqypt5qjGM05TM4uZ27qsLq+/imN4KjMLefJ/+uRmrNbq3vTnfZMeC39Taoo+GtSB2MbZEj+2V/48e1fGqzrTSpfC0SY/ClwR5fbVJj8KXBHl9tYvF8K5ZwKGoQrd7tJ7A2b+pxUW5OUJ3zZk7RbpnPqy5Uzvuzg=="),
+"format": 34896613399,
+"index_count": 114,
+"index_data": PackedByteArray("JAAIACUAJAAmAAgAJwAkACUAJwAlAAkABgAkACcABgAoACQAKAAmACQAKAAHACYABAAAACkAAAAEAAMAAwAEAAUAAAADAAEAAAABAAIACgAqAAwACgALACoADAAqAA0ADAANACsADgAPABAADgARAA8AEgATABQAEgAVABMAFgAXABgAFgAZABcAGgAbACwAGgAdABsALAAbAC0ALAAtABwAHgAuAC8AHgAfAC4ALgAwAC8ALwAwACAAMAAuADEAMAAxACEAMQAuADIAIgAxADIAIgAjADEAMwA0ADUAMwA2ADQA"),
+"lods": [1.9712654, PackedByteArray("AAABAAIAAAADAAEAAAAEAAMAAwAEAAUABgAHAAgABgAIAAkACgALAAwADAALAA0ADgAPABAADgARAA8AEgATABQAEgAVABMAFgAXABgAFgAZABcAGgAbABwAGgAdABsAHgAfACAAHwAhACAAIgAhAB8AIgAjACEA")],
+"material": SubResource("StandardMaterial3D_o3y6f"),
+"name": "cicka2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 55,
+"vertex_data": PackedByteArray("MNoAAHsAugq8xsUBp//GO///GwL//14TQjnFAaf/uzvOJQAAewDMHgAAGwL//ylWziUAAHsAmx8w2gAAewB5CFCarPv1WVEyrmWs+/VZ5hMAABsC//8XQM4lAAB7ALog+hw0ZF3SVC6uZaz79VnrAEI5xQGn/03K+hw0ZF3StciUR7xlGdIUxAAAGwL//zy3vMbFAaf/f5aUR7xlGdI0lmq4vGUZ0oWWQjnFAaf/fpb//xsC///S22q4vGUZ0ti/BOM0ZF3SP8q8xsUBp/8wxDDaAAB7ABr9BOM0ZF3SAsFQmqz79Vnhy///GwL//+DTBOM0ZF3SIs9quLxlGdJCwVCarPv1WUfirmWs+/VZMdeUR7xlGdKZw/ocNGRd0svE/3/qgU8lIQr/f///XE1GHM/MYoCvJTgjLzNigK8llgf/fwAAAAA+Ev9/AAAAANcRLzNigK8lvA4vX/XxRnbFCM/MYoCvJdnez6D18UZ2Ubqajirq+ozAyc+g9fFGdijZ/3///1xNUuQvX/XxRnb+xmRxKur6jMnFari8ZRnSSZZkcSrq+oxgopqOKur6jNGilEe8ZRnSAJbzGZy4MReR6UoKZNosF5DpG1WF4uNEAO4POv+v4agkRvfLTDvR17AtYlKTkfFAlbxQcxew9GZYuGRsL2hyeUe3+JKdmSxSZpkcEIJ8ZN0ykXXh03kxEGR8eJRPXhKbE5PPtRx4h2nVaHyxJE/utXRvctqnZIORRVrAtUd8V5pPkxO5QJ/uoKu+NJOWmch8MLtXxII5983IMua5QUGATxqwpTaUyKs378mcWWm7F2xwq9bBE1Bpy41wQp/Pm12wmZSHsdeyaZW4uMebAKEM5Fx41eh8js/qsH3/4pCQ")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_80qbl")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_80uwn"]
+_surfaces = [{
+"aabb": AABB(-0.4806524, -1.2441968, -0.48364428, 0.9747417, 1.3679526, 2.021524),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAQAEAAMABQACAAMABQAAAAIABgADAAQABQADAAYABwAEAAEAAAAHAAEABwAGAAQAAAAFAAgABQAGAAkABwAJAAYABQAJAAgABwAKAAkAAAAIAAsAAAALAAcACwAIAAkABwALAAoACwAJAAoA"),
+"name": "cicka2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("kvcAAAAAAAD/////fnoAAJL3//8AAAAAAAD//wAAAADKAf//fnoAAAAAAAAAAAAAygH/f356AAD///9/fnoAAMoBAAD//wAAygGseePiAAD+/6x54+IAAP//AAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pffql"]
+resource_name = "drkan_patofna"
+_surfaces = [{
+"aabb": AABB(-0.4806524, -1.2441968, -0.48364428, 0.9747417, 1.3679526, 2.021524),
+"attribute_data": PackedByteArray("qYbneJqX/JyphvycmpfxihKq53gLpg2KqYbneAumDYoSqud4mpfxiqmG/Jyal/yc2Y6MiuyfEKRpjxCkzp+MitmO8YrOn/yc2Y78nM6f8Yrsn+d4aY/8nOyf/Jxpj+d42Y6Mis6fznTOn4yK2Y7OdNmO53jOnw2K2Y4Nis6f53hpjxCkzp++btmOvm7snxCk"),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAAAEAAMAAwAEAAUABgAHAAgABgAJAAcABgAKAAkACQAKAAsADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEA"),
+"material": SubResource("StandardMaterial3D_o3y6f"),
+"name": "cicka2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("kvcAAAAAGvH/////fnpH45L3//8AABbx////f356p+P//wAA//+y5f7/rHnj4rvjAAAAAAAA1yPKAax54+L/ScoBAAD//1JUygH/f356Ok8AAP//AADdI8oB//9+eoBO/////356Y/YAAP//AADS6JL3//8AACvpygH//356j/b///9/fnqJ9soB//9+eo/2/////356Y/bKAf9/fnrE9gAAAAAAAC8Xkvf//wAA1BYAAP//AAAsF5L3AAAAAMIW////f356ifbKAax54+Jl9MoB/39+esT2/v+seePiGvT//wAA//+V+MoBrHnj4mX0/v+seePiGvTKAQAA///E+JL3AAAAAMIWygEAAP//Ogf//wAA//9pBwAAAAAAAC8XJRsmveemII8Ww+qai6Ylj+EMfdxsqeqRlE5U382ZErsIOojqspf9ub6ghM4zmKu5XR7tFw51utIbU7UKmmiong8e7heaaKieXR7tF0xo3508rQ71G1O1Cg51utK2igAtDx7uF9BoGKNMaN+dYiNdF1+YymbQaBijYiNdF//m1Oe2igAt/+bU51+YymY8rQ71")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_80uwn")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_efdyg"]
+_surfaces = [{
+"aabb": AABB(-0.47799516, -1.2441968, -0.48364428, 0.958537, 1.3679526, 2.021524),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwAAAAIAAAAEAAEAAwAEAAAABQABAAQABQAEAAMAAQAGAAIAAwACAAYABwAGAAEABQAHAAEABQADAAgABgAHAAkABQAJAAcACgADAAYACgAIAAMABgAJAAoABQAIAAsABQALAAkACwAIAAoACwAKAAkA"),
+"name": "cicka2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAP//AAB0/ax54+IAAHT9AAD//wAAaQEAAAAAAAAAAKx54+IAAAAA/39+egAA//8AAHAfAAB0/f9/fnoAAGkB//8AAAAAdP3//356AAD+////cB8AAAAA//9+egAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k15ld"]
+resource_name = "drkan_patofna_001"
+_surfaces = [{
+"aabb": AABB(-0.47799516, -1.2441968, -0.48364428, 0.958537, 1.3679526, 2.021524),
+"attribute_data": PackedByteArray("xqDneCaQDYomkOd4xqANisagpIsmkOZ1xqDmdSaQpIvGoPGKJpD8nCaQ8YrGoPycxqCki/uPm54mkKSLrqAnpduX8Yrqhvyc25f8nOqG53hMpg2KUqrnePuP/JyuoOd4+4/neK6g/JxMpg2KQ4vneFKq53jbl/GK25f8nEOL/JyuoCelJpDWb/uPm57GoNZv"),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAEAAUABMAEwAUABUAFgAXABgAFgAZABcAGgAbABwAHQAbABoAGwAdAB4AGwAeAB8AIAAhACIAIAAjACEA"),
+"material": SubResource("StandardMaterial3D_o3y6f"),
+"name": "cicka2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AAAAAP//tvh0/ax54+Ju9HT9AAD//8r4AACseePiTvQAAP9/fnqy9nT9rHnj4m70AACseePiTvR0/f9/fnrK9gAA/39+erL2dP3//356k/Z0/f9/fnrK9gAA//9+eoH2AAD//356gfb+////cB975nT9//9+epP2aQH//wAA4+sAAP9/fnoLT2kB//8AALEfAAD//356VU5pAQAAAAC2HwAArHnj4tFJAAAAAP//HlT+////cB85HWkBAAAAAOQQ//8AAHAfPB1pAf//AADoEHT9rHnj4o/j//8AAHAfEPF0/QAA///t5XT9/39+ej7kdP3//3567+P+////cB8g8WkBAAAAABkUdP0AAP//NAf//wAAcB+HGQAAAAD//0gH7+bE5xAjKBcjmAdnwWguozlo7p0QIygXwWguo9odqxc5aO6dth5SF9odqxdwaJGecGiRng9ORQ22HlIXQ3fn1oWXHrqCooDNvZfluXFNad2omTa7HTq16rBW1gT6sCrv1oRLKSxvCs/4qPGRgxlgv/sM/tzMpYePAKYfkIHAoJkdqUH3I5gHZ0SN7DHv5sTn")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_efdyg")
+
+[sub_resource type="Animation" id="Animation_3nvn0"]
+resource_name = "Idle"
+length = 0.4162504
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Kicma")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.0036605531, 0.40210098, -0.2085857, 0.033333335, 1, -0.0036605531, 0.3777251, -0.20831987, 0.06666667, 1, -0.0036605531, 0.3348855, -0.2078527, 0.1, 1, -0.0036605531, 0.3160988, -0.20764785, 0.13333334, 1, -0.0036605531, 0.32094237, -0.20770067, 0.16666667, 1, -0.0036605531, 0.30748826, -0.20755394, 0.2, 1, -0.0036605531, 0.30265334, -0.20750122, 0.23333333, 1, -0.0036605531, 0.31990895, -0.20768939, 0.26666668, 1, -0.0036605531, 0.35675767, -0.20809123, 0.3, 1, -0.0036605531, 0.3901778, -0.20845568, 0.33333334, 1, -0.0036605531, 0.3793434, -0.20833753, 0.36666667, 1, -0.0036605531, 0.3928408, -0.20848471, 0.4, 1, -0.0036605531, 0.39974394, -0.20855999, 0.4162504, 1, -0.0036605531, 0.40210098, -0.2085857)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Kicma")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.005452264, -3.4115595e-17, -3.4115592e-17, 0.99998516, 0.033333335, 1, -0.0011381251, -3.4262456e-17, -3.3968092e-17, 0.9999994, 0.06666667, 1, 0.0076660593, -3.4560188e-17, -3.3665123e-17, 0.9999706, 0.1, 1, 0.018958079, -3.4938157e-17, -3.3272695e-17, 0.99982035, 0.13333334, 1, 0.030733561, -3.532765e-17, -3.2858856e-17, 0.9995277, 0.16666667, 1, 0.040988073, -3.5662952e-17, -3.2494632e-17, 0.99915963, 0.2, 1, 0.045298196, -3.580281e-17, -3.234047e-17, 0.99897355, 0.23333333, 1, 0.04308941, -3.5731218e-17, -3.241955e-17, 0.99907124, 0.26666668, 1, 0.035747766, -3.549205e-17, -3.2681205e-17, 0.99936086, 0.3, 1, 0.024945803, -3.5136803e-17, -3.306285e-17, 0.99968886, 0.33333334, 1, 0.012682788, -3.472865e-17, -3.3491315e-17, 0.99991965, 0.36666667, 1, 0.0023921083, -3.4382156e-17, -3.3846927e-17, 0.99999714, 0.4, 1, -0.0033490798, -3.4187275e-17, -3.4043766e-17, 0.99999446, 0.4162504, 1, -0.005452264, -3.4115595e-17, -3.4115592e-17, 0.99998516)
+tracks/2/type = "position_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Ruka.L")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.7052586, 2.3989456, -0.104866095)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:Ruka.L")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.07957422, -0.49516615, -0.8534977, 0.14149265, 0.033333335, 1, -0.08958902, -0.50593865, -0.8464508, 0.13971776, 0.06666667, 1, -0.11128105, -0.52041674, -0.8357469, 0.13531508, 0.1, 1, -0.13947171, -0.53616303, -0.8224127, 0.12928365, 0.13333334, 1, -0.16885439, -0.55147815, -0.8076445, 0.122761816, 0.16666667, 1, -0.1940651, -0.5655197, -0.79298586, 0.11704636, 0.2, 1, -0.20384425, -0.57509506, -0.7839014, 0.11494221, 0.23333333, 1, -0.19883937, -0.5702073, -0.7885841, 0.11602454, 0.26666668, 1, -0.18120696, -0.55840933, -0.8005919, 0.119982705, 0.3, 1, -0.15446919, -0.54382443, -0.81518435, 0.12597153, 0.33333334, 1, -0.123708315, -0.52791923, -0.829691, 0.13270448, 0.36666667, 1, -0.09818669, -0.51238734, -0.8418839, 0.13802233, 0.4, 1, -0.084459394, -0.5004347, -0.85009086, 0.1406321, 0.4162504, 1, -0.07957422, -0.49516615, -0.8534977, 0.14149265)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D:Glava")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.0016351399, -0.003652583, -0.0036678847, 0.9999853, 0.033333335, 1, -0.03358132, -0.0037026617, -0.003615975, 0.99942255, 0.06666667, 1, -0.023040101, -0.003667711, -0.00364785, 0.99972117, 0.1, 1, 0.0015880824, -0.0035952511, -0.0037137363, 0.9999854, 0.13333334, 1, 0.02481447, -0.003511794, -0.0037875534, 0.9996788, 0.16666667, 1, 0.043907404, -0.0034246682, -0.00386796, 0.9990223, 0.2, 1, 0.06980642, -0.003337264, -0.003951516, 0.99754715, 0.23333333, 1, 0.096235424, -0.003251132, -0.004030938, 0.9953451, 0.26666668, 1, 0.122047015, -0.003169398, -0.0041010766, 0.99251086, 0.3, 1, 0.14483228, -0.0030999114, -0.004154751, 0.98944265, 0.33333334, 1, 0.16033846, -0.0030577576, -0.0041816966, 0.9870485, 0.36666667, 1, 0.09384716, -0.0033081209, -0.0039882283, 0.9955731, 0.4, 1, 0.029441169, -0.0035432563, -0.0037767282, 0.99955314, 0.4162504, 1, -0.0016351432, -0.003652583, -0.0036678847, 0.9999853)
+tracks/5/type = "position_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature/Skeleton3D:Ruka.R")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.69717526, 2.396261, -0.10766762)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("Armature/Skeleton3D:Ruka.R")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.07827956, 0.4943512, 0.85325664, 0.14643228, 0.033333335, 1, -0.095111646, 0.50602144, 0.84533495, 0.14249577, 0.06666667, 1, -0.116550714, 0.5205641, 0.8346014, 0.13736652, 0.13333334, 1, -0.16332868, 0.55103034, 0.80863273, 0.12570758, 0.16666667, 1, -0.18593094, 0.5651179, 0.7948025, 0.119835705, 0.2, 1, -0.20225534, 0.5750317, 0.7842787, 0.11549206, 0.23333333, 1, -0.19390124, 0.5699863, 0.7897207, 0.117725395, 0.26666668, 1, -0.17438303, 0.55797285, 0.8019748, 0.12285541, 0.3, 1, -0.15144336, 0.54345554, 0.8155667, 0.12873214, 0.33333334, 1, -0.12771843, 0.5279963, 0.82872164, 0.13464175, 0.36666667, 1, -0.10478296, 0.5126266, 0.8405825, 0.140198, 0.4, 1, -0.08649079, 0.5000717, 0.8494475, 0.14452216, 0.4162504, 1, -0.07827956, 0.4943512, 0.85325664, 0.14643228)
+tracks/7/type = "position_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("Armature/Skeleton3D:Noga.L")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.6378665, 0.46562755, -0.13605475)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("Armature/Skeleton3D:Noga.L")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.36873314, 0.00082948984, -0.9295326, 0.0020907293, 0.033333335, 1, -0.37701634, 0.00084812037, -0.9262039, 0.002083243, 0.06666667, 1, -0.3938425, 0.00088596635, -0.91917527, 0.0020674355, 0.1, 1, -0.41524285, 0.0009341005, -0.90970784, 0.0020461427, 0.13333334, 1, -0.43732515, 0.0009837683, -0.89930063, 0.0020227367, 0.16666667, 1, -0.45634025, 0.0010265377, -0.88980263, 0.002001375, 0.2, 1, -0.46426535, 0.0010443628, -0.8856933, 0.001992133, 0.23333333, 1, -0.46020842, 0.0010352379, -0.8878081, 0.0019968892, 0.26666668, 1, -0.44664747, 0.0010047363, -0.89470726, 0.0020124058, 0.3, 1, -0.42650408, 0.0009594293, -0.9044829, 0.0020343917, 0.33333334, 1, -0.40337366, 0.00090740423, -0.91503257, 0.0020581183, 0.36666667, 1, -0.38377714, 0.0008633269, -0.92342305, 0.002076989, 0.4, 1, -0.372775, 0.0008385807, -0.92791903, 0.0020871004, 0.4162504, 1, -0.36873314, 0.00082948984, -0.9295326, 0.0020907293)
+tracks/9/type = "position_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("Armature/Skeleton3D:Noga.R")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, -0.6378665, 0.46562755, -0.13605475)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("Armature/Skeleton3D:Noga.R")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, -0.36873314, -0.00082948996, 0.92953265, 0.0020907293, 0.033333335, 1, -0.37701634, -0.0008481206, 0.92620397, 0.0020832433, 0.06666667, 1, -0.39384246, -0.0008859664, 0.91917527, 0.0020674355, 0.1, 1, -0.41524285, -0.0009341006, 0.90970784, 0.0020461427, 0.13333334, 1, -0.43732518, -0.0009837685, 0.89930063, 0.0020227367, 0.16666667, 1, -0.45634034, -0.0010265379, 0.8898025, 0.0020013747, 0.2, 1, -0.46426535, -0.0010443629, 0.8856933, 0.001992133, 0.23333333, 1, -0.46020848, -0.0010352382, 0.8878081, 0.0019968892, 0.26666668, 1, -0.44664747, -0.0010047365, 0.8947072, 0.0020124058, 0.3, 1, -0.42650408, -0.0009594295, 0.9044829, 0.0020343917, 0.33333334, 1, -0.40337366, -0.0009074043, 0.91503257, 0.0020581183, 0.36666667, 1, -0.3837771, -0.0008633272, 0.92342305, 0.002076989, 0.4, 1, -0.372775, -0.000838581, 0.92791915, 0.0020871006, 0.4162504, 1, -0.36873314, -0.0008294899, 0.9295326, 0.0020907293)
+
+[sub_resource type="Animation" id="Animation_nd76d"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Kicma")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1.469938e-16, 0.35777295, -0.20444153)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Kicma")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.005452264, -3.4115592e-17, -3.4115592e-17, 0.99998516)
+tracks/2/type = "position_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Ruka.L")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.70179105, 2.3983495, -0.1038559)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:Ruka.L")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.079055764, -0.4982871, -0.8516795, 0.14178297)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D:Glava")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.0020253733, 4.7683616e-07, 9.657734e-10, 0.999998)
+tracks/5/type = "position_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature/Skeleton3D:Ruka.R")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.70179105, 2.3983495, -0.10385589)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("Armature/Skeleton3D:Ruka.R")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.07905574, 0.4982871, 0.8516795, 0.14178297)
+tracks/7/type = "position_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("Armature/Skeleton3D:Noga.L")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.65285176, 0.46562755, 0.0030197208)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("Armature/Skeleton3D:Noga.L")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, 1.0280837e-06, 1.1397682e-07, -0.9999975, 0.0022492697)
+tracks/9/type = "position_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("Armature/Skeleton3D:Noga.R")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, -0.65285176, 0.46562755, 0.0030197208)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("Armature/Skeleton3D:Noga.R")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 1.0280837e-06, -1.1397682e-07, 0.9999975, 0.0022492697)
+
+[sub_resource type="Animation" id="Animation_ymxlg"]
+resource_name = "Walk"
+length = 0.4162504
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Kicma")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.044282466, 0.66253966, -0.20776501, 0.033333335, 1, -0.027592426, 0.4005489, -0.19810764, 0.06666667, 1, 0.006458441, 0.33896202, -0.17913978, 0.1, 1, 0.05012855, 0.35742795, -0.1535651, 0.13333334, 1, 0.095676355, 0.45604816, -0.12616523, 0.16666667, 1, 0.13536026, 0.75038296, -0.10373036, 0.2, 1, 0.15205029, 1.0175186, -0.095625244, 0.23333333, 1, 0.14349684, 0.6779401, -0.101445965, 0.26666668, 1, 0.115078986, 0.33308887, -0.11806133, 0.3, 1, 0.07328655, 0.20837255, -0.14107172, 0.33333334, 1, 0.025861097, 0.18740347, -0.16486421, 0.36666667, 1, -0.013938267, 0.37834784, -0.18800855, 0.4162504, 1, -0.044282466, 0.66253966, -0.20776501)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Kicma")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0012592302, 4.1665495e-05, 0.033073533, 0.9994521, 0.033333335, 1, 0.018072039, -0.0006897921, 0.02494765, 0.99952525, 0.06666667, 1, 0.04985388, -0.0019884733, 0.011129465, 0.9986925, 0.1, 1, 0.077370964, -0.0033179545, -0.0017787311, 0.99699533, 0.13333334, 1, 0.089157596, -0.0042590667, -0.009783299, 0.99596035, 0.16666667, 1, 0.07893951, -0.004513059, -0.011526124, 0.9968026, 0.2, 1, 0.048824847, -0.004812078, -0.011790187, 0.9987262, 0.23333333, 1, 0.018838463, -0.0058148466, -0.011664479, 0.9997376, 0.26666668, 1, 0.014603279, -0.007132831, -0.011108158, 0.9998062, 0.33333334, 1, 0.055500995, -0.008920652, -0.0036759702, 0.9984121, 0.36666667, 1, 0.031038519, -0.0052557606, 0.013397865, 0.99941456, 0.4, 1, 0.0065146545, -0.0016002648, 0.026986584, 0.99961334, 0.4162504, 1, -0.0054492806, 0.00018032119, 0.03307306, 0.9994381)
+tracks/2/type = "position_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Ruka.L")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.70179105, 2.3983502, -0.10385579)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:Ruka.L")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.065417536, -0.51464456, -0.8266636, 0.21791928, 0.033333335, 1, -0.06579352, -0.5144883, -0.82677364, 0.217758, 0.06666667, 1, -0.07672159, -0.5069316, -0.8373045, 0.18988238, 0.1, 1, -0.08384537, -0.50166523, -0.8437625, 0.17136756, 0.16666667, 1, -0.083653435, -0.50186753, -0.8435046, 0.17213747, 0.2, 1, -0.07244444, -0.5113684, -0.83064544, 0.20804392, 0.23333333, 1, -0.06811707, -0.51462257, -0.8257623, 0.220546, 0.26666668, 1, -0.08250984, -0.5054317, -0.83715117, 0.19211686, 0.3, 1, -0.10481239, -0.4896931, -0.85308516, 0.1464952, 0.4162504, 1, -0.104812376, -0.48969314, -0.8530851, 0.14649518)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D:Glava")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.0020253735, 4.768233e-07, 2.8291565e-09, 0.999998, 0.033333335, 1, -0.099855766, 0.0062004533, -0.00037669443, 0.99498254, 0.06666667, 1, -0.08037276, 0.005228092, -0.00046561097, 0.99675107, 0.1, 1, 0.007598621, 0.0018743468, -0.0004585064, 0.99996936, 0.13333334, 1, 0.1113989, -0.0005298744, -0.0006978192, 0.99377537, 0.16666667, 1, 0.17843215, -9.0411006e-05, -0.0016597791, 0.9839509, 0.2, 1, 0.03677823, -1.7424985e-05, -0.00032693628, 0.99932337, 0.23333333, 1, -0.07507717, 0.0046926714, -0.000285088, 0.9971667, 0.26666668, 1, -0.00858888, 0.0052680275, -0.0012474265, 0.9999485, 0.3, 1, 0.14743575, 0.0010921198, -0.0019566223, 0.98906916, 0.33333334, 1, 0.094713524, -0.00063714536, -0.00045986843, 0.9955043, 0.36666667, 1, 0.16294426, -0.0001962549, -0.0014345015, 0.98663425, 0.4, 1, 0.057824276, -0.0028086964, 0.000203693, 0.99832284, 0.4162504, 1, -0.02043272, -0.004529806, 0.0014014818, 0.99978)
+tracks/5/type = "position_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature/Skeleton3D:Ruka.R")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.70179105, 2.3983498, -0.10385583)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("Armature/Skeleton3D:Ruka.R")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.060646735, 0.5156825, 0.8284735, 0.20982185, 0.033333335, 1, -0.061001822, 0.5155379, 0.8285695, 0.20969523, 0.06666667, 1, -0.07296174, 0.50520253, 0.8434242, 0.16757871, 0.1, 1, -0.080645345, 0.49801463, 0.8518656, 0.14072217, 0.13333334, 1, -0.08019403, 0.49928877, 0.8501233, 0.14686817, 0.16666667, 1, -0.078877024, 0.5027453, 0.8450657, 0.16398048, 0.2, 1, -0.06767514, 0.512379, 0.8324141, 0.19993645, 0.23333333, 1, -0.06334933, 0.51567906, 0.82760143, 0.21245655, 0.26666668, 1, -0.07772635, 0.5063995, 0.83885074, 0.18397716, 0.3, 1, -0.10001939, 0.4905147, 0.8545555, 0.13829897, 0.4162504, 1, -0.10001936, 0.49051464, 0.8545554, 0.13829894)
+tracks/7/type = "position_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("Armature/Skeleton3D:Noga.L")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.6527742, 0.7933787, 0.5943434, 0.033333335, 1, 0.65273464, 0.45539105, 1.0329136, 0.06666667, 1, 0.65266705, 0.37513217, 0.75863016, 0.1, 1, 0.6526106, 0.38094112, 0.2293889, 0.13333334, 1, 0.65269005, 0.41749588, -0.19758269, 0.16666667, 1, 0.6531075, 0.5439985, -0.26878944, 0.2, 1, 0.6531886, 0.99921525, -0.35882926, 0.23333333, 1, 0.6535558, 0.8875138, -0.34002542, 0.26666668, 1, 0.65372306, 0.7248295, -0.14964966, 0.3, 1, 0.6536009, 0.68833953, 0.14532295, 0.33333334, 1, 0.6534626, 0.6471586, 0.3588351, 0.36666667, 1, 0.65334946, 0.6135571, 0.40970123, 0.4, 1, 0.65298826, 0.7200444, 0.52700055, 0.4162504, 1, 0.6527742, 0.7933787, 0.5943434)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("Armature/Skeleton3D:Noga.L")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.00026509454, -0.34369656, -0.9390773, 0.0025487514, 0.033333335, 1, -0.110858805, -0.061310403, -0.9910364, 0.042407773, 0.06666667, 1, -0.30395773, 0.008584214, -0.9519523, 0.036371794, 0.1, 1, -0.47254044, 0.0053943414, -0.8811637, 0.0150693245, 0.13333334, 1, 0.5502624, -0.063627504, 0.8317581, -0.036626156, 0.16666667, 1, -0.47950482, 0.2954515, -0.80675316, 0.178698, 0.2, 1, -0.29111284, 0.43206245, -0.84107053, 0.1455189, 0.23333333, 1, -0.15785828, 0.443198, -0.8755848, 0.109579206, 0.26666668, 1, -0.07600614, 0.3322901, -0.9370271, 0.0760696, 0.3, 1, -0.03075149, 0.11406554, -0.9919981, 0.04453485, 0.33333334, 1, -0.007897, -0.15882535, -0.98715, 0.015718462, 0.36666667, 1, -0.003018206, -0.29628962, -0.9550816, 0.004763255, 0.4, 1, -0.0008802307, -0.33770928, -0.9412471, 0.002383443, 0.4162504, 1, -0.00026509454, -0.34369656, -0.9390773, 0.0025487514)
+tracks/9/type = "position_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("Armature/Skeleton3D:Noga.R")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, -0.65318257, 0.56421936, -0.4876901, 0.033333335, 1, -0.6530617, 0.5280155, -0.35473797, 0.06666667, 1, -0.6529406, 0.49181172, -0.10634607, 0.1, 1, -0.65302515, 0.5169502, 0.15796049, 0.13333334, 1, -0.65327084, 0.5901128, 0.35658166, 0.16666667, 1, -0.6533897, 0.62728906, 0.42765543, 0.2, 1, -0.65324974, 0.94094527, 0.6324538, 0.23333333, 1, -0.6529484, 0.669031, 0.9791453, 0.26666668, 1, -0.65277344, 0.44215348, 0.99376893, 0.3, 1, -0.6527725, 0.44215328, 0.58659375, 0.33333334, 1, -0.6527749, 0.44264162, 0.024294786, 0.36666667, 1, -0.65293896, 0.49151686, -0.25286373, 0.4, 1, -0.65310276, 0.5403921, -0.42184848, 0.4162504, 1, -0.65318257, 0.56421936, -0.4876901)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("Armature/Skeleton3D:Noga.R")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, -0.5181609, -0.32657245, 0.7571354, 0.22716899, 0.033333335, 1, -0.46394718, -0.37942553, 0.7702805, 0.2178474, 0.06666667, 1, -0.3519619, -0.4333259, 0.8091443, 0.18340376, 0.1, 1, -0.21433918, -0.34238124, 0.90629995, 0.124314785, 0.13333334, 1, -0.08148775, -0.07627098, 0.9923718, 0.05235228, 0.16666667, 1, -0.0013336481, 0.2379439, 0.9712756, 0.0021850667, 0.2, 1, -0.0015511408, 0.27671704, 0.96094775, 0.0021619014, 0.23333333, 1, -0.00064495316, 0.115165554, 0.9933436, 0.0022344966, 0.26666668, 1, -0.053807028, 0.00056422316, 0.9985485, 0.0023271665, 0.3, 1, -0.17939155, -0.001479445, 0.983773, 0.0026995009, 0.33333334, 1, -0.35695842, -0.00466729, 0.9340973, 0.004593548, 0.36666667, 1, -0.46991894, -0.13782379, 0.8665851, 0.09597582, 0.4, 1, -0.5114925, -0.26640892, 0.79566795, 0.1852412, 0.4162504, 1, -0.5181609, -0.32657245, 0.7571354, 0.22716899)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dwrgg"]
+_data = {
+&"Idle": SubResource("Animation_3nvn0"),
+&"RESET": SubResource("Animation_nd76d"),
+&"Walk": SubResource("Animation_ymxlg")
+}
 
 [node name="Drkan" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("nav_agent", "visiblity_notifier", "sound_player", "raycast", "anim_player")]
 collision_layer = 4
@@ -73,25 +529,109 @@ shape = SubResource("CapsuleShape3D_hujxm")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=78383994]
 stream = SubResource("AudioStreamRandomizer_sle12")
 
-[node name="drkan" parent="." unique_id=1861323053 instance=ExtResource("6_vsohj")]
+[node name="drkan" type="Node3D" parent="." unique_id=1861323053]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 
-[node name="Ruka_L" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1849592678) index="0" unique_id=1167180659]
+[node name="Armature" type="Node3D" parent="drkan" unique_id=956880497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0627712, 0)
+
+[node name="Skeleton3D" type="Skeleton3D" parent="drkan/Armature" unique_id=1352968146]
+bones/0/name = "Kicma"
+bones/0/parent = -1
+bones/0/rest = Transform3D(1, 6.8602184e-17, -6.785815e-17, -6.785816e-17, 0.9999405, 0.010904365, 6.8602184e-17, -0.010904365, 0.9999405, 1.469938e-16, 0.35777295, -0.20444153)
+bones/0/enabled = true
+bones/0/position = Vector3(1.469938e-16, 0.35777295, -0.20444153)
+bones/0/rotation = Quaternion(-0.005452264, -3.4115592e-17, -3.4115592e-17, 0.99998516)
+bones/0/scale = Vector3(1, 0.99999994, 0.99999994)
+bones/1/name = "Ruka.L"
+bones/1/parent = 0
+bones/1/rest = Transform3D(-0.9472955, 0.32029223, -0.006636888, -0.16272229, -0.4632154, 0.8711791, 0.27595747, 0.82634425, 0.49092045, 0.70179105, 2.3983498, -0.10385595)
+bones/1/enabled = true
+bones/1/position = Vector3(0.70179105, 2.3983495, -0.1038559)
+bones/1/rotation = Quaternion(0.07905575, 0.49828708, 0.8516794, -0.14178295)
+bones/1/scale = Vector3(0.9999999, 1.0000002, 1)
+bones/2/name = "Glava"
+bones/2/parent = 0
+bones/2/rest = Transform3D(1, 6.661338e-16, 9.5367426e-07, 3.863085e-09, 0.9999918, -0.0040507386, -9.536665e-07, 0.0040507386, 0.9999918, -6.617445e-24, 2.6783733, 3.7252903e-09)
+bones/2/enabled = true
+bones/2/position = Vector3(-6.617445e-24, 2.6783733, 3.7252903e-09)
+bones/2/rotation = Quaternion(0.0020253733, 4.7683616e-07, 9.657734e-10, 0.999998)
+bones/2/scale = Vector3(1, 0.99999994, 0.99999994)
+bones/3/name = "Ruka.R"
+bones/3/parent = 0
+bones/3/rest = Transform3D(-0.9472955, -0.32029223, 0.006636888, 0.16272229, -0.4632154, 0.8711791, -0.27595747, 0.82634425, 0.49092045, -0.70179105, 2.3983498, -0.103855945)
+bones/3/enabled = true
+bones/3/position = Vector3(-0.70179105, 2.3983495, -0.10385589)
+bones/3/rotation = Quaternion(-0.07905573, 0.49828708, 0.8516794, 0.14178294)
+bones/3/scale = Vector3(0.9999999, 1.0000002, 1)
+bones/4/name = "Noga.L"
+bones/4/parent = -1
+bones/4/rest = Transform3D(-0.9999898, 0.0044985274, -2.0556492e-06, -0.0044985274, -0.9999898, -2.3257789e-07, -2.0566745e-06, -2.2332813e-07, 0.99999994, 0.6528517, 0.46562755, 0.0030197203)
+bones/4/enabled = true
+bones/4/position = Vector3(0.65285176, 0.46562755, 0.0030197208)
+bones/4/rotation = Quaternion(-1.0280838e-06, -1.13976824e-07, 0.99999756, -0.0022492697)
+bones/4/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
+bones/5/name = "Noga.R"
+bones/5/parent = -1
+bones/5/rest = Transform3D(-0.9999898, -0.0044985274, 2.0556492e-06, 0.0044985274, -0.9999898, -2.3257789e-07, 2.0566745e-06, -2.2332813e-07, 0.99999994, -0.6528517, 0.46562755, 0.0030197203)
+bones/5/enabled = true
+bones/5/position = Vector3(-0.65285176, 0.46562755, 0.0030197208)
+bones/5/rotation = Quaternion(1.0280838e-06, -1.13976824e-07, 0.99999756, 0.0022492697)
+bones/5/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
+
+[node name="Ruka_L" type="BoneAttachment3D" parent="drkan/Armature/Skeleton3D" unique_id=657741580]
 transform = Transform3D(-0.9472954, 0.32029223, -0.0066369325, -0.15970348, -0.4541769, 0.8764806, 0.27771544, 0.8313462, 0.4813915, 0.70179105, 2.7548475, -0.33444375)
+bone_name = "Ruka.L"
+bone_idx = 1
 
-[node name="Glava" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1849592678) index="1" unique_id=1338558087]
+[node name="patofna_002" type="MeshInstance3D" parent="drkan/Armature/Skeleton3D/Ruka_L" unique_id=552873110]
+transform = Transform3D(-0.5107508, 0.50551546, 0.69540477, 0.1829948, -0.7264062, 0.66245514, 0.84002775, 0.46560487, 0.27850586, -0.16468747, 0.24064897, -0.165159)
+mesh = SubResource("ArrayMesh_acdmb")
+
+[node name="Glava" type="BoneAttachment3D" parent="drkan/Armature/Skeleton3D" unique_id=855997032]
 transform = Transform3D(1, -1.5371786e-16, 9.5367426e-07, -6.5362724e-09, 0.9999764, 0.006853778, -9.5365186e-07, -0.006853778, 0.9999764, 3.3073603e-16, 3.035987, -0.2336475)
+bone_name = "Glava"
+bone_idx = 2
 
-[node name="Ruka_R" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1849592678) index="2" unique_id=293749]
+[node name="patofnanglavu" type="MeshInstance3D" parent="drkan/Armature/Skeleton3D/Glava" unique_id=1991348569]
+transform = Transform3D(1, -4.4237973e-09, -9.536776e-07, -2.1126016e-09, 0.99997663, -0.00685378, 9.536855e-07, 0.00685378, 0.99997663, -1.9864002e-07, 0.5193167, 0.23721239)
+mesh = SubResource("ArrayMesh_0wr6e")
+
+[node name="Ruka_R" type="BoneAttachment3D" parent="drkan/Armature/Skeleton3D" unique_id=1576132971]
 transform = Transform3D(-0.9472954, -0.3202922, 0.0066369623, 0.15970348, -0.4541769, 0.8764805, -0.27771538, 0.8313463, 0.4813915, -0.70179105, 2.7548475, -0.33444375)
+bone_name = "Ruka.R"
+bone_idx = 3
 
-[node name="Kicma" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1849592678) index="3" unique_id=244600112]
+[node name="patofna_003" type="MeshInstance3D" parent="drkan/Armature/Skeleton3D/Ruka_R" unique_id=1572161674]
+transform = Transform3D(-0.5063955, 0.8484068, 0.15417352, -0.16091473, -0.26862863, 0.94970787, 0.8471539, 0.45611912, 0.2725535, -0.10071499, 0.15091312, -0.1633002)
+mesh = SubResource("ArrayMesh_u565a")
+
+[node name="Kicma" type="BoneAttachment3D" parent="drkan/Armature/Skeleton3D" unique_id=1849993323]
 transform = Transform3D(1, 6.860218e-17, -6.785815e-17, -6.785816e-17, 0.9999405, 0.010904365, 6.8602184e-17, -0.010904365, 0.9999405, 1.469938e-16, 0.35777295, -0.20444153)
+bone_name = "Kicma"
+bone_idx = 0
 
-[node name="Noga_L" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1849592678) index="4" unique_id=305184007]
+[node name="telo" type="MeshInstance3D" parent="drkan/Armature/Skeleton3D/Kicma" unique_id=888551666]
+transform = Transform3D(1, 7.357301e-10, 5.179624e-11, -7.351214e-10, 0.9999407, -0.010904367, -5.981582e-11, 0.010904367, 0.9999407, 2.565639e-08, -1.4226896, 0.18893929)
+mesh = SubResource("ArrayMesh_vu8qc")
+
+[node name="Noga_L" type="BoneAttachment3D" parent="drkan/Armature/Skeleton3D" unique_id=1298268065]
 transform = Transform3D(-0.9999899, 0.0044985274, -2.0556495e-06, -0.0044985274, -0.9999899, -2.3257793e-07, -2.056675e-06, -2.2332817e-07, 0.99999994, 0.65285176, 0.46562755, 0.0030197208)
+bone_name = "Noga.L"
+bone_idx = 4
 
-[node name="Noga_R" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1849592678) index="5" unique_id=1172136223]
+[node name="patofna" type="MeshInstance3D" parent="drkan/Armature/Skeleton3D/Noga_L" unique_id=57848823]
+transform = Transform3D(-0.99998987, -0.0044985274, -2.0563625e-06, 0.004498527, -0.99999, -2.0337507e-07, -2.0554264e-06, -2.126236e-07, 1.0000001, 0.04570843, 0.29191208, -0.0030194826)
+mesh = SubResource("ArrayMesh_pffql")
+
+[node name="Noga_R" type="BoneAttachment3D" parent="drkan/Armature/Skeleton3D" unique_id=1921120590]
 transform = Transform3D(-0.9999899, -0.0044985274, 2.0556495e-06, 0.0044985274, -0.9999899, -2.3257793e-07, 2.056675e-06, -2.2332817e-07, 0.99999994, -0.65285176, 0.46562755, 0.0030197208)
+bone_name = "Noga.R"
+bone_idx = 5
 
-[editable path="drkan"]
+[node name="patofna_001" type="MeshInstance3D" parent="drkan/Armature/Skeleton3D/Noga_R" unique_id=1798373577]
+transform = Transform3D(-0.99999, 0.0044985735, 2.0717778e-06, -0.0044985735, -0.99999, -2.2491213e-07, 2.070745e-06, -2.342299e-07, 1, -0.048810914, 0.29189837, -0.003019422)
+mesh = SubResource("ArrayMesh_k15ld")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="drkan" unique_id=549762793]
+libraries/ = SubResource("AnimationLibrary_dwrgg")

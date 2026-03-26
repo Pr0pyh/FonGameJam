@@ -537,7 +537,7 @@ _data = {
 &"Walk": SubResource("Animation_ayt8c")
 }
 
-[node name="Enemy" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("nav_agent", "visiblity_notifier", "sound_player", "raycast")]
+[node name="Enemy" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("nav_agent", "visiblity_notifier", "sound_player", "raycast", "anim_player")]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_x7o65")
@@ -545,6 +545,7 @@ nav_agent = NodePath("NavigationAgent3D")
 visiblity_notifier = NodePath("VisibleOnScreenNotifier3D")
 sound_player = NodePath("AudioStreamPlayer3D")
 raycast = NodePath("VisibleOnScreenNotifier3D/RayCast3D")
+anim_player = NodePath("baba/AnimationPlayer")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1504323410]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5834014, 0)
