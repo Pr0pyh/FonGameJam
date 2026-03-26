@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Contact" format=3 uid="uid://dv3habod0y7r8"]
+
+[ext_resource type="Script" uid="uid://dnbx5ecpt5ja0" path="res://resources/contacts/contact.gd" id="1_vkjxx"]
+
+[resource]
+script = ExtResource("1_vkjxx")
+name = "Kika u Bila"
+messages = Array[String](["ajde dodji {GACE_ROOM}", "ju pogresan broj"])
+metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Contact" format=3 uid="uid://d2egfvsypxrqt"]
+
+[ext_resource type="Script" uid="uid://dnbx5ecpt5ja0" path="res://resources/contacts/contact.gd" id="1_q1p5l"]
+
+[resource]
+script = ExtResource("1_q1p5l")
+name = "Peki Kazablanka"
+messages = Array[String](["Kad se provozam gradom miris je Casablanca", "sve mirise po skanku ovde citavog dana", "stalno vani sa vabdom, prvi red smo do sanka", "buraayyy gace su {GACE_ROOM}"])
+metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"
