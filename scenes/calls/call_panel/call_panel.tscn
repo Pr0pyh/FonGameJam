@@ -13,6 +13,7 @@
 [ext_resource type="Resource" path="res://resources/contacts/sin.tres" id="8_1of6w"]
 [ext_resource type="Resource" path="res://resources/contacts/zeljko.tres" id="9_njxg5"]
 [ext_resource type="Resource" path="res://resources/contacts/zile.tres" id="11_hiuoy"]
+[ext_resource type="Resource" uid="uid://dibfgtc2e0s67" path="res://resources/contacts/tutorijal.tres" id="13_3neak"]
 [ext_resource type="FontFile" uid="uid://d33g1nrc2t32x" path="res://assets/OCR A Extended Regular.ttf" id="14_2spuc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3neak"]
@@ -43,6 +44,7 @@ contacts = Array[ExtResource("2_as4kb")]([ExtResource("3_nq4uv"), ExtResource("4
 incoming_call_container = NodePath("IncomingCallContainer")
 call_in_progress_container = NodePath("CallInProgressContainer")
 call_text_popup_scene = ExtResource("2_rya85")
+dzon_tutorijal = ExtResource("13_3neak")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=438634732]
 layout_mode = 1

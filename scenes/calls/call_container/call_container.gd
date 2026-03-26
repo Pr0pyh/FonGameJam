@@ -5,7 +5,8 @@ extends Control
 
 var current_call_panel: CallPanel
 
-var call_timer: float = 5.0
+var first_call: bool = true
+var call_timer: float = 2.0
 
 
 func _process(delta):
@@ -24,7 +25,8 @@ func spawn_call():
 	call_panel.call_declined.connect(_on_call_declined)
 	call_panel.call_finished.connect(_on_call_finished)
 	
-	call_panel.spawn()
+	call_panel.spawn(first_call)
+	first_call = false
 	
 	current_call_panel = call_panel
 

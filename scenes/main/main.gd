@@ -123,10 +123,10 @@ func _process_camera_covering(delta: float):
 		if not is_camera_covered:
 			camera_covered_t = 0.0
 			is_camera_covered = true
-		camera_covered_t -= delta*0.3
+		camera_covered_t -= delta
 		if camera_covered_t <= 0:
 			take_damage()
-			camera_covered_t = 0.7
+			camera_covered_t = 1.1
 	else:
 		is_camera_covered = false
 
@@ -283,6 +283,8 @@ func death():
 			call_container.current_call_panel.decline_call()
 	black_quad.visible = true
 	screen_ui.visible = false
+	call_container.first_call = true
+	call_container.call_timer = 2.0
 	await get_tree().create_timer(2.0).timeout
 	player.global_transform = start_player_transform
 	player_camera.global_transform = start_player_camera_transform

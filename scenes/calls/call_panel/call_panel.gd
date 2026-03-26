@@ -18,6 +18,7 @@ signal call_accepted()
 @onready var start_y: float = position.y
 
 @export var call_text_popup_scene: PackedScene
+@export var dzon_tutorijal: Contact
 
 var call_in_progress: bool = false
 var call_time: float = 0.0
@@ -26,9 +27,10 @@ var message_index: int
 var contact: Contact
 var gace_room_name: String
 
-func spawn():
+func spawn(first_call: bool):
 	visible = true
 	contact = contacts.pick_random()
+	if first_call: contact = dzon_tutorijal
 	incoming_caller_name_label.text = contact.name
 	in_progress_caller_name_label.text = contact.name
 	
@@ -50,7 +52,7 @@ func _process(delta: float) -> void:
 		
 		message_timer -= delta
 		if message_timer <= 0.0:
-			message_timer = 3.0
+			message_timer = 3.0 / contact.talk_speed
 		
 			var call_text_popup: CallTextPopup = call_text_popup_scene.instantiate()
 			MainScene.instance.call_text_popup_container.add_popup(call_text_popup)
