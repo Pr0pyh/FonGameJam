@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://brfuish6bhe01"]
 
 [ext_resource type="Script" uid="uid://crpi5cuup7ngf" path="res://scenes/enemy/enemy.gd" id="1_vsohj"]
-[ext_resource type="AudioStream" uid="uid://csya5gdogxkxy" path="res://assets/sounds/baba/crushed_yelling_lady_1.ogg" id="2_l4pqv"]
-[ext_resource type="AudioStream" uid="uid://btytagvxgrn72" path="res://assets/sounds/baba/crushed_yelling_lady_2.ogg" id="3_vd5hi"]
-[ext_resource type="AudioStream" uid="uid://b11v4rf7mxo7c" path="res://assets/sounds/baba/crushed_yelling_lady_3.ogg" id="4_i4yqv"]
-[ext_resource type="AudioStream" uid="uid://dkrdvqg5yowil" path="res://assets/sounds/baba/crushed_yelling_lady_4.ogg" id="5_8jrg7"]
+[ext_resource type="AudioStream" uid="uid://c2jemq12vem6f" path="res://assets/sounds/drkan/drkan_yelling-01.ogg" id="2_i4yqv"]
+[ext_resource type="AudioStream" uid="uid://bj5tm4u7sh0k7" path="res://assets/sounds/drkan/drkan_yelling-02.ogg" id="3_8jrg7"]
+[ext_resource type="AudioStream" uid="uid://yw8y2ohgtd01" path="res://assets/sounds/drkan/drkan_yelling-03.ogg" id="4_er1o6"]
+[ext_resource type="AudioStream" uid="uid://c4smbiaiam5gr" path="res://assets/sounds/drkan/drkan_yelling-04.ogg" id="5_33eln"]
+[ext_resource type="AudioStream" uid="uid://55kagtj2a57q" path="res://assets/sounds/drkan/drkan_yelling-05.ogg" id="6_mdyj7"]
 [ext_resource type="PackedScene" uid="uid://dm6ijbe5kqyx1" path="res://assets/drkan.glb" id="6_vsohj"]
+[ext_resource type="AudioStream" uid="uid://nqoyvji4u8ms" path="res://assets/sounds/drkan/drkan_yelling-06.ogg" id="7_cxvvk"]
+[ext_resource type="AudioStream" uid="uid://dkge66ailnc0o" path="res://assets/sounds/drkan/drkan_yelling-07.ogg" id="8_nv0y1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q06x"]
 albedo_color = Color(1, 0, 0, 1)
@@ -27,14 +30,17 @@ line_spacing = -10.19
 radius = 0.16748047
 height = 0.83251953
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_btxi7"]
-streams_count = 4
-stream_0/stream = ExtResource("2_l4pqv")
-stream_1/stream = ExtResource("3_vd5hi")
-stream_2/stream = ExtResource("4_i4yqv")
-stream_3/stream = ExtResource("5_8jrg7")
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sle12"]
+streams_count = 7
+stream_0/stream = ExtResource("2_i4yqv")
+stream_1/stream = ExtResource("3_8jrg7")
+stream_2/stream = ExtResource("4_er1o6")
+stream_3/stream = ExtResource("5_33eln")
+stream_4/stream = ExtResource("6_mdyj7")
+stream_5/stream = ExtResource("7_cxvvk")
+stream_6/stream = ExtResource("8_nv0y1")
 
-[node name="Enemy" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("nav_agent", "visiblity_notifier", "sound_player", "raycast", "anim_player")]
+[node name="Drkan" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("nav_agent", "visiblity_notifier", "sound_player", "raycast", "anim_player")]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_vsohj")
@@ -65,27 +71,27 @@ shape = SubResource("CapsuleShape3D_hujxm")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=386083364]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=78383994]
-stream = SubResource("AudioStreamRandomizer_btxi7")
+stream = SubResource("AudioStreamRandomizer_sle12")
 
 [node name="drkan" parent="." unique_id=1861323053 instance=ExtResource("6_vsohj")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 
-[node name="Ruka_L" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1352968146) index="0" unique_id=657741580]
+[node name="Ruka_L" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1849592678) index="0" unique_id=1167180659]
 transform = Transform3D(-0.9472954, 0.32029223, -0.0066369325, -0.15970348, -0.4541769, 0.8764806, 0.27771544, 0.8313462, 0.4813915, 0.70179105, 2.7548475, -0.33444375)
 
-[node name="Glava" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1352968146) index="1" unique_id=855997032]
+[node name="Glava" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1849592678) index="1" unique_id=1338558087]
 transform = Transform3D(1, -1.5371786e-16, 9.5367426e-07, -6.5362724e-09, 0.9999764, 0.006853778, -9.5365186e-07, -0.006853778, 0.9999764, 3.3073603e-16, 3.035987, -0.2336475)
 
-[node name="Ruka_R" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1352968146) index="2" unique_id=1576132971]
+[node name="Ruka_R" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1849592678) index="2" unique_id=293749]
 transform = Transform3D(-0.9472954, -0.3202922, 0.0066369623, 0.15970348, -0.4541769, 0.8764805, -0.27771538, 0.8313463, 0.4813915, -0.70179105, 2.7548475, -0.33444375)
 
-[node name="Kicma" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1352968146) index="3" unique_id=1849993323]
+[node name="Kicma" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1849592678) index="3" unique_id=244600112]
 transform = Transform3D(1, 6.860218e-17, -6.785815e-17, -6.785816e-17, 0.9999405, 0.010904365, 6.8602184e-17, -0.010904365, 0.9999405, 1.469938e-16, 0.35777295, -0.20444153)
 
-[node name="Noga_L" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1352968146) index="4" unique_id=1298268065]
+[node name="Noga_L" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1849592678) index="4" unique_id=305184007]
 transform = Transform3D(-0.9999899, 0.0044985274, -2.0556495e-06, -0.0044985274, -0.9999899, -2.3257793e-07, -2.056675e-06, -2.2332817e-07, 0.99999994, 0.65285176, 0.46562755, 0.0030197208)
 
-[node name="Noga_R" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1352968146) index="5" unique_id=1921120590]
+[node name="Noga_R" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1849592678) index="5" unique_id=1172136223]
 transform = Transform3D(-0.9999899, -0.0044985274, 2.0556495e-06, 0.0044985274, -0.9999899, -2.3257793e-07, 2.056675e-06, -2.2332817e-07, 0.99999994, -0.65285176, 0.46562755, 0.0030197208)
 
 [editable path="drkan"]
