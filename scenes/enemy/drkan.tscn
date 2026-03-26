@@ -34,7 +34,7 @@ stream_1/stream = ExtResource("3_vd5hi")
 stream_2/stream = ExtResource("4_i4yqv")
 stream_3/stream = ExtResource("5_8jrg7")
 
-[node name="Enemy" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("nav_agent", "visiblity_notifier", "sound_player", "raycast")]
+[node name="Enemy" type="CharacterBody3D" unique_id=725990477 node_paths=PackedStringArray("nav_agent", "visiblity_notifier", "sound_player", "raycast", "anim_player")]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_vsohj")
@@ -42,6 +42,7 @@ nav_agent = NodePath("NavigationAgent3D")
 visiblity_notifier = NodePath("VisibleOnScreenNotifier3D")
 sound_player = NodePath("AudioStreamPlayer3D")
 raycast = NodePath("VisibleOnScreenNotifier3D/RayCast3D")
+anim_player = NodePath("drkan/AnimationPlayer")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1504323410]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5834014, 0)
@@ -66,5 +67,25 @@ shape = SubResource("CapsuleShape3D_hujxm")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=78383994]
 stream = SubResource("AudioStreamRandomizer_btxi7")
 
-[node name="drkan" parent="." unique_id=803087816 instance=ExtResource("6_vsohj")]
+[node name="drkan" parent="." unique_id=1861323053 instance=ExtResource("6_vsohj")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="Ruka_L" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1352968146) index="0" unique_id=657741580]
+transform = Transform3D(-0.9472954, 0.32029223, -0.0066369325, -0.15970348, -0.4541769, 0.8764806, 0.27771544, 0.8313462, 0.4813915, 0.70179105, 2.7548475, -0.33444375)
+
+[node name="Glava" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1352968146) index="1" unique_id=855997032]
+transform = Transform3D(1, -1.5371786e-16, 9.5367426e-07, -6.5362724e-09, 0.9999764, 0.006853778, -9.5365186e-07, -0.006853778, 0.9999764, 3.3073603e-16, 3.035987, -0.2336475)
+
+[node name="Ruka_R" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1352968146) index="2" unique_id=1576132971]
+transform = Transform3D(-0.9472954, -0.3202922, 0.0066369623, 0.15970348, -0.4541769, 0.8764805, -0.27771538, 0.8313463, 0.4813915, -0.70179105, 2.7548475, -0.33444375)
+
+[node name="Kicma" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1352968146) index="3" unique_id=1849993323]
+transform = Transform3D(1, 6.860218e-17, -6.785815e-17, -6.785816e-17, 0.9999405, 0.010904365, 6.8602184e-17, -0.010904365, 0.9999405, 1.469938e-16, 0.35777295, -0.20444153)
+
+[node name="Noga_L" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1352968146) index="4" unique_id=1298268065]
+transform = Transform3D(-0.9999899, 0.0044985274, -2.0556495e-06, -0.0044985274, -0.9999899, -2.3257793e-07, -2.056675e-06, -2.2332817e-07, 0.99999994, 0.65285176, 0.46562755, 0.0030197208)
+
+[node name="Noga_R" parent="drkan/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1861323053, 1352968146) index="5" unique_id=1921120590]
+transform = Transform3D(-0.9999899, -0.0044985274, 2.0556495e-06, 0.0044985274, -0.9999899, -2.3257793e-07, 2.056675e-06, -2.2332817e-07, 0.99999994, -0.65285176, 0.46562755, 0.0030197208)
+
+[editable path="drkan"]

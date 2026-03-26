@@ -106,6 +106,7 @@ func _on_button_pressed(button_name: String, pressed: bool):
 		"ButtonDown": "move_back",
 		"ButtonAccept": "accept_call",
 		"ButtonDecline": "decline_call",
+		"ButtonPhoto": "take_photo"
 	}[button_name]
 	if pressed:
 		Input.action_press(action)

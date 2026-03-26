@@ -699,19 +699,19 @@ layers = 3
 occluder = ExtResource("2_iubku")
 bake_mask = 4294967294
 
-[node name="Enemy2" parent="." unique_id=138364981 instance=ExtResource("8_7te0o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09638739, -4.7683716e-07, -17.891546)
+[node name="Enemy2" parent="." unique_id=1200369479 instance=ExtResource("8_7te0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.64823, -4.7683716e-07, -14.163577)
 
-[node name="Enemy3" parent="." unique_id=1172893042 instance=ExtResource("8_7te0o")]
+[node name="Enemy3" parent="." unique_id=1265430958 instance=ExtResource("8_7te0o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.468735, 0, -11.755298)
 
-[node name="Enemy4" parent="." unique_id=33240993 instance=ExtResource("8_7te0o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.657883, 0, 1.1471386)
+[node name="Enemy4" parent="." unique_id=195167424 instance=ExtResource("8_7te0o")]
+transform = Transform3D(-0.011885406, 0, -0.99992937, 0, 1, 0, 0.99992937, 0, -0.011885406, 21.590363, 0, 2.5608215)
 
-[node name="Enemy5" parent="." unique_id=685593104 instance=ExtResource("4_1r2wy")]
+[node name="Enemy5" parent="." unique_id=197941480 instance=ExtResource("4_1r2wy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.21263, 0.0012598634, -16.067299)
 
-[node name="Enemy6" parent="." unique_id=1194612460 instance=ExtResource("4_1r2wy")]
+[node name="Enemy6" parent="." unique_id=1522618895 instance=ExtResource("4_1r2wy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3750098, 0.011395931, -10.606644)
 
 [node name="Enemy7" parent="." unique_id=378429774 instance=ExtResource("4_xwd6a")]

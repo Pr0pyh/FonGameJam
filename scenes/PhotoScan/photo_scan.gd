@@ -12,6 +12,6 @@ func _process(delta: float):
 		var collider = scan_raycast.get_collider()
 		if collider and collider.is_in_group("scanable"):
 			crosshair.modulate = Color(0, 1, 0, 1)
-			if Input.is_action_just_pressed("ui_accept"):
+			if Input.is_action_just_pressed("take_photo"):
 				collider._on_shot()
 				photo_counter.add_scanned_photo()
