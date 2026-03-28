@@ -4,6 +4,7 @@ extends Node3D
 
 @export var parent: Node3D
 @export var smoke_particles: GPUParticles3D
+@export var yellow_particles: GPUParticles3D
 
 
 var gravity: float = 10.0
@@ -13,6 +14,7 @@ var angular_velocities: Array[Vector3]
 
 func _ready():
 	smoke_particles.emitting = true
+	yellow_particles.emitting = true
 	var i = 0
 	for child in parent.get_children():
 		linear_velocities.append(Vector3(randf()-0.5,randf(),randf()-0.5).normalized()*8.0)

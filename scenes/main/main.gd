@@ -316,6 +316,10 @@ func _on_nokia_input(event: InputEvent) -> void:
 func explode_nokia():
 	exploded = true
 	var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect()
+	top_wall_color_rect.visible = false
+	left_wall_color_rect.visible = false
+	right_wall_color_rect.visible = false
+	bottom_wall_color_rect.visible = false
 	nokia.shake_frequency = 400.0
 	nokia.shake_strength = 0.5
 	nokia.shaking = true

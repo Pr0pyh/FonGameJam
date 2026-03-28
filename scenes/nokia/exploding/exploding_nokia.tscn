@@ -867,10 +867,37 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_jnu2w"]
 material = SubResource("StandardMaterial3D_av1bs")
 
-[node name="ExplodingNokia" type="Node3D" unique_id=916052632 node_paths=PackedStringArray("parent", "smoke_particles")]
+[sub_resource type="Gradient" id="Gradient_av1bs"]
+offsets = PackedFloat32Array(0, 0.13247864)
+colors = PackedColorArray(3.4255767, 3.4255767, 0, 1, 1, 0.49411765, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jnu2w"]
+gradient = SubResource("Gradient_av1bs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_av1bs"]
+particle_flag_align_y = true
+emission_shape = 3
+emission_box_extents = Vector3(0.315, 1.155, 0.11)
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_max = 54.17
+gravity = Vector3(0, -30, 0)
+color = Color(1.6852883, 1.6852883, 1.6852883, 1)
+color_ramp = SubResource("GradientTexture1D_jnu2w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7qsvu"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_j447k"]
+material = SubResource("StandardMaterial3D_7qsvu")
+size = Vector2(0.05, 0.3)
+
+[node name="ExplodingNokia" type="Node3D" unique_id=916052632 node_paths=PackedStringArray("parent", "smoke_particles", "yellow_particles")]
 script = ExtResource("1_lavbe")
 parent = NodePath("exploding_nokia")
 smoke_particles = NodePath("SmokeParticles")
+yellow_particles = NodePath("YellowParticles")
 
 [node name="exploding_nokia" type="Node3D" parent="." unique_id=914023769]
 
@@ -984,3 +1011,10 @@ draw_pass_1 = SubResource("QuadMesh_jnu2w")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1180170567]
 stream = ExtResource("8_av1bs")
 autoplay = true
+
+[node name="YellowParticles" type="GPUParticles3D" parent="." unique_id=345875678]
+amount = 50
+lifetime = 4.0
+explosiveness = 0.99
+process_material = SubResource("ParticleProcessMaterial_av1bs")
+draw_pass_1 = SubResource("QuadMesh_j447k")

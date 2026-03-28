@@ -12,6 +12,7 @@ static var occupied_gacice_spawn_points: Array[Marker3D]
 
 
 static func get_random_gace_room_name():
+	if MainScene.instance.exploded: return ""
 	return occupied_gacice_spawn_points.pick_random().name
 	
 
