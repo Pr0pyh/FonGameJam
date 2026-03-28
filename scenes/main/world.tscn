@@ -799,6 +799,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f60fi")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wopa"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bolsh"]
+material = SubResource("StandardMaterial3D_3wopa")
+size = Vector3(2, 3, 0.5)
+subdivide_width = 3
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_w0in2"]
 _surfaces = [{
 "aabb": AABB(-2.0950773, -2.0950773, -0.13774145, 4.1901546, 4.1901546, 0.043280095),
@@ -1331,33 +1339,65 @@ mesh = SubResource("ArrayMesh_xqxvk")
 transform = Transform3D(0, 0, 0.13225201, 0, 0.13225201, 0, -0.13225201, 0, 0, 4.0461397, 0.9821523, -10.335296)
 mesh = SubResource("ArrayMesh_p83mi")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level/slika" unique_id=98384981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503983, 0)
+mesh = SubResource("BoxMesh_bolsh")
+
 [node name="slika_001" type="MeshInstance3D" parent="level" unique_id=6533277]
 transform = Transform3D(0, 0, 0.13225201, 0, 0.13225201, 0, -0.13225201, 0, 0, 6.7461395, 0.9821523, -12.585295)
 mesh = SubResource("ArrayMesh_1os2r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level/slika_001" unique_id=360297577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503983, 0)
+mesh = SubResource("BoxMesh_bolsh")
 
 [node name="slika_002" type="MeshInstance3D" parent="level" unique_id=609931071]
 transform = Transform3D(0, 0, 0.13225201, 0, 0.13225201, 0, -0.13225201, 0, 0, 22.49614, 0.9821523, -12.360295)
 mesh = SubResource("ArrayMesh_5o2ud")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level/slika_002" unique_id=1377529611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503983, 0)
+mesh = SubResource("BoxMesh_bolsh")
+
 [node name="slika_003" type="MeshInstance3D" parent="level" unique_id=1847302273]
 transform = Transform3D(0, 0, 0.13225201, 0, 0.13225201, 0, -0.13225201, 0, 0, 22.49614, 0.9821523, -9.435295)
 mesh = SubResource("ArrayMesh_vm4nc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level/slika_003" unique_id=984841767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503983, 0)
+mesh = SubResource("BoxMesh_bolsh")
 
 [node name="slika_004" type="MeshInstance3D" parent="level" unique_id=1255907757]
 transform = Transform3D(0, 0, 0.13225201, 0, 0.13225201, 0, -0.13225201, 0, 0, 13.496139, 0.9821523, -5.1602955)
 mesh = SubResource("ArrayMesh_vip6j")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level/slika_004" unique_id=1252672603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503983, 0)
+mesh = SubResource("BoxMesh_bolsh")
+
 [node name="slika_005" type="MeshInstance3D" parent="level" unique_id=314314520]
 transform = Transform3D(0, 0, 0.13225201, 0, 0.13225201, 0, -0.13225201, 0, 0, 13.496139, 0.9821523, -2.4602954)
 mesh = SubResource("ArrayMesh_5n1kt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level/slika_005" unique_id=924366689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503983, 0)
+mesh = SubResource("BoxMesh_bolsh")
 
 [node name="slika_006" type="MeshInstance3D" parent="level" unique_id=1504420057]
 transform = Transform3D(0.0030966848, 0, -0.13221575, 0, 0.13225201, 0, 0.13221575, 0, 0.0030966848, 9.073181, 0.9821523, -2.5448422)
 mesh = SubResource("ArrayMesh_xjc1s")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level/slika_006" unique_id=329287578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503983, 0)
+mesh = SubResource("BoxMesh_bolsh")
+
 [node name="slika_007" type="MeshInstance3D" parent="level" unique_id=46108986]
 transform = Transform3D(0.0030966848, 0, -0.13221575, 0, 0.13225201, 0, 0.13221575, 0, 0.0030966848, 9.073181, 0.9821523, -0.29484236)
 mesh = SubResource("ArrayMesh_7y37r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="level/slika_007" unique_id=1440031252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503983, 0)
+mesh = SubResource("BoxMesh_bolsh")
 
 [node name="GaciceSpawner" parent="." unique_id=1925576496 instance=ExtResource("9_smv1n")]
 
