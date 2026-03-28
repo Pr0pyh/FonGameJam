@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Contact" format=3 uid="uid://7uq3xtcl2nd8"]
+[gd_resource type="Resource" script_class="Contact" format=3 uid="uid://bksk6ne7esunq"]
 
 [ext_resource type="Script" uid="uid://dnbx5ecpt5ja0" path="res://resources/contacts/contact.gd" id="1_late6"]
 
 [resource]
 script = ExtResource("1_late6")
 name = "Sabahudin Keramicar"
-messages = Array[String](["moram da ti nesto recem", "u dzamiji pricaju da direktor drzi papire neke {GACE_ROOM}", "alah sa tobom"])
+messages = Array[String](["moram da ti nesto recem", "u dzamiji pricaju da direktor drzi gace {GACE_ROOM}", "alah sa tobom"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"
