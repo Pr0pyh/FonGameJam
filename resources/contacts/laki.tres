@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_emtfp")
 name = "Laki Kavasaki"
-messages = Array[String](["juce sam razlupao motor", "slupao sam se sa [REDACTED FON POLICE] koja je isla od direktora", "nesto su radili {GACE_ROOM}"])
+messages = Array[String](["juce sam razlupao motor", "slupao sam se sa zenom koja je isla od direktora", "nesto su radili {GACE_ROOM}"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"
