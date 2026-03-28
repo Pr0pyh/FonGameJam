@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_6l5ij")
-name = "Necija majka glupava"
+name = "Necija majka"
 bad = true
-messages = Array[String](["razocarana sam u vas kao novinara", "obecali ste da cete objaviti kako je moje dete osvojilo 78. mesto na matematickoj olimpijadi u Uzbekistanu", "prijavicu vas N1"])
+messages = Array[String](["razocarana sam u vas kao novinara", "obecali ste da cete objaviti kako je moje dete osvojilo 78. mesto na matematickoj olimpijadi u Uzbekistanu", "prijavicu vas"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

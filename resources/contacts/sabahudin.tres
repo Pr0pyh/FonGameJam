@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_late6")
-name = "Sabahudin Keramicar"
-messages = Array[String](["moram da ti nesto recem", "u dzamiji pricaju da direktor drzi papire neke {GACE_ROOM}", "alah sa tobom"])
+name = "Zoran Keramicar"
+messages = Array[String](["moram da ti nesto kazem", "pricaju da direktor drzi papire neke {GACE_ROOM}", "ne znam sta su"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

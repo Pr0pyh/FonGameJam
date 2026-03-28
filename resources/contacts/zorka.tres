@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_t8cfe")
-name = "Zorka Jorgovanka"
+name = "Zorka komsika"
 bad = true
-messages = Array[String](["zelim te", "sav si mi moderan", "mrnjau ;)))"])
+messages = Array[String](["cao komso", "aj smanji malo buku previse se deres", "ne mogu da gledam tv na miru"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

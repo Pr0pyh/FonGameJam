@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_saksr")
 name = "Zdravko Colic"
-messages = Array[String](["gazda je bio {GACE_ROOM}", "pitao me gace", "ti si mi u krvi"])
+messages = Array[String](["gazda je bio {GACE_ROOM}", "pitao me nesto", "ti si mi u krvi"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

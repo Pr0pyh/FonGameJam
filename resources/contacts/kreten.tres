@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_rsiwm")
-name = "Kreten Batak"
+name = "Sreten Batak"
 bad = true
 messages = Array[String](["gospodine, dugujete mi pare", "sto sam vam cistio staklo na pumpi", "502 dinaraa"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

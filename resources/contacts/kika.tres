@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_vkjxx")
-name = "Kika u Bila"
-messages = Array[String](["ajde dodji {GACE_ROOM}", "ju pogresan broj"])
+name = "Prodan"
+messages = Array[String](["neke bubasvabe su mi dosle juce u gajbu jedva da ih se resim ", "morao sam da idem {GACE_ROOM} da uzmem sekirce jedno da ih bijem", "bili neki papiri sumnjivi tamo"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

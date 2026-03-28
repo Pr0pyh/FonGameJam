@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_s3ymf")
-name = "Zena(zmija)"
+name = "Zena(bivsa)"
 bad = true
 messages = Array[String](["daj mi alimentaciju batonga", "i dalje cekam alimentaciju posalji mi alimentaciju", "buraaaaaz aj moolim te daj malo kesa da imam za malog dzekija ce pomremo od gladi buraz"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"
