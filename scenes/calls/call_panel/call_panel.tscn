@@ -13,8 +13,15 @@
 [ext_resource type="Resource" path="res://resources/contacts/sin.tres" id="8_1of6w"]
 [ext_resource type="Resource" path="res://resources/contacts/zeljko.tres" id="9_njxg5"]
 [ext_resource type="Resource" path="res://resources/contacts/zile.tres" id="11_hiuoy"]
+[ext_resource type="Resource" uid="uid://dv3habod0y7r8" path="res://resources/contacts/kika.tres" id="12_hfq8r"]
 [ext_resource type="Resource" uid="uid://dibfgtc2e0s67" path="res://resources/contacts/tutorijal.tres" id="13_3neak"]
+[ext_resource type="Resource" uid="uid://cswyawp3f1gjl" path="res://resources/contacts/kreten.tres" id="13_u3dap"]
 [ext_resource type="FontFile" uid="uid://d33g1nrc2t32x" path="res://assets/OCR A Extended Regular.ttf" id="14_2spuc"]
+[ext_resource type="Resource" uid="uid://du1beow8oif1r" path="res://resources/contacts/krile.tres" id="14_okskt"]
+[ext_resource type="Resource" uid="uid://c5ypmn0xv6smr" path="res://resources/contacts/nepoznati.tres" id="15_xrhjp"]
+[ext_resource type="Resource" uid="uid://d2egfvsypxrqt" path="res://resources/contacts/peki.tres" id="16_exy7m"]
+[ext_resource type="Resource" uid="uid://dytqvy0qnepsh" path="res://resources/contacts/zdravko.tres" id="17_mub3i"]
+[ext_resource type="Resource" uid="uid://dusjn70vye655" path="res://resources/contacts/zorka.tres" id="18_j4oyk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3neak"]
 font = ExtResource("14_2spuc")
@@ -40,7 +47,7 @@ script = ExtResource("1_y2idr")
 incoming_caller_name_label = NodePath("IncomingCallContainer/CallerNameLabel")
 in_progress_caller_name_label = NodePath("CallInProgressContainer/CallerNameLabel")
 in_progress_call_time_label = NodePath("CallInProgressContainer/CallLabel")
-contacts = Array[ExtResource("2_as4kb")]([ExtResource("3_nq4uv"), ExtResource("4_2spuc"), ExtResource("5_3neak"), ExtResource("3_vsb4a"), ExtResource("7_gewj6"), ExtResource("8_1of6w"), ExtResource("9_njxg5"), ExtResource("4_5uwvj"), ExtResource("11_hiuoy")])
+contacts = Array[ExtResource("2_as4kb")]([ExtResource("3_nq4uv"), ExtResource("4_2spuc"), ExtResource("5_3neak"), ExtResource("3_vsb4a"), ExtResource("7_gewj6"), ExtResource("8_1of6w"), ExtResource("9_njxg5"), ExtResource("4_5uwvj"), ExtResource("11_hiuoy"), ExtResource("12_hfq8r"), ExtResource("13_u3dap"), ExtResource("14_okskt"), ExtResource("15_xrhjp"), ExtResource("16_exy7m"), ExtResource("17_mub3i"), ExtResource("18_j4oyk")])
 incoming_call_container = NodePath("IncomingCallContainer")
 call_in_progress_container = NodePath("CallInProgressContainer")
 call_text_popup_scene = ExtResource("2_rya85")
