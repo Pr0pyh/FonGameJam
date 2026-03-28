@@ -365,11 +365,8 @@ color = Color(1, 1, 1, 0)
 layout_mode = 1
 
 [node name="WinScreen" parent="." unique_id=350930094 node_paths=PackedStringArray("phone_counter") instance=ExtResource("9_th5th")]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-grow_horizontal = 0
-mouse_filter = 2
+process_mode = 3
+mouse_passthrough = true
 phone_counter = NodePath("../NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI/PhotoCounter")
 
 [connection signal="gui_input" from="NokiaSubViewportContainer" to="." method="_on_nokia_sub_viewport_container_gui_input"]
