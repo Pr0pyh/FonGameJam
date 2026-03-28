@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="Contact" format=3 uid="uid://b3qv78j0kj0w"]
+[gd_resource type="Resource" script_class="Contact" format=3 uid="uid://do1ehwu7xlna1"]
 
 [ext_resource type="Script" uid="uid://dnbx5ecpt5ja0" path="res://resources/contacts/contact.gd" id="1_emtfp"]
 
 [resource]
 script = ExtResource("1_emtfp")
 name = "Laki Kavasaki"
+<<<<<<< HEAD
 messages = Array[String](["juce sam razlupao motor", "slupao sam se sa [REDACTED FON POLICE] koja je isla od direktora", "nesto su radili {GACE_ROOM}"])
+=======
+messages = Array[String](["juce sam razlupao motor", "slupao sam se sa nekim agentom koji je iso od direktora", "nesto su radili {GACE_ROOM}"])
+>>>>>>> 9e569a4a2912133b56e35a52f34296bcac54b474
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"
