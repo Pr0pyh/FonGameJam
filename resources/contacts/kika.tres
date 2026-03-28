@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_vkjxx")
 name = "Prodan"
+voice_pitch = 0.8
 messages = Array[String](["neke bubasvabe su mi dosle juce u gajbu jedva da ih se resim ", "morao sam da idem {GACE_ROOM} da uzmem sekirce jedno da ih bijem", "bili neki papiri sumnjivi tamo"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

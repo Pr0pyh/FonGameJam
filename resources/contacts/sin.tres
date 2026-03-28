@@ -6,5 +6,6 @@
 script = ExtResource("1_7kouv")
 name = "Sin Debil Beskorisni"
 bad = true
+voice_pitch = 0.8
 messages = Array[String](["e cale, trebaju mi pare", "prijavio sam se da idem na ekskurziju do ceske ", "treba mi 200 eura"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

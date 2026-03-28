@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_m5ur8")
 name = "Zile Laminat novi"
+voice_pitch = 0.8
 messages = Array[String](["skidao sam parket {GACE_ROOM}", "nasao sam neke papire sumnjive", "onda sam stavio laminat"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

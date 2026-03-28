@@ -22,6 +22,9 @@
 [ext_resource type="Resource" uid="uid://d2egfvsypxrqt" path="res://resources/contacts/peki.tres" id="16_exy7m"]
 [ext_resource type="Resource" uid="uid://dytqvy0qnepsh" path="res://resources/contacts/zdravko.tres" id="17_mub3i"]
 [ext_resource type="Resource" uid="uid://dusjn70vye655" path="res://resources/contacts/zorka.tres" id="18_j4oyk"]
+[ext_resource type="AudioStream" uid="uid://ce5i532g8tdkw" path="res://assets/sounds/voices/voice-01.ogg" id="23_j0kn7"]
+[ext_resource type="AudioStream" uid="uid://dnvnaehcd51jb" path="res://assets/sounds/voices/voice-02.ogg" id="24_dhmsw"]
+[ext_resource type="AudioStream" uid="uid://cbarjm4c2xgy5" path="res://assets/sounds/voices/voice-07.ogg" id="29_yokfq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3neak"]
 font = ExtResource("14_2spuc")
@@ -30,7 +33,13 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[node name="CallPanel" type="Control" unique_id=455487660 node_paths=PackedStringArray("incoming_caller_name_label", "in_progress_caller_name_label", "in_progress_call_time_label", "incoming_call_container", "call_in_progress_container")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t1em4"]
+streams_count = 3
+stream_0/stream = ExtResource("23_j0kn7")
+stream_1/stream = ExtResource("24_dhmsw")
+stream_2/stream = ExtResource("29_yokfq")
+
+[node name="CallPanel" type="Control" unique_id=455487660 node_paths=PackedStringArray("incoming_caller_name_label", "in_progress_caller_name_label", "in_progress_call_time_label", "voice_player", "incoming_call_container", "call_in_progress_container")]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -47,6 +56,7 @@ script = ExtResource("1_y2idr")
 incoming_caller_name_label = NodePath("IncomingCallContainer/CallerNameLabel")
 in_progress_caller_name_label = NodePath("CallInProgressContainer/CallerNameLabel")
 in_progress_call_time_label = NodePath("CallInProgressContainer/CallLabel")
+voice_player = NodePath("VoicePlayer")
 contacts = Array[ExtResource("2_as4kb")]([ExtResource("3_nq4uv"), ExtResource("4_2spuc"), ExtResource("5_3neak"), ExtResource("3_vsb4a"), ExtResource("7_gewj6"), ExtResource("8_1of6w"), ExtResource("9_njxg5"), ExtResource("4_5uwvj"), ExtResource("11_hiuoy"), ExtResource("12_hfq8r"), ExtResource("13_u3dap"), ExtResource("14_okskt"), ExtResource("15_xrhjp"), ExtResource("16_exy7m"), ExtResource("17_mub3i"), ExtResource("18_j4oyk")])
 incoming_call_container = NodePath("IncomingCallContainer")
 call_in_progress_container = NodePath("CallInProgressContainer")
@@ -107,3 +117,6 @@ label_settings = SubResource("LabelSettings_3neak")
 layout_mode = 2
 text = "Mirko Vodoinstalacija"
 label_settings = SubResource("LabelSettings_3neak")
+
+[node name="VoicePlayer" type="AudioStreamPlayer" parent="." unique_id=616191165]
+stream = SubResource("AudioStreamRandomizer_t1em4")

@@ -10,6 +10,7 @@ signal call_accepted()
 
 @export var in_progress_caller_name_label: Label
 @export var in_progress_call_time_label: Label
+@export var voice_player: AudioStreamPlayer
 
 @export var contacts: Array[Contact]
 @export var incoming_call_container: VBoxContainer
@@ -31,6 +32,8 @@ func spawn(first_call: bool):
 	visible = true
 	contact = contacts.pick_random()
 	if first_call: contact = dzon_tutorijal
+	voice_player.volume_linear = contact.voice_loudness*0.45
+	voice_player.pitch_scale = contact.voice_pitch
 	incoming_caller_name_label.text = contact.name
 	in_progress_caller_name_label.text = contact.name
 	
@@ -48,8 +51,8 @@ func spawn(first_call: bool):
 func _process(delta: float) -> void:
 	if call_in_progress:
 		call_time += delta
-		update_call_time_label()
 		
+		update_call_time_label()
 		message_timer -= delta
 		if message_timer <= 0.0:
 			message_timer = 3.0 / contact.talk_speed
@@ -59,6 +62,9 @@ func _process(delta: float) -> void:
 			var message: String = contact.messages[message_index].replace("{GACE_ROOM}", gace_room_name) 
 			call_text_popup.set_text(message)
 			message_index = (message_index+1)%contact.messages.size()
+			for i in 10:
+				voice_player.play()
+				await voice_player.finished
 		
 	if Input.is_action_just_pressed("accept_call"):
 		accept_call()

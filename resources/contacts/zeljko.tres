@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_sxt2q")
 name = "Zeljko Lim Majin"
+voice_pitch = 0.8
 messages = Array[String](["radio sam lim ministru policije", "rekao mi je da su kompromitujuci materijali {GACE_ROOM}", "nemoj da prodas brata burazz"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"
