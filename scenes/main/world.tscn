@@ -1373,7 +1373,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.210936, 0.0054250956, -15.
 [node name="u kancelariji broj 4" type="Marker3D" parent="GaciceSpawner" unique_id=1785171616]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.909996, 0.0054249763, -7.644216)
 
-[node name="na kraju dr_ Kanovog lavirinta" type="Marker3D" parent="GaciceSpawner" unique_id=54761429]
+[node name="na kraju doktor Kanovog lavirinta" type="Marker3D" parent="GaciceSpawner" unique_id=54761429]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.460619, 0.0054249763, -1.7606497)
 
 [node name="u sobi za sastanke" type="Marker3D" parent="GaciceSpawner" unique_id=1340272781]
