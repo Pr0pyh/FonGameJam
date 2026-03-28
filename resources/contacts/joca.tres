@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_rl8xe")
 name = "Joca Karakondzula"
-messages = Array[String](["juce u kafani dosao neki polupani lik", "rekao e video sam direktora kako skida zene {GACE_ROOM}"])
+messages = Array[String](["juce u kafani dosao neki polupani lik", "rekao e video sam -ksh- kako -uf COCOMELON - {GACE_ROOM}"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"
