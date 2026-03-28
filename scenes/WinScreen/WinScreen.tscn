@@ -1,0 +1,375 @@
+[gd_scene format=3 uid="uid://bn0abawhqcw6q"]
+
+[ext_resource type="AudioStream" uid="uid://bornb43u7qojq" path="res://assets/sounds/hororsranje.mp3" id="1_b2wm0"]
+[ext_resource type="Script" uid="uid://du2q5dfry6ywc" path="res://scenes/WinScreen/win_screen.gd" id="1_luet0"]
+[ext_resource type="FontFile" uid="uid://d33g1nrc2t32x" path="res://assets/OCR A Extended Regular.ttf" id="2_2j88x"]
+[ext_resource type="Texture2D" uid="uid://bjf77dm1aiivt" path="res://assets/majmun1.png" id="4_518fs"]
+[ext_resource type="Texture2D" uid="uid://3c0jgka2ww7s" path="res://assets/majmun3.png" id="5_1pcvj"]
+[ext_resource type="Texture2D" uid="uid://u2pvml3i2yqk" path="res://assets/majmun2.png" id="6_60hyf"]
+
+[sub_resource type="Animation" id="Animation_2j88x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label6:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextureRect:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextureRect3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TextureRect2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_30y35"]
+resource_name = "winanim"
+length = 5.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_b2wm0")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.0308049),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.0062175),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.0069656),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label5:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.020382),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Label6:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(4.9957943),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextureRect:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.6634416),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TextureRect2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.6768575),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TextureRect3:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(3.7036889),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bafdr"]
+_data = {
+&"RESET": SubResource("Animation_2j88x"),
+&"winanim": SubResource("Animation_30y35")
+}
+
+[node name="WinScreen" type="Control" unique_id=350930094 node_paths=PackedStringArray("anim_player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_luet0")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="Label" type="Label" parent="." unique_id=1814606365]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_2j88x")
+theme_override_font_sizes/font_size = 25
+text = "CONSULT THE RULE"
+
+[node name="Label2" type="Label" parent="." unique_id=1095421729]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -241.0
+offset_top = 20.0
+offset_bottom = 47.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_2j88x")
+theme_override_font_sizes/font_size = 25
+text = "CONSULT THE RULE"
+
+[node name="Label3" type="Label" parent="." unique_id=948277953]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -241.0
+offset_top = 40.0
+offset_bottom = 67.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_2j88x")
+theme_override_font_sizes/font_size = 25
+text = "CONSULT THE RULE"
+
+[node name="Label4" type="Label" parent="." unique_id=1133140130]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -241.0
+offset_top = 60.0
+offset_bottom = 87.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_2j88x")
+theme_override_font_sizes/font_size = 25
+text = "CONSULT THE RULE"
+
+[node name="Label5" type="Label" parent="." unique_id=1145065764]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -241.0
+offset_top = 80.0
+offset_bottom = 107.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_2j88x")
+theme_override_font_sizes/font_size = 25
+text = "CONSULT THE RULE"
+
+[node name="Label6" type="Label" parent="." unique_id=1799309956]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -241.0
+offset_top = 100.0
+offset_bottom = 127.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_2j88x")
+theme_override_font_sizes/font_size = 25
+text = "CONSULT THE RULE"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1858265047]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1527107886]
+libraries/ = SubResource("AnimationLibrary_bafdr")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1302991185]
+visible = false
+layout_mode = 0
+offset_right = 462.0
+offset_bottom = 213.0
+texture = ExtResource("4_518fs")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1081848168]
+visible = false
+layout_mode = 0
+offset_left = 150.0
+offset_top = 94.0
+offset_right = 520.0
+offset_bottom = 307.0
+texture = ExtResource("5_1pcvj")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1718745528]
+visible = false
+layout_mode = 0
+offset_left = 164.0
+offset_top = 74.0
+offset_right = 348.0
+offset_bottom = 505.0
+texture = ExtResource("6_60hyf")

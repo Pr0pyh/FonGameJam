@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dwe2cicv7twsx" path="res://scenes/HealthComponent/HealthComponent.tscn" id="7_hujxm"]
 [ext_resource type="Shader" uid="uid://cg4i75fsfdvqj" path="res://shaders/screen.gdshader" id="9_a8run"]
 [ext_resource type="PackedScene" uid="uid://d0erpkqmd34rc" path="res://scenes/nokia/nokia.tscn" id="9_b1x3f"]
+[ext_resource type="PackedScene" uid="uid://bn0abawhqcw6q" path="res://scenes/WinScreen/WinScreen.tscn" id="9_th5th"]
 [ext_resource type="PackedScene" uid="uid://bcrm3d66h3mc1" path="res://scenes/calls/call_text_popup_container/call_text_popup_container.tscn" id="10_a8run"]
 [ext_resource type="AudioStream" uid="uid://c0h3frdv5i46t" path="res://assets/sounds/click_distorted.ogg" id="11_blune"]
 
@@ -284,6 +285,10 @@ offset_right = -4.024994
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="WinScreen" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI" unique_id=350930094 node_paths=PackedStringArray("phone_counter") instance=ExtResource("9_th5th")]
+layout_mode = 1
+phone_counter = NodePath("../PhotoCounter")
 
 [node name="NokiaWorld" type="Node3D" parent="NokiaSubViewportContainer/SubViewport" unique_id=787220113]
 
