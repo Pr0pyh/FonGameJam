@@ -717,15 +717,16 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_aio1r")
 
 [node name="Nokia" type="Node3D" unique_id=1372871718 node_paths=PackedStringArray("ringtone_sound_player", "vibration_sound_player")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_6os8k")
 ringtone_sound_player = NodePath("RingtoneSoundPlayer")
 vibration_sound_player = NodePath("VibrationSoundPlayer")
 
 [node name="Base" type="MeshInstance3D" parent="." unique_id=954113898]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_qxwca")
 
 [node name="ButtonPhoto" type="Area3D" parent="." unique_id=367982567]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
 [node name="pipke_036" type="MeshInstance3D" parent="ButtonPhoto" unique_id=1166995784]
 transform = Transform3D(1.3148638, 0, 0, 0, 1.3148637, 0, 0, 0, 1.3148638, -0.0052084923, 0.046672978, -1.2291892)
@@ -736,6 +737,7 @@ transform = Transform3D(1.3148638, 0, 0, 0, 1.3148637, 0, 0, 0, 1.3148638, -0.00
 shape = SubResource("ConcavePolygonShape3D_2ovwa")
 
 [node name="ButtonLeft" type="Area3D" parent="." unique_id=1506866572]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
 [node name="ButtonLeft" type="MeshInstance3D" parent="ButtonLeft" unique_id=1198168433]
 mesh = SubResource("ArrayMesh_lkeip")
@@ -744,6 +746,7 @@ mesh = SubResource("ArrayMesh_lkeip")
 shape = SubResource("ConcavePolygonShape3D_y7b2s")
 
 [node name="ButtonRight" type="Area3D" parent="." unique_id=694870757]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
 [node name="ButtonRight" type="MeshInstance3D" parent="ButtonRight" unique_id=858846288]
 mesh = SubResource("ArrayMesh_0hvsa")
@@ -752,6 +755,7 @@ mesh = SubResource("ArrayMesh_0hvsa")
 shape = SubResource("ConcavePolygonShape3D_6os8k")
 
 [node name="ButtonUp" type="Area3D" parent="." unique_id=1767341727]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
 [node name="ButtonUp" type="MeshInstance3D" parent="ButtonUp" unique_id=203072216]
 mesh = SubResource("ArrayMesh_53mjw")
@@ -760,6 +764,7 @@ mesh = SubResource("ArrayMesh_53mjw")
 shape = SubResource("ConcavePolygonShape3D_45amc")
 
 [node name="ButtonDown" type="Area3D" parent="." unique_id=710907287]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
 [node name="ButtonDown" type="MeshInstance3D" parent="ButtonDown" unique_id=816837178]
 mesh = SubResource("ArrayMesh_57dap")
@@ -768,6 +773,7 @@ mesh = SubResource("ArrayMesh_57dap")
 shape = SubResource("ConcavePolygonShape3D_jmjjq")
 
 [node name="ButtonAccept" type="Area3D" parent="." unique_id=1615714955]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
 [node name="ButtonAccept" type="MeshInstance3D" parent="ButtonAccept" unique_id=1938615041]
 mesh = SubResource("ArrayMesh_5d8c5")
@@ -776,6 +782,7 @@ mesh = SubResource("ArrayMesh_5d8c5")
 shape = SubResource("ConcavePolygonShape3D_llbfa")
 
 [node name="ButtonDecline" type="Area3D" parent="." unique_id=1274986351]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
 [node name="ButtonDecline" type="MeshInstance3D" parent="ButtonDecline" unique_id=1893841501]
 mesh = SubResource("ArrayMesh_gfaqe")
@@ -784,39 +791,51 @@ mesh = SubResource("ArrayMesh_gfaqe")
 shape = SubResource("ConcavePolygonShape3D_2s75u")
 
 [node name="Button1" type="MeshInstance3D" parent="." unique_id=493880595]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3hba6")
 
 [node name="Button2" type="MeshInstance3D" parent="." unique_id=2002478824]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ddegn")
 
 [node name="Button3" type="MeshInstance3D" parent="." unique_id=1324279708]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3vdn0")
 
 [node name="Button4" type="MeshInstance3D" parent="." unique_id=820877224]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_7ml2t")
 
 [node name="Button5" type="MeshInstance3D" parent="." unique_id=1515211240]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_55k5r")
 
 [node name="Button6" type="MeshInstance3D" parent="." unique_id=1093154334]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_urlhx")
 
 [node name="Button7" type="MeshInstance3D" parent="." unique_id=1024933678]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_c4esq")
 
 [node name="Button8" type="MeshInstance3D" parent="." unique_id=537897002]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_32uk3")
 
 [node name="Button9" type="MeshInstance3D" parent="." unique_id=1641724630]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8x8kw")
 
 [node name="Button0" type="MeshInstance3D" parent="." unique_id=1826059602]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_2bvxs")
 
 [node name="ButtonAsterisk" type="MeshInstance3D" parent="." unique_id=1008512761]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8veof")
 
 [node name="ButtonHash" type="MeshInstance3D" parent="." unique_id=2039680268]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_q1r3i")
 
 [node name="VibrationSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=246379298]

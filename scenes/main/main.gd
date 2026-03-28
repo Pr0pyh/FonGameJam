@@ -2,6 +2,7 @@ class_name MainScene
 extends Control
 
 
+
 static var nokia_input_handled: bool = false
 static var instance: MainScene
 
@@ -33,12 +34,13 @@ const NOKIA_SIZE: float = 0.65
 @export var black_quad: MeshInstance3D
 @export var screen_ui: Control
 @export var photo_counter: PhotoCounter
+@export var exploding_nokia_scene: PackedScene
 
 @onready var start_player_transform: Transform3D = player.global_transform
 @onready var start_player_camera_transform: Transform3D = player_camera.global_transform
 
 
-
+var exploded: bool = false
 var dragging_nokia: bool = false
 var drag_nokia_start_offset: Vector2i
 var camera_top_left: Vector3
@@ -88,6 +90,7 @@ func load_world():
 
 
 func _process(delta):
+	if exploded: return
 	left_wall_color_rect.color.a = move_toward(left_wall_color_rect.color.a, 0.0, delta)
 	right_wall_color_rect.color.a = move_toward(right_wall_color_rect.color.a, 0.0, delta)
 	top_wall_color_rect.color.a = move_toward(top_wall_color_rect.color.a, 0.0, delta)
@@ -233,6 +236,7 @@ func get_window_bounds() -> Array[Vector2]:
 
 
 func _on_nokia_sub_viewport_container_gui_input(event: InputEvent) -> void:
+	if exploded: return
 	if dying: return
 	nokia_subviewport.push_input(event)
 	if nokia_input_handled: 
@@ -252,10 +256,12 @@ func _on_nokia_sub_viewport_container_gui_input(event: InputEvent) -> void:
 
 
 func start_phone_call_incoming():
+	if exploded: return
 	nokia.start_phone_call_incoming()
 
 
 func stop_phone_call_incoming():
+	if exploded: return
 	nokia.stop_phone_call_incoming()
 
 
@@ -298,9 +304,35 @@ func death():
 
 
 func _on_nokia_input(event: InputEvent) -> void:
+	if exploded: return
 	if event.is_action_pressed("accept_call"):
 		call_container._on_accept_call_pressed()
 	elif event.is_action_pressed("decline_call"):
 		call_container._on_decline_call_pressed()
 	game_subviewport.push_input(event)
 	get_viewport().push_input(event)
+
+
+func explode_nokia():
+	exploded = true
+	var usable_rect: Rect2i = DisplayServer.screen_get_usable_rect()
+	nokia.shake_frequency = 400.0
+	nokia.shake_strength = 0.5
+	nokia.shaking = true
+	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(get_window(), "position", Vector2i(Vector2(usable_rect.size/2.0) + Vector2(usable_rect.position) - Vector2(get_window().size/2)), 2.0)
+	await tween.finished
+	if world:
+		world.queue_free()
+	var ratio = Vector2(get_window().size) / Vector2(usable_rect.size)
+	ratio = max(ratio.x, ratio.y)
+	get_window().size = usable_rect.size
+	get_window().position = usable_rect.position
+	var exploding_nokia: ExplodingNokia = exploding_nokia_scene.instantiate()
+	nokia.get_parent().add_child(exploding_nokia)
+	exploding_nokia.global_transform = nokia.global_transform
+	exploding_nokia.scale = Vector3.ONE*ratio
+	nokia.queue_free.call_deferred()
+	await get_tree().create_timer(4.0).timeout
+	get_tree().quit()
+	

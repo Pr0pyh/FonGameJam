@@ -675,3 +675,4 @@ mesh = SubResource("ArrayMesh_af1i7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="baba" unique_id=773000838]
 libraries/ = SubResource("AnimationLibrary_kqsl2")
+speed_scale = 3.0
