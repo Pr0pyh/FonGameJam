@@ -6,5 +6,5 @@
 script = ExtResource("1_q1p5l")
 name = "Peki Kazablanka"
 talk_speed = 2.0
-messages = Array[String](["Kad se provozam gradom miris je Casablanca", "sve mirise po skanku ovde citavog dana", "stalno vani sa vabdom, prvi red smo do sanka", "buraayyy gace su {GACE_ROOM}"])
+messages = Array[String](["Kad se provozam gradom miris je Casablanca", "sve mirise po skanku ovde citavog dana", "stalno vani sa vabdom, prvi red smo do sanka", "buraayyy dokazi su {GACE_ROOM}"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

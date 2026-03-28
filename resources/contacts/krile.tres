@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_hjikm")
 name = "Krile Petao"
-messages = Array[String](["pucali su me ratatatatata", "3 metka, 20, 4, 75 volim te jako ", "joca karapundzac mi javlja", "gace {GACE_ROOM}"])
+messages = Array[String](["pucali su me ratatatatata", "3 metka, 20, 4, 75 volim te jako ", "joca karapundzac mi javlja", "papiri su {GACE_ROOM}"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"

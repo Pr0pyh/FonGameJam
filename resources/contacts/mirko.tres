@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_kpu4y")
 name = "Mirko Auspuh 2"
-messages = Array[String](["ee ja sam onaj sto ti radi auspuh 2", "gacice su na u sobi {GACE_ROOM} burazengija ti si taj", "Ide gas (razumes jer je mirko auspuh 2 pa kao ide gas)"])
+messages = Array[String](["ee ja sam onaj sto ti radi auspuh 2", "papiri neki su ti {GACE_ROOM} burazengija ti si taj", "Ide gas (razumes jer je mirko auspuh 2 pa kao ide gas)"])
 metadata/_custom_type_script = "uid://dnbx5ecpt5ja0"
