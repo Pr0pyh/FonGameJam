@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Dr. Kan"
+config/name="Doctor Kan"
 run/main_scene="uid://qykj0h7c4coi"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://bxlqijrlwobbj"
