@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 		anim_player.play("winanim")
 
 func destroy(anim_name):
-	queue_free()
+	get_tree().quit()

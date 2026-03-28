@@ -120,7 +120,7 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id="Animation_30y35"]
 resource_name = "winanim"
-length = 5.0
+length = 7.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -261,115 +261,143 @@ grow_vertical = 2
 script = ExtResource("1_luet0")
 anim_player = NodePath("AnimationPlayer")
 
-[node name="Label" type="Label" parent="." unique_id=1814606365]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("2_2j88x")
-theme_override_font_sizes/font_size = 25
-text = "CONSULT THE RULE"
-
-[node name="Label2" type="Label" parent="." unique_id=1095421729]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -241.0
-offset_top = 20.0
-offset_bottom = 47.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("2_2j88x")
-theme_override_font_sizes/font_size = 25
-text = "CONSULT THE RULE"
-
-[node name="Label3" type="Label" parent="." unique_id=948277953]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -241.0
-offset_top = 40.0
-offset_bottom = 67.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("2_2j88x")
-theme_override_font_sizes/font_size = 25
-text = "CONSULT THE RULE"
-
-[node name="Label4" type="Label" parent="." unique_id=1133140130]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -241.0
-offset_top = 60.0
-offset_bottom = 87.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("2_2j88x")
-theme_override_font_sizes/font_size = 25
-text = "CONSULT THE RULE"
-
-[node name="Label5" type="Label" parent="." unique_id=1145065764]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -241.0
-offset_top = 80.0
-offset_bottom = 107.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("2_2j88x")
-theme_override_font_sizes/font_size = 25
-text = "CONSULT THE RULE"
-
-[node name="Label6" type="Label" parent="." unique_id=1799309956]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -241.0
-offset_top = 100.0
-offset_bottom = 127.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("2_2j88x")
-theme_override_font_sizes/font_size = 25
-text = "CONSULT THE RULE"
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1858265047]
+volume_db = 7.298
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1527107886]
 libraries/ = SubResource("AnimationLibrary_bafdr")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1302991185]
 visible = false
-layout_mode = 0
-offset_right = 462.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -462.0
 offset_bottom = 213.0
+grow_horizontal = 0
 texture = ExtResource("4_518fs")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1081848168]
 visible = false
-layout_mode = 0
-offset_left = 150.0
-offset_top = 94.0
-offset_right = 520.0
-offset_bottom = 307.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -377.0
+offset_top = 310.0
+offset_right = -7.0
+offset_bottom = 523.0
+grow_horizontal = 0
 texture = ExtResource("5_1pcvj")
 
 [node name="TextureRect3" type="TextureRect" parent="." unique_id=1718745528]
 visible = false
-layout_mode = 0
-offset_left = 164.0
-offset_top = 74.0
-offset_right = 348.0
-offset_bottom = 505.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -172.0
+offset_top = 43.0
+offset_right = 12.0
+offset_bottom = 474.0
+grow_horizontal = 0
 texture = ExtResource("6_60hyf")
+
+[node name="Label" type="Label" parent="." unique_id=1814606365]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -241.0
+offset_bottom = 27.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_2j88x")
+theme_override_font_sizes/font_size = 65
+text = "BE SILENT"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="." unique_id=1095421729]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -628.0
+offset_top = 52.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_2j88x")
+theme_override_font_sizes/font_size = 65
+text = "BE AFRAID"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="." unique_id=948277953]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -630.0
+offset_top = 102.0
+offset_right = -2.0
+offset_bottom = 170.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_2j88x")
+theme_override_font_sizes/font_size = 65
+text = "BE SILENT"
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="." unique_id=1133140130]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -628.0
+offset_top = 154.0
+offset_bottom = 222.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_2j88x")
+theme_override_font_sizes/font_size = 65
+text = "BE AFRAID"
+horizontal_alignment = 2
+
+[node name="Label5" type="Label" parent="." unique_id=1145065764]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -633.0
+offset_top = 218.0
+offset_right = -5.0
+offset_bottom = 286.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_2j88x")
+theme_override_font_sizes/font_size = 65
+text = "BE SILENT"
+horizontal_alignment = 2
+
+[node name="Label6" type="Label" parent="." unique_id=1799309956]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -621.0
+offset_top = 291.0
+offset_right = 7.0
+offset_bottom = 359.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_2j88x")
+theme_override_font_sizes/font_size = 65
+text = "BE AFRAID"
+horizontal_alignment = 2

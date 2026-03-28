@@ -286,10 +286,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="WinScreen" parent="NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI" unique_id=350930094 node_paths=PackedStringArray("phone_counter") instance=ExtResource("9_th5th")]
-layout_mode = 1
-phone_counter = NodePath("../PhotoCounter")
-
 [node name="NokiaWorld" type="Node3D" parent="NokiaSubViewportContainer/SubViewport" unique_id=787220113]
 
 [node name="Nokia" parent="NokiaSubViewportContainer/SubViewport/NokiaWorld" unique_id=1372871718 node_paths=PackedStringArray("damage_sound_player") instance=ExtResource("9_b1x3f")]
@@ -367,6 +363,14 @@ color = Color(1, 1, 1, 0)
 
 [node name="CallTextPopupContainer" parent="." unique_id=9859146 instance=ExtResource("10_a8run")]
 layout_mode = 1
+
+[node name="WinScreen" parent="." unique_id=350930094 node_paths=PackedStringArray("phone_counter") instance=ExtResource("9_th5th")]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+grow_horizontal = 0
+mouse_filter = 2
+phone_counter = NodePath("../NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI/PhotoCounter")
 
 [connection signal="gui_input" from="NokiaSubViewportContainer" to="." method="_on_nokia_sub_viewport_container_gui_input"]
 [connection signal="input" from="NokiaSubViewportContainer/SubViewport/NokiaWorld/Nokia" to="." method="_on_nokia_input"]
