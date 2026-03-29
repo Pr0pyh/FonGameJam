@@ -47,11 +47,11 @@ func _process(delta: float):
 	shake_t += delta*shake_frequency
 	
 	for button: Area3D in buttons:
-		var target_button_y: float = \
+		var target_button_z: float = \
 			0.025\
 			-float(button == currently_hovered_button)*0.02 \
 			-float(button == currently_hovered_button and is_button_pressed)*0.03
-		button.position.y = lerp(button.position.y, target_button_y, 50.0*delta)
+		button.position.z = lerp(button.position.z, target_button_z, 50.0*delta)
 	
 	
 	if phone_call_incoming:

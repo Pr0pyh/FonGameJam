@@ -6,8 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dakh7b1dy6fxj" path="res://scenes/nokia/exploding/exploding_nokia_Metal053A_1K-JPG_NormalGL.jpg" id="4_jnu2w"]
 [ext_resource type="Texture2D" uid="uid://dh8ittxef8f1" path="res://scenes/nokia/exploding/exploding_nokia_Nokia_3410_-_motherboard-92688.jpg" id="5_7qsvu"]
 [ext_resource type="Texture2D" uid="uid://chhebxqx560ng" path="res://scenes/nokia/exploding/exploding_nokia_NormalMap (5).png" id="6_j447k"]
-[ext_resource type="Texture2D" uid="uid://1r45xse30ebr" path="res://assets/smoke.png" id="7_ky7ti"]
+[ext_resource type="Material" uid="uid://da441lhboed7d" path="res://shaders/materials/smoke_particles_process_material.tres" id="7_7qsvu"]
 [ext_resource type="AudioStream" uid="uid://bcv4x44go3lg8" path="res://assets/sounds/distorted_explosion.ogg" id="8_av1bs"]
+[ext_resource type="QuadMesh" uid="uid://cswasbpjdp5lj" path="res://shaders/materials/smoke_mesh.tres" id="8_j447k"]
+[ext_resource type="Material" uid="uid://biypnn516m0c3" path="res://shaders/materials/yellow_particles_process_material.tres" id="10_j447k"]
+[ext_resource type="QuadMesh" uid="uid://ppec0bskh3n0" path="res://shaders/materials/yellow_mesh.tres" id="11_jcwvl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vnv57"]
 resource_name = "Material.001"
@@ -837,62 +840,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k3822")
 
-[sub_resource type="Curve" id="Curve_ky7ti"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.042307697, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_av1bs"]
-curve = SubResource("Curve_ky7ti")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jnu2w"]
-emission_shape = 3
-emission_box_extents = Vector3(0.725, 1.595, 0.385)
-gravity = Vector3(0, 1, 0)
-scale_min = 2.0
-scale_max = 2.0
-scale_curve = SubResource("CurveTexture_av1bs")
-anim_speed_min = 1.25
-anim_speed_max = 1.25
-anim_offset_max = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_av1bs"]
-transparency = 1
-albedo_texture = ExtResource("7_ky7ti")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 6
-particles_anim_v_frames = 5
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_jnu2w"]
-material = SubResource("StandardMaterial3D_av1bs")
-
-[sub_resource type="Gradient" id="Gradient_av1bs"]
-offsets = PackedFloat32Array(0, 0.13247864)
-colors = PackedColorArray(3.4255767, 3.4255767, 0, 1, 1, 0.49411765, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jnu2w"]
-gradient = SubResource("Gradient_av1bs")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_av1bs"]
-particle_flag_align_y = true
-emission_shape = 3
-emission_box_extents = Vector3(0.315, 1.155, 0.11)
-direction = Vector3(0, 1, 0)
-spread = 180.0
-initial_velocity_max = 54.17
-gravity = Vector3(0, -30, 0)
-color = Color(1.6852883, 1.6852883, 1.6852883, 1)
-color_ramp = SubResource("GradientTexture1D_jnu2w")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7qsvu"]
-cull_mode = 2
-vertex_color_use_as_albedo = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_j447k"]
-material = SubResource("StandardMaterial3D_7qsvu")
-size = Vector2(0.05, 0.3)
-
 [node name="ExplodingNokia" type="Node3D" unique_id=916052632 node_paths=PackedStringArray("parent", "smoke_particles", "yellow_particles")]
 script = ExtResource("1_lavbe")
 parent = NodePath("exploding_nokia")
@@ -1005,8 +952,8 @@ omni_range = 16.770393
 amount = 20
 lifetime = 4.0
 explosiveness = 0.9
-process_material = SubResource("ParticleProcessMaterial_jnu2w")
-draw_pass_1 = SubResource("QuadMesh_jnu2w")
+process_material = ExtResource("7_7qsvu")
+draw_pass_1 = ExtResource("8_j447k")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1180170567]
 stream = ExtResource("8_av1bs")
@@ -1016,5 +963,5 @@ autoplay = true
 amount = 50
 lifetime = 4.0
 explosiveness = 0.99
-process_material = SubResource("ParticleProcessMaterial_av1bs")
-draw_pass_1 = SubResource("QuadMesh_j447k")
+process_material = ExtResource("10_j447k")
+draw_pass_1 = ExtResource("11_jcwvl")

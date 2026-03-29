@@ -12,7 +12,11 @@
 [ext_resource type="Shader" uid="uid://cg4i75fsfdvqj" path="res://shaders/screen.gdshader" id="9_a8run"]
 [ext_resource type="PackedScene" uid="uid://d0erpkqmd34rc" path="res://scenes/nokia/nokia.tscn" id="9_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://bcrm3d66h3mc1" path="res://scenes/calls/call_text_popup_container/call_text_popup_container.tscn" id="10_a8run"]
+[ext_resource type="Material" uid="uid://da441lhboed7d" path="res://shaders/materials/smoke_particles_process_material.tres" id="10_nvumn"]
 [ext_resource type="AudioStream" uid="uid://c0h3frdv5i46t" path="res://assets/sounds/click_distorted.ogg" id="11_blune"]
+[ext_resource type="QuadMesh" uid="uid://cswasbpjdp5lj" path="res://shaders/materials/smoke_mesh.tres" id="11_ou6is"]
+[ext_resource type="Material" uid="uid://biypnn516m0c3" path="res://shaders/materials/yellow_particles_process_material.tres" id="12_necax"]
+[ext_resource type="QuadMesh" uid="uid://ppec0bskh3n0" path="res://shaders/materials/yellow_mesh.tres" id="13_r4lks"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blune"]
 transparency = 2
@@ -153,7 +157,7 @@ shader_parameter/glow_threshold = 0.65
 [sub_resource type="ViewportTexture" id="ViewportTexture_a8run"]
 viewport_path = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport")
 
-[node name="Main" type="Control" unique_id=1904391357 node_paths=PackedStringArray("nokia_camera", "nokia", "player", "player_camera", "left_wall_color_rect", "right_wall_color_rect", "top_wall_color_rect", "bottom_wall_color_rect", "nokia_subviewport", "nokia_subviewport_container", "game_subviewport", "call_text_popup_container", "call_container", "cover_animation_player", "health_component", "black_quad", "screen_ui", "photo_counter")]
+[node name="Main" type="Control" unique_id=1904391357 node_paths=PackedStringArray("nokia_camera", "nokia", "player", "player_camera", "left_wall_color_rect", "right_wall_color_rect", "top_wall_color_rect", "bottom_wall_color_rect", "nokia_subviewport", "nokia_subviewport_container", "game_subviewport", "call_text_popup_container", "call_container", "cover_animation_player", "health_component", "black_quad", "screen_ui", "photo_counter", "shader_cache_particles")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -181,6 +185,7 @@ black_quad = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport/Pla
 screen_ui = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI")
 photo_counter = NodePath("NokiaSubViewportContainer/SubViewport/GameSubViewport/ScreenUI/PhotoCounter")
 exploding_nokia_scene = ExtResource("3_th5th")
+shader_cache_particles = NodePath("NokiaSubViewportContainer/SubViewport/ShaderCacheParticles")
 
 [node name="NokiaSubViewportContainer" type="SubViewportContainer" parent="." unique_id=1924411316]
 layout_mode = 1
@@ -310,6 +315,26 @@ volume_db = 9.305
 
 [node name="NokiaCamera" type="Camera3D" parent="NokiaSubViewportContainer/SubViewport/NokiaWorld" unique_id=918793483]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5607097)
+
+[node name="ShaderCacheParticles" type="Node3D" parent="NokiaSubViewportContainer/SubViewport" unique_id=1708969877]
+
+[node name="SmokeParticles" type="GPUParticles3D" parent="NokiaSubViewportContainer/SubViewport/ShaderCacheParticles" unique_id=2003406025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.81477, -15.603786, 0)
+amount = 20
+lifetime = 4.0
+explosiveness = 0.9
+visibility_aabb = AABB(-50, -50, -50, 100, 100, 100)
+process_material = ExtResource("10_nvumn")
+draw_pass_1 = ExtResource("11_ou6is")
+
+[node name="YellowParticles" type="GPUParticles3D" parent="NokiaSubViewportContainer/SubViewport/ShaderCacheParticles" unique_id=2110071076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.81477, -15.603786, 0)
+amount = 50
+lifetime = 4.0
+explosiveness = 0.99
+visibility_aabb = AABB(-50, -50, -50, 100, 100, 100)
+process_material = ExtResource("12_necax")
+draw_pass_1 = ExtResource("13_r4lks")
 
 [node name="CollisionWalls" type="Control" parent="." unique_id=2138090053]
 layout_mode = 1

@@ -35,6 +35,7 @@ const NOKIA_SIZE: float = 0.65
 @export var screen_ui: Control
 @export var photo_counter: PhotoCounter
 @export var exploding_nokia_scene: PackedScene
+@export var shader_cache_particles: Node3D
 
 @onready var start_player_transform: Transform3D = player.global_transform
 @onready var start_player_camera_transform: Transform3D = player_camera.global_transform
@@ -77,8 +78,10 @@ func _ready():
 	get_window().position = current_window_position
 	await get_tree().process_frame
 	await get_tree().process_frame
+	
 	update_camera_corners()
 	update_nokia_camera_position()
+	get_tree().create_timer(0.5).timeout.connect(shader_cache_particles.queue_free)
 
 
 func load_world():

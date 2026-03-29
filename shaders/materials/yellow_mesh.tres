@@ -1,0 +1,9 @@
+[gd_resource type="QuadMesh" format=3 uid="uid://ppec0bskh3n0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7qsvu"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+
+[resource]
+material = SubResource("StandardMaterial3D_7qsvu")
+size = Vector2(0.05, 0.3)

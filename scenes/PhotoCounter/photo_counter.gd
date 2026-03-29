@@ -11,11 +11,11 @@ func _ready():
 
 func add_scanned_photo():
 	counter += 1
-	text = "Photos taken: " + str(counter)
+	text = "Photos taken: " + str(counter) + "/5"
 	if counter == 5:
 		MainScene.instance.explode_nokia()
 
 
 func reset_counter():
 	counter = 0
-	text = "Photos taken: " + str(counter)
+	text = "Photos taken: " + str(counter) + "/5"
