@@ -512,11 +512,11 @@ visible = false
 mesh = SubResource("TextMesh_ow5a4")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1692127481]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65191036, 0.13923517)
-aabb = AABB(-0.1406903, -0.16421919, -0.19943015, 0.2813806, 0.32843837, 0.3988603)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7172631, 0.068855315)
+aabb = AABB(-0.11311066, -0.12316489, -0.08471257, 0.22622132, 0.24632978, 0.16942514)
 
 [node name="RayCast3D" type="RayCast3D" parent="VisibleOnScreenNotifier3D" unique_id=1712650929]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9314069, 0.16218692)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7118886, 0.10521275)
 top_level = true
 hit_back_faces = false
 

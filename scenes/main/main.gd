@@ -202,10 +202,12 @@ func update_camera_position():
 	if collision:
 		if collision.get_normal().y > 0.2: bottom_wall_color_rect.color.a = 1.0
 		elif collision.get_normal().y < -0.2: top_wall_color_rect.color.a = 1.0
-		elif collision.get_normal().dot(player.global_basis.x) > 0.0: left_wall_color_rect.color.a = 1.0
-		elif collision.get_normal().dot(player.global_basis.x) < 0.0: right_wall_color_rect.color.a = 1.0
-		player.move_and_collide(collision.get_remainder().slide(collision.get_normal()))
-		update_camera_corners()
+		elif collision.get_normal().dot(player.global_basis.x) > 0: left_wall_color_rect.color.a = 1.0
+		elif collision.get_normal().dot(player.global_basis.x) < 0: right_wall_color_rect.color.a = 1.0
+		print(collision.get_normal().dot(-move_vector.normalized()) )
+		if collision.get_normal().dot(-move_vector.normalized()) < 0.5:
+			player.move_and_collide(collision.get_remainder().slide(collision.get_normal())/2.0)
+			update_camera_corners()
 		update_window_position()
 		DisplayServer.warp_mouse(current_window_position + drag_nokia_start_offset - get_window().position)
 		window_pos_part = get_window_pos_part()
