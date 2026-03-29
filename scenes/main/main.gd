@@ -327,7 +327,7 @@ func explode_nokia():
 	right_wall_color_rect.visible = false
 	bottom_wall_color_rect.visible = false
 	nokia.shake_frequency = 400.0
-	nokia.shake_strength = 0.5
+	nokia.shake_strength = 0.3
 	nokia.shaking = true
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(get_window(), "position", Vector2i(Vector2(usable_rect.size/2.0) + Vector2(usable_rect.position) - Vector2(get_window().size/2)), 2.0)
