@@ -49,6 +49,7 @@ func spawn(first_call: bool):
 
 
 func _process(delta: float) -> void:
+	if MainScene.instance.exploded: return
 	if call_in_progress:
 		call_time += delta
 		
