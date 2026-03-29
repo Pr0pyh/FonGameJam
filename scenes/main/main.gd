@@ -110,7 +110,9 @@ func _process(delta):
 		var dir = player_camera.global_basis.z
 		dir.y = 0
 		dir = dir.normalized()
-		player.move_and_collide(dir * delta * move_axis*3.0)
+		var collision: KinematicCollision3D = player.move_and_collide(dir * delta * move_axis*3.0)
+		if collision:
+			player.move_and_collide(collision.get_remainder().slide(collision.get_normal()))
 		update_camera_corners()
 	
 	get_window().position = lerp(Vector2(get_window().position), Vector2(current_window_position), 15*delta)
@@ -202,7 +204,8 @@ func update_camera_position():
 		elif collision.get_normal().y < -0.2: top_wall_color_rect.color.a = 1.0
 		elif collision.get_normal().dot(player.global_basis.x) > 0.0: left_wall_color_rect.color.a = 1.0
 		elif collision.get_normal().dot(player.global_basis.x) < 0.0: right_wall_color_rect.color.a = 1.0
-		#player.move_and_collide(collision.get_remainder().slide(collision.get_normal()))
+		player.move_and_collide(collision.get_remainder().slide(collision.get_normal()))
+		update_camera_corners()
 		update_window_position()
 		DisplayServer.warp_mouse(current_window_position + drag_nokia_start_offset - get_window().position)
 		window_pos_part = get_window_pos_part()
